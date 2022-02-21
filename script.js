@@ -1,3 +1,4 @@
+
 // function getRandomLatLng(map) {
 //     // get the boundaries of the map
 //     let bounds = map.getBounds();
@@ -67,6 +68,33 @@ var DustbinIcon = L.Icon.extend({
     }
 });
 
+
+
+
+
+var RedIcon = L.Icon.extend({
+    options: {
+        iconUrl: 'images/bulb.png',
+        iconSize:     [70, 80],
+        iconAnchor:   [20, 0],
+        popupAnchor:  [0, 0]
+    }
+});
+
+
+var lightIcon = new RedIcon()
+
+
+
+
+
+
+
+
+
+
+
+
 const clusterConfig = {
     spiderfyOnMaxZoom: false,
     disableClusteringAtZoom: 17
@@ -107,11 +135,11 @@ L.control.layers(baselays, overlays).addTo(binMap);
 
 
 
-async function ewaste3() {
+async function lightwaste() {
     let response = await axios.get("data/lighting-waste.geojson");
     // console.log(response)
 
-    let ewaste = L.geoJson(response.data, {
+    let lwaste = L.geoJson(response.data, {
         onEachFeature:function(feature, layer) {
             // layer.bindPopup(feature.properties.Description);
             let dummyDiv = document.createElement('div');
@@ -120,23 +148,23 @@ async function ewaste3() {
             let description = columns[3].innerHTML;
             let bname = columns[4].innerHTML;
             let blk = columns[7].innerHTML;
-            let stname = columns[12].innerHTML;
             let unit = columns[5].innerHTML;
+            let stname = columns[12].innerHTML; 
             let postal = columns[2].innerHTML;
             layer.bindPopup(`<div>
                 
                     Description: ${description}<br>
                     Building Name: ${bname}<br>
                     Blk: ${blk}<br>
-                    Street Name: ${stname}<br>
                     Unit: ${unit}<br>
+                    Street Name: ${stname}<br>
                     Postal: ${postal}<br>
                 
             </div>`)
         }
     }).addTo(lightingLayer);
    
-    return ewaste;
+    return lwaste;
 }
 //     return response.data.features;
 // }
@@ -148,7 +176,7 @@ async function ewaste3() {
 window.addEventListener("DOMContentLoaded", async function() {
     // wait for getTaxi to finish and then store its return value
     // into taxiCoordinates
-    let light_loc = await ewaste3();
+    let light_loc = await lightwaste();
 
     for (let i of light_loc) {
         // each t is an array
@@ -159,51 +187,54 @@ window.addEventListener("DOMContentLoaded", async function() {
         // console.log(lat);
         // console.log(lng);
 
-       
+        
 
-        let marker = L.marker([lat, lng]);
+        let marker = L.marker([lat, lng],{icon: lightIcon});
         marker.addTo(lightingLayer);
 
     }
     lightingLayer.addTo(binMap);
+    
 });
 
-async function ewaste2() {
+async function secondwaste() {
     let response = await axios.get("data/2ndhand.geojson");
     // console.log(response)
 
-    let secondhand = L.geoJson(response.data, {
+    let sechand = L.geoJson(response.data, {
         onEachFeature:function(feature, layer) {
             // layer.bindPopup(feature.properties.Description);
             let dummyDiv = document.createElement('div');
             dummyDiv.innerHTML = feature.properties.description;
             let columns = dummyDiv.querySelectorAll('td');
-            let description = columns[3].innerHTML;
-            let bname = columns[4].innerHTML;
-            let stname = columns[12].innerHTML;
-            let blk = columns[7].innerHTML;
+            let description = columns[4].innerHTML;
+            let bname =  columns[9].innerHTML;
+            let blk = columns[10].innerHTML;
             let unit = columns[5].innerHTML;
-            let postal = columns[2].innerHTML;
+            let stname = columns[6].innerHTML;
+            let postal = columns[7].innerHTML;
+            let web = columns[3].innerHTML;
             layer.bindPopup(`<div>
                 
-                    Description: ${description}<br>
-                    Building Name: ${bname}<br>
-                    Street Name: ${stname}<br>
-                    Blk: ${blk}<br>
-                    Unit: ${unit}<br>
-                    Postal: ${postal}<br>
+                    <strong>Description:</strong> ${description}<br>
+                    <strong>Building Name:</strong> ${bname}<br>
+                    <strong>Blk:</strong> ${blk}<br>
+                    <strong>Unit:</strong> ${unit}<br>
+                    <strong>Street Name:</strong> ${stname}<br>
+                    <strong>Postal:</strong> ${postal}<br>
+                    <strong>Website:</strong> ${web}<br>
                 
             </div>`)
         }
     }).addTo(secondHandLayer);
    
-    return secondhand;
+    return sechand;
 }
 
 window.addEventListener("DOMContentLoaded", async function() {
     // wait for getTaxi to finish and then store its return value
     // into taxiCoordinates
-    let sechand_loc = await ewaste2();
+    let sechand_loc = await secondwaste();
     for (let l of sechand_loc) {
         // each t is an array
         // element 0 is lng, element 1 is lat
@@ -221,10 +252,10 @@ window.addEventListener("DOMContentLoaded", async function() {
 
 
 
-async function ewaste1() {
+async function main() {
     let response = await axios.get("data/recycling.geojson");
     // console.log(response)
-    let orirecycle = L.geoJson(response.data, {
+    let origin = L.geoJson(response.data, {
         onEachFeature:function(feature, layer) {
             // layer.bindPopup(feature.properties.Description);
             let dummyDiv = document.createElement('div');
@@ -249,14 +280,14 @@ async function ewaste1() {
         }
     }).addTo(commonRecycleLayer);
    
-    return orirecycle;
+    return origin;
 }
 
 window.addEventListener("DOMContentLoaded", async function() {
     // wait for getTaxi to finish and then store its return value
     // into taxiCoordinates
-    let recycle_loc = await ewaste1();
-    console.log("Recycle:", recycle_loc);
+     let recycle_loc = await main();
+    // console.log("Recycle:", recycle_loc);
     for (let p of recycle_loc) {
         // each t is an array
         // element 0 is lng, element 1 is lat
