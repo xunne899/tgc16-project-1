@@ -1,0 +1,75 @@
+.mapWrapper {
+    width: 100%;
+}
+
+.recycleMap {
+    /* Difference screen size,
+    show differnt map width and height @media screen {} */
+    height: 250px;
+    width: 450px;
+    margin: auto;
+}
+
+.leaflet-control-attribution.leaflet-control {
+    display: none;
+}
+
+
+
+
+
+.contactUsButton {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    position: fixed;
+    bottom: 6vw;
+    right: 5vw;
+    z-index: 401;
+    text-align: center;
+    background: rgba(0, 225, 255, 0.7);
+    border-radius: 10vw;
+    align-items: center;
+    display: flex;
+    /* left bottom right*/
+}
+
+
+html,body{
+    overflow-x: hidden;
+}
+/* Hide scrollbar for IE and Edge */
+
+.example {
+    -ms-overflow-style: none;
+}
+
+@media screen and (min-width:768px) {
+    #wrapper {
+        position: relative;
+    }
+    .carousel-item img {
+        /* max-height: 260px;
+        min-width: 640px; */
+        background-image: cover;
+        height: 80vh;
+    }
+    .engage {
+        min-height: 420px;
+    }
+    #cta {
+        position: absolute;
+        top: 5%;
+        right: 10%;
+        opacity: 0.8;
+    }
+    /* .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(var(--bs-gutter-y) * -1);
+        margin-right: calc(var(--bs-gutter-x));
+        margin-left: calc(var(--bs-gutter-x) * -.5);
+    } */
+}

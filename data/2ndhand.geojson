@@ -1,0 +1,299 @@
+{
+    "features": [
+        {
+            "geometry": {
+                "coordinates": [
+                    103.901953043814,
+                    1.33068803025928
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.touch.org.sg/our-services/special-needs-services/touch-ubi-hostel</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothes, electrical appliances, CDs, VCDs, toys, household items, clothes, bags, ladies' accessories, computers & peripherals. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-295</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Ubi Avenue 1</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>400301</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>301</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>7DAB7DF628B09F86</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171130115650</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Touch Community Services: 301 Thrift Mart</td>\n</tr></table></center>",
+                "name": "kml_1"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.847868789811,
+                    1.3707312731343
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.cashconvertersasia.com/sg/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Daily 10:30am to 9:00pm</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-2625</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Ang Mo Kio Avenue 8</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>561710</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>710A</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>7AEBBD99E71D4337</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Cash Converters</td>\n</tr></table></center>",
+                "name": "kml_2"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.930861572812,
+                    1.32647173014785
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.cashconvertersasia.com/sg/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Daily 10:30am to 9:00pm</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-355</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Bedok North Street 1</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>460206</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>206</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>13085C9CE279CC1B</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Cash Converters</td>\n</tr></table></center>",
+                "name": "kml_3"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.843197418793,
+                    1.28471077205877
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.cashconvertersasia.com/sg/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Daily 10:30am to 9:00pm</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Eu Tong Sen Street</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>59810</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>The Majestic Theatre</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>80</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>1510FDA9EA8D5E31</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Cash Converters</td>\n</tr></table></center>",
+                "name": "kml_4"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.739371389066,
+                    1.33375343289469
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.cashconvertersasia.com/sg/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Daily 10:30am to 9:00pm</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-315</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Jurong East Street 13</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>600135</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>135</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>6D7812A15F1B8AA9</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Cash Converters</td>\n</tr></table></center>",
+                "name": "kml_5"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.944458087634,
+                    1.35480107032778
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.cashconvertersasia.com/sg/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Daily 10:30am to 9:00pm</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-250</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Tampines Central 1</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>520510</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>510</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>3979883D4D270EBE</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Cash Converters</td>\n</tr></table></center>",
+                "name": "kml_6"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.850483008706,
+                    1.33166183429417
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.cashconvertersasia.com/sg/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Daily 10:30am to 9:00pm</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-674</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Toa Payoh Lorong 4</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>310192</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>192</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>BA39386525A3B560</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>Cash Converters</td>\n</tr></table></center>",
+                "name": "kml_7"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.812976187254,
+                    1.29539368902809
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.minds.org.sg/Shop.html</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand furniture, clothes, collectibles and housewares. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Margaret Drive</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>149310</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>MINDS Shop@Margaret</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>800</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>44102FB64EE99954</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>MINDS Shop</td>\n</tr></table></center>",
+                "name": "kml_8"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.797867618606,
+                    1.43719012091055
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.minds.org.sg/Shop.html</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand furniture, clothes, collectibles and housewares. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Woodlands Ring Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>737883</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>MINDS Shop@Woodlands</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>30</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>D6A5C034C70C078D</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>MINDS Shop</td>\n</tr></table></center>",
+                "name": "kml_9"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.877736346048,
+                    1.36278695872793
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.minds.org.sg/Shop.html</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand furniture, clothes, collectibles and housewares. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Rosyth Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>546190</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>MINDS Shop@Rosyth</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>29</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>B028272B087F9F7F</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>MINDS Shop</td>\n</tr></table></center>",
+                "name": "kml_10"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.878449270915,
+                    1.37181648298855
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.minds.org.sg/Shop.html</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand furniture, clothes, collectibles and housewares. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Lorong Napiri</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>547533</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>MINDS Shop@Napiri</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>7</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>74DFCBA9A31FCCF7</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>MINDS Shop</td>\n</tr></table></center>",
+                "name": "kml_11"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.817475623896,
+                    1.28731902765015
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.minds.org.sg/Shop.html</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand furniture, clothes, collectibles and housewares. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#01-29</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Redhill Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>150071</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>MINDS Shop Plus@NTUC Eldercare Silver Activity Centre</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>71</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>8E8AEB22C1ACFD12</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>MINDS Shop</td>\n</tr></table></center>",
+                "name": "kml_12"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.768209414105,
+                    1.36237213323
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Upper Bukit Timah Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>678106</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>Praisehaven</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>500</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>C2CC6860634AA581</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_13"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.815073339799,
+                    1.29476320096751
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Tanglin Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>247674</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>Tanglin Family Hub</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>356</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>A0763648693F28B0</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_14"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.965141277539,
+                    1.35332836586401
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Upper Changi Road North</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>507705</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>The Salvation Army Hope Centre</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>7</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>577569925DBC0374</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_15"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.842518361893,
+                    1.36096595232195
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Bishan Street 22</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>579768</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>The Salvation Army Headquarters</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>20</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>D62A5F5B03EBB4E7</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_16"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.775883852989,
+                    1.29042903448092
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Pasir Panjang Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>118692</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>The Haven</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>350</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>355F9FBA69AF6048</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_17"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.746734495003,
+                    1.33489843898343
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Jurong East Street 21</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>609601</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>IMM Open Car Park</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>2</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>9D5617DFCBC2D120</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_18"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.757754241016,
+                    1.41118970963686
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://www.salvationarmy.org/singapore/dik_fts</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Recycle 2nd hand clothing, furniture, household goods, electronic devices, toys and books. Please check website for operating hours.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Mandai Link Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>728650</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>Mandai Station at Smart Energy Pte. Ltd.</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>1</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>0194707AEEFB4EE1</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>The Salvation Army</td>\n</tr></table></center>",
+                "name": "kml_19"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.852875623027,
+                    1.30302299524145
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://pcdreams.com.sg/our-showroom/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Trade-in and sales of pre-owned/ demo/ display and refurbished laptops and other portable electronic devices such as smart phones and tablets.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#04-04</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Rochor Canal Road</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>188504</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>Sim Lim Square</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>1</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>745AD211CEC9D708</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>PC Dreams</td>\n</tr></table></center>",
+                "name": "kml_20"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    103.855327954497,
+                    1.29906799078836
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "<center><table><tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor=\"#E3E3F3\">\n<th>LANDYADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>LANDXADDRESSPOINT</th>\n<td></td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>PHOTOURL</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>HYPERLINK</th>\n<td>http://pcdreams.com.sg/our-showroom/</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>DESCRIPTION</th>\n<td>Trade-in and sales of pre-owned/ demo/ display and refurbished laptops and other portable electronic devices such as smart phones and tablets.</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSUNITNUMBER</th>\n<td>#03-25</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSSTREETNAME</th>\n<td>Victoria Street</td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSPOSTALCODE</th>\n<td>188021</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSFLOORNUMBER</th>\n<td></td>\n</tr><tr bgcolor=\"\">\n<th>ADDRESSBUILDINGNAME</th>\n<td>Bugis Junction</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>ADDRESSBLOCKHOUSENUMBER</th>\n<td>200</td>\n</tr><tr bgcolor=\"\">\n<th>INC_CRC</th>\n<td>D641A126A07F27DE</td>\n</tr><tr bgcolor=\"#E3E3F3\">\n<th>FMEL_UPD_D</th>\n<td>20171103093247</td>\n</tr><tr bgcolor=\"\">\n<th>NAME</th>\n<td>PC Dreams</td>\n</tr></table></center>",
+                "name": "kml_21"
+            },
+            "type": "Feature"
+        }
+    ],
+    "type": "FeatureCollection"
+}
