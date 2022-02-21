@@ -119,16 +119,16 @@ async function ewaste3() {
             let columns = dummyDiv.querySelectorAll('td');
             let description = columns[3].innerHTML;
             let bname = columns[4].innerHTML;
-            let stname = columns[12].innerHTML;
             let blk = columns[7].innerHTML;
+            let stname = columns[12].innerHTML;
             let unit = columns[5].innerHTML;
             let postal = columns[2].innerHTML;
             layer.bindPopup(`<div>
                 
                     Description: ${description}<br>
                     Building Name: ${bname}<br>
-                    Street Name: ${stname}<br>
                     Blk: ${blk}<br>
+                    Street Name: ${stname}<br>
                     Unit: ${unit}<br>
                     Postal: ${postal}<br>
                 
@@ -136,7 +136,6 @@ async function ewaste3() {
         }
     }).addTo(lightingLayer);
    
-
     return ewaste;
 }
 //     return response.data.features;
@@ -172,7 +171,33 @@ window.addEventListener("DOMContentLoaded", async function() {
 async function ewaste2() {
     let response = await axios.get("data/2ndhand.geojson");
     // console.log(response)
-    return response.data.features;
+
+    let secondhand = L.geoJson(response.data, {
+        onEachFeature:function(feature, layer) {
+            // layer.bindPopup(feature.properties.Description);
+            let dummyDiv = document.createElement('div');
+            dummyDiv.innerHTML = feature.properties.description;
+            let columns = dummyDiv.querySelectorAll('td');
+            let description = columns[3].innerHTML;
+            let bname = columns[4].innerHTML;
+            let stname = columns[12].innerHTML;
+            let blk = columns[7].innerHTML;
+            let unit = columns[5].innerHTML;
+            let postal = columns[2].innerHTML;
+            layer.bindPopup(`<div>
+                
+                    Description: ${description}<br>
+                    Building Name: ${bname}<br>
+                    Street Name: ${stname}<br>
+                    Blk: ${blk}<br>
+                    Unit: ${unit}<br>
+                    Postal: ${postal}<br>
+                
+            </div>`)
+        }
+    }).addTo(secondHandLayer);
+   
+    return secondhand;
 }
 
 window.addEventListener("DOMContentLoaded", async function() {
@@ -199,9 +224,33 @@ window.addEventListener("DOMContentLoaded", async function() {
 async function ewaste1() {
     let response = await axios.get("data/recycling.geojson");
     // console.log(response)
-    return response.data.features;
+    let orirecycle = L.geoJson(response.data, {
+        onEachFeature:function(feature, layer) {
+            // layer.bindPopup(feature.properties.Description);
+            let dummyDiv = document.createElement('div');
+            dummyDiv.innerHTML = feature.properties.description;
+            let columns = dummyDiv.querySelectorAll('td');
+            let description = columns[25].innerHTML;
+            let collection = columns[17].innerHTML;
+            let blk = columns[5].innerHTML;
+            let unit = columns[9].innerHTML;
+            let stname= columns[13].innerHTML;
+            let postal = columns[11].innerHTML;
+            layer.bindPopup(`<div class = "recycle">
+                
+                    Description: ${description}<br>
+                    Collection: ${collection}<br>
+                    Blk: ${blk}<br>
+                    Unit: ${unit}<br>
+                    Street name: ${stname}<br>
+                    Postal: ${postal}<br>
+                
+            </div>`)
+        }
+    }).addTo(commonRecycleLayer);
+   
+    return orirecycle;
 }
-
 
 window.addEventListener("DOMContentLoaded", async function() {
     // wait for getTaxi to finish and then store its return value
