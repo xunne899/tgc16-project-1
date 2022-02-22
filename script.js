@@ -1,31 +1,4 @@
 
-// function getRandomLatLng(map) {
-//     // get the boundaries of the map
-//     let bounds = map.getBounds();
-//     // get the upper right and lower left of the map window
-//     // in lat lng
-//     let southwest = bounds.getSouthWest();
-//     let northeast = bounds.getNorthEast();
-//     // we calculate the length and width of the map window in lat,lng   
-//     let lngSpan = northeast.lng - southwest.lng;
-//     let latSpan = northeast.lat - southwest.lat;
-//     let randomLng = (Math.random() * lngSpan) + southwest.lng;
-//     let randomLat = (Math.random() * latSpan) + southwest.lat;
-//     return [randomLat, randomLng];
-// }
-// we need a center position for our map
-// to be the starting position
-let singapore = [1.29, 103.85]; // <-- array of 
-// 2 elements for latm lng
-// create the map
-// L is the Leaflet object which is in the global scope
-// and is created when we <script src="leaflet.js">...
-// L.map() creates a map object (contains all functionalities/data)
-// and it takes one arg: the ID to put the map in.
-let binMap = L.map('singaporeMap', {
-    center: singapore,
-    zoom: 15
-});
 
 // setup the tile layers
 // this setup the drawing of the map
@@ -43,11 +16,18 @@ let binMap = L.map('singaporeMap', {
 // })
 
 
-var basemap = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
+let singapore = [1.29, 103.85]; 
+
+let binMap = L.map('singaporeMap', {
+    center: singapore,
+    zoom: 14
+});
+
+
+ L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
     detectRetina: true,
     maxZoom: 19,
     minZoom: 5,
-    //Do not remove this attribution
     attribution: '<img src="https://docs.onemap.gov.sg/maps/images/oneMap64-01.png" style="height:40px;width:40px;"/> OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
 }).addTo(binMap);
 
@@ -55,7 +35,7 @@ var basemap = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png
 var DustbinBigIcon = L.Icon.extend({
     options: {
         iconSize: [20, 20],
-        iconAnchor: [20, 0],
+        iconAnchor: [10, 0],
         popupAnchor: [0, 0]
     }
 });
@@ -69,26 +49,32 @@ var DustbinIcon = L.Icon.extend({
 });
 
 
-
-
-
-var RedIcon = L.Icon.extend({
-    options: {
-        iconUrl: 'images/bulb.png',
-        iconSize:     [70, 80],
-        iconAnchor:   [20, 0],
+var lightIcon = L.icon({
+    
+        iconUrl: 'images/light-bulb.png',
+        iconSize:     [15, 15],
+        iconAnchor:   [10, 0],
         popupAnchor:  [0, 0]
-    }
+   
 });
 
+var recycleIcon = L.icon({
+    
+    iconUrl: 'images/recycle-bin.png',
+    iconSize:     [15, 15],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, 0]
 
-var lightIcon = new RedIcon()
+});
 
+var secondIcon = L.icon({
+    
+    iconUrl: 'images/second-hand.png',
+    iconSize:     [15, 15],
+    iconAnchor:   [10, 10],
+    popupAnchor:  [0, 0]
 
-
-
-
-
+});
 
 
 
@@ -101,11 +87,13 @@ const clusterConfig = {
 };
 
 let commonRecycleLayer = L.markerClusterGroup(clusterConfig);
-let lightingLayer = L.markerClusterGroup(clusterConfig);
+let lightingLayer = L.markerClusterGroup();
 let secondHandLayer = L.markerClusterGroup(clusterConfig);
 let eWasteLayer = L.markerClusterGroup(clusterConfig);
 // let eWasteAlbaSubLayer = L.featureGroup.subGroup(eWasteLayer)
 // let eWasteInkSubLayer = L.featureGroup.subGroup(eWasteLayer)
+
+
 let baselays = {
     'Common': commonRecycleLayer
 }
@@ -134,14 +122,13 @@ document.querySelector('#btnToggle')
 L.control.layers(baselays, overlays).addTo(binMap);
 
 
-
+// lightning waste start
 async function lightwaste() {
     let response = await axios.get("data/lighting-waste.geojson");
     // console.log(response)
 
     let lwaste = L.geoJson(response.data, {
         onEachFeature:function(feature, layer) {
-            // layer.bindPopup(feature.properties.Description);
             let dummyDiv = document.createElement('div');
             dummyDiv.innerHTML = feature.properties.Description;
             let columns = dummyDiv.querySelectorAll('td');
@@ -160,43 +147,24 @@ async function lightwaste() {
                     Street Name: ${stname}<br>
                     Postal: ${postal}<br>
                 
-            </div>`)
+            </div>`)},
+            pointToLayer:function (feature, latlng) {
+                return L.marker(latlng, {icon:lightIcon});
         }
     }).addTo(lightingLayer);
    
     return lwaste;
 }
-//     return response.data.features;
-// }
 
-
-// let companyType = [];
-// let markerList = [];
 
 window.addEventListener("DOMContentLoaded", async function() {
-    // wait for getTaxi to finish and then store its return value
-    // into taxiCoordinates
-    let light_loc = await lightwaste();
-
-    for (let i of light_loc) {
-        // each t is an array
-        // element 0 is lng, element 1 is lat
-        let lat = i.geometry.coordinates[1];
-        let lng = i.geometry.coordinates[0];
-
-        // console.log(lat);
-        // console.log(lng);
-
-        
-
-        let marker = L.marker([lat, lng],{icon: lightIcon});
-        marker.addTo(lightingLayer);
-
-    }
-    lightingLayer.addTo(binMap);
-    
+    lightwaste();
 });
 
+
+
+
+// 2nd hand waste start
 async function secondwaste() {
     let response = await axios.get("data/2ndhand.geojson");
     // console.log(response)
@@ -224,7 +192,10 @@ async function secondwaste() {
                     <strong>Postal:</strong> ${postal}<br>
                     <strong>Website:</strong> ${web}<br>
                 
-            </div>`)
+            </div>`)},
+
+            pointToLayer:function (feature, latlng) {
+                return L.marker(latlng, {icon:secondIcon});
         }
     }).addTo(secondHandLayer);
    
@@ -232,32 +203,18 @@ async function secondwaste() {
 }
 
 window.addEventListener("DOMContentLoaded", async function() {
-    // wait for getTaxi to finish and then store its return value
-    // into taxiCoordinates
-    let sechand_loc = await secondwaste();
-    for (let l of sechand_loc) {
-        // each t is an array
-        // element 0 is lng, element 1 is lat
-        let lat = l.geometry.coordinates[1];
-        let lng = l.geometry.coordinates[0];
-
-        // console.log(lat);
-        // console.log(lng);
-
-        let marker = L.marker([lat, lng]);
-        marker.addTo(secondHandLayer);
-    }
-    secondHandLayer.addTo(binMap);
+  
+    secondwaste();
+    
 });
 
 
-
+//main recycling start
 async function main() {
     let response = await axios.get("data/recycling.geojson");
     // console.log(response)
     let origin = L.geoJson(response.data, {
         onEachFeature:function(feature, layer) {
-            // layer.bindPopup(feature.properties.Description);
             let dummyDiv = document.createElement('div');
             dummyDiv.innerHTML = feature.properties.description;
             let columns = dummyDiv.querySelectorAll('td');
@@ -276,7 +233,10 @@ async function main() {
                     Street name: ${stname}<br>
                     Postal: ${postal}<br>
                 
-            </div>`)
+            </div>`)},
+ 
+            pointToLayer:function (feature, latlng) {
+                return L.marker(latlng, {icon:recycleIcon});
         }
     }).addTo(commonRecycleLayer);
    
@@ -284,27 +244,13 @@ async function main() {
 }
 
 window.addEventListener("DOMContentLoaded", async function() {
-    // wait for getTaxi to finish and then store its return value
-    // into taxiCoordinates
-     let recycle_loc = await main();
-    // console.log("Recycle:", recycle_loc);
-    for (let p of recycle_loc) {
-        // each t is an array
-        // element 0 is lng, element 1 is lat
-        let lat = p.geometry.coordinates[1];
-        let lng = p.geometry.coordinates[0];
 
-        // console.log(lat);
-        // console.log(lng);
-
-        let marker = L.marker([lat, lng]);
-        marker.addTo(commonRecycleLayer);
-    }
-    commonRecycleLayer.addTo(binMap);
+ main()
 
 });
 
 
+// ewaste start
 
 async function ewaste() {
     let response = await axios.get("data/ewaste-recycle.geojson");
@@ -390,14 +336,6 @@ window.addEventListener("DOMContentLoaded", async function() {
 
         // console.log(lng);
 
-
-        //marker.addTo(binMap);
-        //markerList.push(marker);
-        // if (binName.indexOf("ALBA") != -1) {
-        //     marker.addTo(eWasteAlbaSubLayer);
-        // } else {
-        //     marker.addTo(eWasteInkSubLayer);
-        // }
         marker.addTo(eWasteLayer);
 
     }
