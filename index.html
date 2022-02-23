@@ -57,18 +57,21 @@
     <!-- end of carousel wrapper -->
 
     <!-- the div where the map will be-->
-    <div class="mapWrapper col-12  pt-2" style="background-image: url( 'images/greenery.jpg')">
+   
+    <div class=" mapWrapper pt-2" style="background-image: url('images/greenery.jpg')">
 
         <h6 class="text-center ms-2" id="map" style="color:#D8F3DC;">Map</h6>
 
         <div class="recycleMap rounded-3" id="singaporeMap"></div>
-
-        <button type="button" id="toggle-cluster-btn" class="btn btn-outline-dark btn-sm ms-2 mb-1" style="color:#D8F3DC; font-size: 0.5rem ">Show Cluster</button>
-        <button type="button" id="btnToggle" class="btn btn-outline-dark btn-sm mb-1" style="color:#D8F3DC; font-size: 0.5rem ">Toggle </button>
+        
+    
+        <button type="button" id="toggle-cluster-btn" class="btn btn-outline-dark btn-sm ms-2 mb-1 mt-2" style="color:#D8F3DC; font-size: 0.5rem ">Show Cluster</button>
+        <button type="button" id="btnToggle" class="btn btn-outline-dark btn-sm mb-1 mt-2" style="color:#D8F3DC; font-size: 0.5rem ">Toggle </button>
     </div>
-    <div id="contactButton" class="d-flex justify-content-center contactUsButton">
+        <div id="contactButton" class="d-flex justify-content-center contactUsButton">
         <i class="fa-solid fa-phone"> </i>
     </div>
+   
     <!-- start of container -->
     <div class="row">
         <!-- start of Home -->
@@ -159,20 +162,23 @@
 
 
             <!-- start of contact -->
-            <section class="col-12  ">
+            <section class="col-12">
                 <div class="p-3 engage" style="background-image: url('images/leafpat.jpg')">
                     <h1 class="text-dark" id="contact">Connect with us !</h1>
+                    
+                        <div class="alert alert-red rounded-3" style="color:red" id="errors"></div>
+                   
                     <div>
-                        <h5 class="text-dark">Email Address:</h5>
-                        <input class="form-control" type="text" placeholder="Please enter your email here" />
+                        <label class="text-dark">Email Address:</label>
+                        <input class="form-control" type="text" id="email" placeholder="Please enter your email here"/>
                     </div>
                     <br>
-                    <div class="form-floating">
-                        <h5 class="text-dark">Comments:</h5>
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 70px"></textarea>
-                        <label for="floatingTextarea2"></label>
+                    <div>
+                        <label class="text-dark">Comments:</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="form" style="height: 70px"></textarea>
                     </div>
-                    <button class="mt-2 btn btn-outline-dark btn-sm  text-dark" style=" font-size: 0.8rem ">Submit</button>
+                    <button class="mt-2 btn btn-outline-dark btn-sm  text-dark" id="btn" style="font-size: 0.8rem">Submit</button>
+                    <br>
 
                 </div>
             </section>
@@ -180,7 +186,7 @@
             <!-- start of footer -->
             <footer class="row ">
                 <section class="col-12  r-2 ">
-                    <div style="background-image: url( 'images/blackleaf.jpg')">
+                    <div style="background-image: url('images/blackleaf.jpg')">
 
                         <div class="d-inline-block justify-items-center px-3" style="color:#D8F3DC; font-size: 0.5rem ">
 

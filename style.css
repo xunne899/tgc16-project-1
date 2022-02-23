@@ -2,16 +2,31 @@
     width: 100%;
 }
 
+
+@media screen and (min-width:600px) {
 .recycleMap {
     /* Difference screen size,
     show differnt map width and height @media screen {} */
-    height: 250px;
+    height: 300px;
     width: 550px;
     margin: auto;
+    
+ }
 }
 
+
+@media screen and (max-width: 599px) {
+    .recycleMap {
+        /* Difference screen size,
+        show differnt map width and height @media screen {} */
+        height: 200px;
+        width: 250px;
+        margin: auto;
+        
+     }
+  }
 .leaflet-control-attribution.leaflet-control {
-    display: none;
+    display:none;
 }
 
 
@@ -48,7 +63,7 @@ html,body{
     #wrapper {
         position: relative;
     }
-    .carousel-item img {
+    .carousel-item{
         /* max-height: 260px;
         min-width: 640px; */
         background-image: cover;
@@ -74,4 +89,9 @@ html,body{
     } */
 }
 
+
+.alert-red{
+    opacity:0.6;
+
+}
 /* css */
