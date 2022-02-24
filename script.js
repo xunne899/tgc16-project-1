@@ -96,17 +96,23 @@ var secondIcon = L.icon({
 
 
 
-const clusterConfig = {
+let clusterConfig = {
     spiderfyOnMaxZoom: false,
     disableClusteringAtZoom: 17
 };
 
+let clusterConfigOff = {
+    spiderfyOnMaxZoom: false,
+    disableClusteringAtZoom: 0
+};
+
 let commonRecycleLayer = L.markerClusterGroup(clusterConfig);
-let lightingLayer = L.markerClusterGroup();
+let lightingLayer = L.markerClusterGroup(clusterConfigOff);
 let secondHandLayer = L.markerClusterGroup(clusterConfig);
 let eWasteLayer = L.markerClusterGroup(clusterConfig);
-
-
+let secondHandLayerOff = L.markerClusterGroup(clusterConfigOff);
+let eWasteLayerOff = L.markerClusterGroup(clusterConfigOff);
+let searchResultLayer = L.layerGroup();
 
 let baselays = {
     'Common': commonRecycleLayer
@@ -128,16 +134,19 @@ document.querySelector('#btnToggle')
     })
 
 L.control.layers(baselays, overlays).addTo(binMap);
+searchResultLayer.addTo(binMap);
 
-
-
-
+async function getAddress(searchData){
+    let response = await axios.get(`https://developers.onemap.sg/commonapi/search?searchVal=${searchData}&returnGeom=Y&getAddrDetails=Y&pageNum=1`);
+    return response;
+}
 
 // lightning waste start
 async function lightwaste() {
     let response = await axios.get("data/lighting-waste.geojson");
-    // console.log(response)
+    console.log(response)
     return response.data.features;
+    
 }
 
 
@@ -150,7 +159,7 @@ window.addEventListener("DOMContentLoaded", async function () {
 
         let lat = l.geometry.coordinates[1];
         let lng = l.geometry.coordinates[0];
-
+        
 
         let dummyDiv = document.createElement('div');
         dummyDiv.innerHTML = l.properties.Description;
@@ -230,6 +239,7 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
         marker.addTo(secondHandLayer);
+        marker.addTo(secondHandLayerOff);
 
     }
     secondHandLayer.addTo(binMap);
@@ -321,18 +331,12 @@ window.addEventListener("DOMContentLoaded", async function () {
         let marker = L.marker([lat, lng], {icon: eIcon});
 
         marker.bindPopup(`<div>
-        
             <strong>Description:</strong> ${description}<br>
             <strong>Building Name:</strong> ${bname}<br>
             <strong>Street Name:</strong> ${stname}<br>
-            <strong>Postal:</strong> ${postal}<br>
-          
-        
-    </div>`)
-
-
+            <strong>Postal:</strong> ${postal}<br></div>`)
         marker.addTo(eWasteLayer);
-
+        marker.addTo(eWasteLayerOff);
     }
     eWasteLayer.addTo(binMap);
 
@@ -469,13 +473,37 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
 
-        let showCluster = false;
+        let showCluster = true;
         document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
             showCluster = !showCluster;
             if (showCluster) {
+                //remove non clustering layer 
+                if (binMap.hasLayer(eWasteLayerOff)) {
+                    binMap.removeLayer(eWasteLayerOff);
+                }
+               
+                if (binMap.hasLayer(secondHandLayerOff)) {
+                    binMap.removeLayer(secondHandLayerOff);
+                }
+
+                // adding clustering layer
+                binMap.addLayer(eWasteLayer);
+                binMap.addLayer(secondHandLayer);
 
             } else {
+                //remove clustering layer 
+                if (binMap.hasLayer(eWasteLayer)) {
+                    binMap.removeLayer(eWasteLayer);
+                }
+                
+                if (binMap.hasLayer(secondHandLayer)) {
+                    binMap.removeLayer(secondHandLayer);
+                }
 
+                // adding non clustering layer
+                binMap.addLayer(eWasteLayerOff);
+                binMap.addLayer(secondHandLayerOff);
+                
             }
         });
 
@@ -483,6 +511,39 @@ window.addEventListener("DOMContentLoaded", async function () {
 
         });
 
+        document.querySelector('#searchMapBtn')
+        .addEventListener('click', async function () {
+            searchResultLayer.clearLayers(); // get rid of the existing markers
+            let searchInput = document.querySelector('#searchInput');
+            let searchMapRes = await getAddress(searchInput.value);
+            searchMapRes = searchMapRes.data;
+            console.log("Searching location....");
+            console.log(searchMapRes)
+            if(searchMapRes.found > 0){
+                console.log("A")
+                let searchResultElement = document.querySelector("#search-results");
+                for(let foundLocation of searchMapRes.results){
+                    console.log("B")
+                    let coordinate = [ foundLocation.LATITUDE, foundLocation.LONGITUDE];
+                    let marker = L.marker(coordinate);
+                    marker.bindPopup(`<div>${foundLocation.SEARCHVAL}</div>`)
+                    marker.addTo(searchResultLayer);
+
+                    let resultElement = document.createElement('div');
+                    resultElement.innerHTML = foundLocation.SEARCHVAL;
+                    resultElement.className = 'search-result';
+                    resultElement.addEventListener('click', function(){
+                        binMap.flyTo(coordinate, 16);
+                        marker.openPopup();
+                        searchResultElement.innerHTML = "";
+                    })
+
+                    searchResultElement.appendChild(resultElement);
+                }
+                
+            }
+            
+        });
 
         document.querySelector('#btn')
             .addEventListener('click', function () {
@@ -506,11 +567,12 @@ window.addEventListener("DOMContentLoaded", async function () {
                 if (!email.includes('.') || !email.includes('@')) {
                     emailNotValid = true;
                 }
+                
+                let errorDiv = document.querySelector('#errors');
+                 // wipe out all the existing error messages
+                errorDiv.innerHTML = '';
                 // check if there is any error
                 if (NotProvided || emailNotValid) {
-                    let errorDiv = document.querySelector('#errors');
-                    // wipe out all the existing error messages
-                    errorDiv.innerHTML = '';
                     errorDiv.style.display = 'block';
                     if (NotProvided) {
                         // use += to append instead of overwrite
@@ -598,3 +660,29 @@ window.addEventListener("DOMContentLoaded", async function () {
 //     });
 
 // });
+
+let allButtons = document.querySelectorAll('#navbar li')
+
+for (let btn of allButtons) {
+   btn.addEventListener('click', function (event) {
+
+        let selectedBtn = event.target;
+        let pageNumber = selectedBtn.dataset.page;
+
+        let pages = document.querySelectorAll('.page');
+        // hide all the pages
+        for (let p of pages) {
+            // it is ok to attempt to remove a class
+            // from an element even if that element does not have it
+            p.classList.remove('show');
+            p.classList.add('hidden');
+        }
+
+        let page = document.querySelector('#page-'+pageNumber);
+        page.classList.remove('hidden');
+        page.classList.add('show');
+    })
+
+
+
+}
