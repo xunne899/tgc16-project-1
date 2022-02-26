@@ -13,17 +13,18 @@
 }
 
 #page-1 {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 
 #page-2 {
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
 }
 
 #page-3 {
-    background-color: cornsilk;
-}
+    /* background-color: cornsilk;*/
 
+
+}
 #all-pages {
     position: relative;
     width:100vw;
@@ -37,9 +38,10 @@
     margin-left: auto;
 }
 .mapSearchDiv{
-    /* min-width: 100px; */
-    width: 100vw;
+    min-width: 100px;
+    width: 100vw; 
 }
+
 
 .marginAuto{
     display:flex;
