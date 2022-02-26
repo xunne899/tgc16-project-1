@@ -27,7 +27,7 @@
 
 <body>
     <!-- navbar begins -->
-    <nav class="navbar navbar-expand-sm navbar-light" style="background-image: url('images/blackleaf.jpg')">
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-image: url('images/d-leaf.jpg')">
         <div class="container-fluid">
             <a class="navbar-brand gy-2 " href="#"
                 style=" font-size: 0.8rem ;color:#D8F3DC;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
@@ -61,10 +61,10 @@
 
     <!-- the div where the map will be-->
 
-    <div class=" mapWrapper pt-2" style="background-image: url('images/greenery.jpg')">
-
+    <div class="mapWrapper" >
+        <!-- <div class="mapWrapper" style="background-image: url('images/greenery.jpg')"> -->
         <!-- <h6 class="text-center ms-2" id="map" style="color:#D8F3DC;">Recycle Guide</h6> -->
-
+<!-- 
         <div class="input-group mb-3 mapSearchDiv">
             <div class="marginAuto">
                 <input type="text" class="form-control searchbar" id="searchInput" placeholder="Search Location" aria-label="Search Location"
@@ -75,14 +75,24 @@
         </div>
         <div class="marginAuto">
         <div id="search-results" class="searchList"></div>
+        </div> -->
+        <div class="recycleMap" id="singaporeMap">
+            <div class="input-group mb-3 row col-12 col-sm-6 mapSearchDiv">
+                <div class="marginAuto">
+                    <input type="text" class="form-control searchbar" id="searchInput"  placeholder="Search Location" aria-label="Search Location"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-primary searchButton" type="button" id="searchMapBtn">Find</button>
+                </div>
+            </div>
+            <div class="marginAuto">
+            <div id="search-results" class="searchList col-12 col-sm-4"></div>
+            </div>
+            <button type="button" id="toggle-cluster-btn" class="btn btn-outline-dark btn-sm ms-2 mb-1 mt-2"
+            style="color:#081c15; font-size: 0.5rem">Show Cluster</button>
+            <button type="button" id="btnToggle" class="btn btn-outline-dark btn-sm mb-1 mt-2"
+            style="color:#081c15; font-size: 0.5rem ">Toggle</button>
         </div>
-        <div class="recycleMap" id="singaporeMap"></div>
 
-
-        <button type="button" id="toggle-cluster-btn" class="btn btn-outline-dark btn-sm ms-2 mb-1 mt-2"
-            style="color:#D8F3DC; font-size: 0.5rem ">Show Cluster</button>
-        <button type="button" id="btnToggle" class="btn btn-outline-dark btn-sm mb-1 mt-2"
-            style="color:#D8F3DC; font-size: 0.5rem ">Toggle </button>
     </div>
     <div id="contactButton" class="d-flex justify-content-center contactUsButton">
         <i class="fa-solid fa-phone"> </i>
@@ -92,7 +102,7 @@
     <div class="row">
         <!-- start of Home -->
         <section class="col-12 ">
-            <div class="p-3 engage" style="background-image: url( 'images/blackleaf.jpg')">
+            <div class="p-3 engage" style="background-image: url('images/d-leaf.jpg')">
                 <h3 class="text-center " id="home" style="color:#D8F3DC; font-size: 1rem">Home</h3>
 
 
@@ -141,12 +151,12 @@
                             type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
                     </li>
                 </ul>
-                <div class="page" id="page-1">
+                <div class="page" id="page-1" style="background-image: url('images/blackleaf.jpg')">
                     <div class="container">
 
-                        <div class=" p-3 engage">
-                            <h3 class="text-center" id="about" style=" color:#040F0F; font-size: 1rem">About Us</h3>
-                            <p class="mt-2" style="color:#040F0F; ">Zero Waste SG started as a website in 2008 providing
+                        <div class=" p-3 engage" >
+                            <h3 class="text-center" id="about" style="color:#D8F3DC; font-size: 1rem">About Us</h3>
+                            <p class="mt-2" style="color:#D8F3DC; ">Zero Waste SG started as a website in 2008 providing
                                 tips and resources on waste minimisation and recycling. In 2015, Zero Waste SG was
                                 formally established as a not-for-profit and non-governmental organisation leading the
                                 drive towards
@@ -172,7 +182,7 @@
             </div>
         </section>
         <!-- End of about us -->
-        <!-- </div> -->
+        </div>
         <!-- End of container -->
         <section class="col-12 ">
             <!-- start of Carousel wrapper -->
@@ -259,8 +269,8 @@
         </section>
 
         <!-- start of footer -->
-        <footer class="row ">
-            <section class="col-12  r-2 ">
+        <footer >
+            <section class="col-12">
                 <div style="background-image: url('images/blackleaf.jpg')">
 
                     <div class="d-inline-block justify-items-center px-3" style="color:#D8F3DC; font-size: 0.5rem ">
@@ -269,7 +279,7 @@
                         <i class="fab fa-instagram"></i>
                         <i class="fab fa-twitter"></i>
                         <p class="text-dark"></p>
-                        </p>
+                       
                     </div>
                 </div>
             </section>
