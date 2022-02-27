@@ -12,17 +12,16 @@
     padding-top:50px;
 }
 
-#page-1 {
-    /* background-color: aliceblue; */
-}
+/* #page-1 {
+    background-color: #080808 ;
+} */
 
 #page-2 {
-    /* background-color: blanchedalmond; */
+    background-color: #080808;
 }
 
 #page-3 {
-    /* background-color: cornsilk;*/
-
+    background-color: #101010;
 
 }
 #all-pages {
@@ -202,7 +201,7 @@ html,body{
 
 .alert-red{
     opacity:0.6;
-
+    line-height: 1
 }
 /* css */
 
@@ -236,4 +235,7 @@ html,body{
 
 }
                      */
-
+.border-success{
+    height:150px;
+    width:auto
+}

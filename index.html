@@ -99,20 +99,18 @@
     </div>
 
     <!-- start of container -->
-    <div class="row">
+    <div>
         <!-- start of Home -->
-        <section class="col-12 ">
-            <div class="p-3 engage" style="background-image: url('images/d-leaf.jpg')">
-                <h2 class="text-center " id="home" style="color:#D8F3DC; font-size: 1rem">Home</h2>
-
-
+        <section>
+            <div class="row gx-1" style="background-image: url('images/d-leaf.jpg')">
+                <h2 class="text-center mt-1" id="home" style="color:#D8F3DC; font-size: 1rem">Home</h2> 
                 <br>
 
-                <div class="form-floating">
+                <div class="border border-1 rounded-1 p-2 m-2 col-sm col-lg">
 
-                    <h5 class="text-center" style="color:#D8F3DC;"> WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
+                    <h5 class="text-center"style="color:#D8F3DC;">WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
                     </h5>
-                    <p class=" mt-2 " style="color:#D8F3DC;">
+                    <p class="mt-2" style="color:#D8F3DC;">
                         Let’s Recycle Together is a new campaign by Zero Waste SG. We aim to encourage more HDB
                         residents to recycle using the existing blue recycling bins in their estates, and to educate
                         them on recycling correctly. This ground-up campaign complements the National
@@ -121,11 +119,44 @@
                         HDB estates and landed properties
                         in Singapore. Your neighbours and other families are recycling, join them today and let’s
                         recycle together!</p>
-                </div>
+                    </div>
+
+            <div class="border border-1 rounded-1 p-2 m-2 col-sm col-lg">
+
+                <h5 class="text-center" style="color:#D8F3DC;">WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
+                </h5>
+                <p class="mt-2" style="color:#D8F3DC;">
+                    Let’s Recycle Together is a new campaign by Zero Waste SG. We aim to encourage more HDB
+                    residents to recycle using the existing blue recycling bins in their estates, and to educate
+                    them on recycling correctly. This ground-up campaign complements the National
+                    Recycling Programme by the National Environment Agency (NEA), where the Public Waste Collectors
+                    licensed by NEA are required to provide the blue recycling bins and recycling collection for all
+                    HDB estates and landed properties
+                    in Singapore. Your neighbours and other families are recycling, join them today and let’s
+                    recycle together!</p>
+            
             </div>
+            <div class="border border-1 rounded-1 p-2 m-2 col-sm col-lg">
 
-
+                <h5 class="text-center" style="color:#D8F3DC;"> WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
+                </h5>
+                <p class="mt-2" style="color:#D8F3DC;">
+                    Let’s Recycle Together is a new campaign by Zero Waste SG. We aim to encourage more HDB
+                    residents to recycle using the existing blue recycling bins in their estates, and to educate
+                    them on recycling correctly. This ground-up campaign complements the National
+                    Recycling Programme by the National Environment Agency (NEA), where the Public Waste Collectors
+                    licensed by NEA are required to provide the blue recycling bins and recycling collection for all
+                    HDB estates and landed properties
+                    in Singapore. Your neighbours and other families are recycling, join them today and let’s
+                    recycle together!</p>
+            
+            </div>
+            
+            </div>
         </section>
+    </div>
+
+       
         <!-- End of Home-->
         <!-- start of about us -->
         <section class="col-12 ">
@@ -151,11 +182,11 @@
                             type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
                     </li>
                 </ul>
-                <div class="page" id="page-1" style="background-color: #081c15;">
+                <div class="page" id="page-1" style="background-color: #000000;">
                     <div class="container">
 
                         <div class=" p-3 engage" >
-                            <h2 class="text-center" id="about" style="color:#D8F3DC; font-size: 1rem">About Us</h2>
+                            <h2 class="text-center" id="about" style="color:#D8F3DC;font-size: 1rem">About Us</h2>
                             <p class="mt-2" style="color:#D8F3DC; ">Zero Waste SG started as a website in 2008 providing
                                 tips and resources on waste minimisation and recycling. In 2015, Zero Waste SG was
                                 formally established as a not-for-profit and non-governmental organisation leading the
@@ -169,12 +200,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="page hidden"  id="page-2">
+                <div class="page hidden"  id="page-2" style="color:#D8F3DC">
                     <div class="container">
                         <h1>Our Product</h1>
                     </div>
                 </div>
-                <div class="page hidden" id="page-3">
+                <div class="page hidden" id="page-3" style="color:#D8F3DC">
                     <div class="container">
                         <h1>Contact Us</h1>
                     </div>
@@ -245,25 +276,38 @@
 
 
         <!-- start of contact -->
-        <section class="col-12">
-            <div class="p-3 engage" style="background-image: url('images/leafpat.jpg')">
-                <h1 class="text-dark" id="contact">Connect with us !</h1>
+        <section >
+            <div class="p-3 engage row" style="background-image:url('images/blackleaf.jpg');">
+                <div class="border-0 p-2 col-12 col-lg-6">
+                <h1 class="connect" id="contact" style="color:#D8F3DC">Connect with us !</h1>
 
                 <div class="alert alert-red rounded-3" style="color:red" id="errors"></div>
 
                 <div>
-                    <label class="text-dark">Email Address:</label>
+                    <label class="email_add" style="color:#D8F3DC">Email Address:</label>
                     <input class="form-control" type="text" id="email" placeholder="Please enter your email here" />
-                </div>
+                </div>             
                 <br>
                 <div>
-                    <label class="text-dark">Comments:</label>
+                    <label class="comments" style="color:#D8F3DC">Comments:</label>
                     <textarea class="form-control" placeholder="Leave a comment here" id="form"
                         style="height: 70px"></textarea>
                 </div>
-                <button class="mt-2 btn btn-outline-dark btn-sm  text-dark" id="btn"
-                    style="font-size: 0.8rem">Submit</button>
+                <button class="mt-2 btn btn-outline-light btn-sm" id="btn"
+                    style="font-size: 0.8rem; color:#D8F3DC">Submit</button>
+                </div> 
                 <br>
+                         
+                    <div class=" border-0 p-2 col-12 col-lg-6">
+                       <h1 class="text-white">Location</h1>
+                       <p class="text-white">34 Orchard Plaza, #14-7865, Singapore 40897</p> 
+
+                       <div class="mapouter">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7837485542004!2d103.83000971470125!3d1.3048204990483376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da199148e6febb%3A0x8e99f73f37fef4fa!2sOrchard%20Rd!5e0!3m2!1sen!2ssg!4v1642912114156!5m2!1sen!2ssg" width="550" height="273.5" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                       </div> 
+                    </div>
+
+
 
             </div>
         </section>

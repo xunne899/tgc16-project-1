@@ -311,11 +311,10 @@ async function ewaste() {
 window.addEventListener("DOMContentLoaded", async function () {
     
     let ewaste_data = await ewaste();
-    // console.log(ewaste_data);
+   
 
     for (let d of ewaste_data) {
-        // each t is an array
-        // element 0 is lng, element 1 is lat
+     
         let lat = d.geometry.coordinates[1];
         let lng = d.geometry.coordinates[0];
 
@@ -524,8 +523,9 @@ window.addEventListener("DOMContentLoaded", async function () {
                 let searchResultElement = document.querySelector("#search-results");
                 for(let foundLocation of searchMapRes.results){
                     console.log("B")
-                    let coordinate = [ foundLocation.LATITUDE, foundLocation.LONGITUDE];
-                    let marker = L.marker(coordinate);
+                    let coordinate = [foundLocation.LATITUDE, foundLocation.LONGITUDE];
+                    let marker = coordinate;
+                    // let marker = L.marker(coordinate);
                     marker.bindPopup(`<div>${foundLocation.SEARCHVAL}</div>`)
                     marker.addTo(searchResultLayer);
 
@@ -551,15 +551,16 @@ window.addEventListener("DOMContentLoaded", async function () {
                 // define the flags
                 // assume the form is innocent
                 // (that is no error)
-                let NotProvided = false;
+                let NoInput = false;
                 let emailNotValid = false;
 
                 let form = document.querySelector('#form').value;
                 if (!form) {
-                    NotProvided = true;
-                } else if (form.length < 3) {
-                    TooShort = true;
-                }
+                    NoInput = true;
+                } 
+                // else if (form.length < 3) {
+                //     TooShort = true;
+                // }
 
                 let email = document.querySelector("#email").value;
                 // if the email contains an @ and a '.' is considered
@@ -572,14 +573,13 @@ window.addEventListener("DOMContentLoaded", async function () {
                  // wipe out all the existing error messages
                 errorDiv.innerHTML = '';
                 // check if there is any error
-                if (NotProvided || emailNotValid) {
+                if (NoInput || emailNotValid) {
                     errorDiv.style.display = 'block';
-                    if (NotProvided) {
+                    if (NoInput) {
                         // use += to append instead of overwrite
                         errorDiv.innerHTML += `<p class="p-2">Please provide your comments</p>`;
-                    }
-                    if (emailNotValid) {
-                        errorDiv.innerHTML += '<p class="p-2">Your email should contains at least one . and at least one @</p>';
+                    }if (emailNotValid) {
+                        errorDiv.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
                     }
                 }
 
