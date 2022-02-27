@@ -28,7 +28,7 @@ L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
     detectRetina: true,
     maxZoom: 19,
     minZoom: 5,
-    attribution: '<img src="https://docs.onemap.gov.sg/maps/images/oneMap64-01.png" style="height:40px;width:40px;"/> OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
+    // attribution: '<img src="https://docs.onemap.gov.sg/maps/images/oneMap64-01.png" style="height:40px;width:40px;"/> OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
 }).addTo(binMap);
 
 
@@ -94,6 +94,9 @@ var secondIcon = L.icon({
 // });
 
 
+// [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+//   .forEach(el => new bootstrap.Tooltip(el));
+
 
 
 let clusterConfig = {
@@ -136,8 +139,14 @@ document.querySelector('#btnToggle')
 L.control.layers(baselays, overlays).addTo(binMap);
 searchResultLayer.addTo(binMap);
 
-async function getAddress(searchData){
-    let response = await axios.get(`https://developers.onemap.sg/commonapi/search?searchVal=${searchData}&returnGeom=Y&getAddrDetails=Y&pageNum=1`);
+async function getAddress(searchData) {
+    let response = {status: 400};
+    try {
+        response = await axios.get(`https://developers.onemap.sg/commonapi/search?searchVal=${searchData}&returnGeom=Y&getAddrDetails=Y&pageNum=1`);
+    } catch (e) {
+        // printing error exception
+        console.error(e);
+    }
     return response;
 }
 
@@ -146,7 +155,7 @@ async function lightwaste() {
     let response = await axios.get("data/lighting-waste.geojson");
     console.log(response)
     return response.data.features;
-    
+
 }
 
 
@@ -159,7 +168,7 @@ window.addEventListener("DOMContentLoaded", async function () {
 
         let lat = l.geometry.coordinates[1];
         let lng = l.geometry.coordinates[0];
-        
+
 
         let dummyDiv = document.createElement('div');
         dummyDiv.innerHTML = l.properties.Description;
@@ -225,17 +234,27 @@ window.addEventListener("DOMContentLoaded", async function () {
 
         let marker = L.marker([lat, lng], { icon: secondIcon });
 
-        marker.bindPopup(`<div>
+    //     marker.bindPopup(`<div>
         
-            <strong>Description:</strong> ${description}<br>
-            <strong>Building Name:</strong> ${bname}<br>
-            <strong>Blk:</strong> ${blk}<br>
-            <strong>Unit:</strong> ${unit}<br>
-            <strong>Street Name:</strong> ${stname}<br>
-            <strong>Postal:</strong> ${postal}<br>
-            <strong>Website:</strong> ${web}<br>
+    //         <strong>Description:</strong> ${description}<br>
+    //         <strong>Building Name:</strong> ${bname}<br>
+    //         <strong>Blk:</strong> ${blk}<br>
+    //         <strong>Unit:</strong> ${unit}<br>
+    //         <strong>Street Name:</strong> ${stname}<br>
+    //         <strong>Postal:</strong> ${postal}<br>
+    //         <strong>Website:</strong> ${web}<br>
         
-    </div>`)
+    // </div>`)
+
+        marker.bindPopup(`<div class="myMapToolTip">
+                <strong>Description:</strong> ${description}<br>
+                <strong>Building Name:</strong> ${bname}<br>
+                <strong>Blk:</strong> ${blk}<br>
+                <strong>Unit:</strong> ${unit}<br>
+                <strong>Street Name:</strong> ${stname}<br>
+                <strong>Postal:</strong> ${postal}<br>
+                <strong>Website:</strong> ${web}<br>
+        </div>`)
 
 
         marker.addTo(secondHandLayer);
@@ -309,12 +328,12 @@ async function ewaste() {
 }
 
 window.addEventListener("DOMContentLoaded", async function () {
-    
+
     let ewaste_data = await ewaste();
-   
+
 
     for (let d of ewaste_data) {
-     
+
         let lat = d.geometry.coordinates[1];
         let lng = d.geometry.coordinates[0];
 
@@ -325,9 +344,9 @@ window.addEventListener("DOMContentLoaded", async function () {
         let bname = columns[8].innerHTML;
         let stname = columns[10].innerHTML;
         let postal = columns[3].innerHTML;
-        
 
-        let marker = L.marker([lat, lng], {icon: eIcon});
+
+        let marker = L.marker([lat, lng], { icon: eIcon });
 
         marker.bindPopup(`<div>
             <strong>Description:</strong> ${description}<br>
@@ -343,254 +362,302 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
 
-        // ewaste start 2nd option
+// ewaste start 2nd option
 
-        // async function ewaste() {
-        //     let response = await axios.get("data/ewaste-recycle.geojson");
-        //     // console.log(response)
-        //     return response.data.features;
+// async function ewaste() {
+//     let response = await axios.get("data/ewaste-recycle.geojson");
+//     // console.log(response)
+//     return response.data.features;
+// }
+
+// let binData = [];
+// let companyType = [];
+// let markerList = [];
+// // let layerGroupAlba; 
+// // let layerGroup; 
+// window.addEventListener("DOMContentLoaded", async function () {
+//     // wait for getTaxi to finish and then store its return value
+//     // into taxiCoordinates
+//     let ewaste_data = await ewaste();
+//     // console.log(ewaste_data);
+
+//     for (let d of ewaste_data) {
+//         // each t is an array
+//         // element 0 is lng, element 1 is lat
+//         let lat = d.geometry.coordinates[1];
+//         let lng = d.geometry.coordinates[0];
+
+
+//         let dummyDiv = document.createElement('div');
+//         dummyDiv.innerHTML = d.properties.Description;
+//         let columns = dummyDiv.querySelectorAll('td');
+//         let binName = columns[0].innerHTML;
+//         let binCollectData = columns[11].innerHTML.split(";"); // xxxx; waste: abc, 123,
+//         let binCollectMethod = binCollectData[0];
+//         let binCollectItemTypes = binCollectData[1].split(":")[1];
+//         let binPlaceName = columns[8].innerHTML;
+//         let binAddress = columns[10].innerHTML;
+//         let binPostal = columns[3].innerHTML;
+//         let binInfo = {
+//             name: binName,
+//             method: binCollectMethod,
+//             collect: binCollectItemTypes,
+//             place: binPlaceName,
+//             address: binAddress,
+//             postal: binPostal,
+//             geodata: [lat, lng]
+//         }
+//         binData.push(binInfo);
+//         //ternary check
+//         let iconType = (binName.indexOf("ALBA") != -1) ? "images/battery-outline.png" : "images/battery-outline.png";
+//         // let iconShadowType = (binCollectMethod.indexOf("Bin")!= -1)?"images/vehiclecollect.png":"images/mancollect.png";
+//         let marker = L.marker([lat, lng], { icon: new DustbinBigIcon({ iconUrl: iconType }) });
+//         marker.properties = binInfo;
+//         marker.bindPopup(`<div>
+
+//         Name: ${binName}<br>
+//         Method: ${binCollectMethod}<br> 
+//         Collect: ${binCollectItemTypes}<br>
+//         Place: ${binPlaceName}<br>
+//         Address: ${binAddress}<br>
+//         Postal: ${binPostal}<br>
+
+// </div>`)
+
+//         // console.log(lng);
+
+//         marker.addTo(eWasteLayer);
+
+//     }
+//     eWasteLayer.addTo(binMap);
+
+// });
+
+/*
+        <div>
+        <center>
+        <table>
+        <tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor="#E3E3F3"> <th>NAME</th> 
+        <td>NEA Producer Responsibility Scheme - ALBA E-waste Recycling Programme</td></tr> 0
+        <tr bgcolor=""> <th>LANDXADDRESSPOINT</th> <td></td> </tr> 1
+        <tr bgcolor="#E3E3F3"> <th>PHOTOURL</th> <td></td> </tr> 2
+        <tr bgcolor=""> <th>ADDRESSPOSTALCODE</th> <td>608549</td> </tr> 3
+        <tr bgcolor="#E3E3F3"> <th>LANDYADDRESSPOINT</th> <td></td> </tr> 4
+        <tr bgcolor=""> <th>HYPERLINK</th> <td>https://alba-ewaste.sg; https://go.gov.sg/e-waste</td> </tr> 5
+        <tr bgcolor="#E3E3F3"> <th>ADDRESSUNITNUMBER</th> <td></td> </tr> 6
+        <tr bgcolor=""> <th>ADDRESSFLOORNUMBER</th> <td></td> </tr> 7
+        <tr bgcolor="#E3E3F3"> <th>ADDRESSBUILDINGNAME</th> <td>COURTS @ JEM</td> </tr> 8
+        <tr bgcolor=""> <th>ADDRESSBLOCKHOUSENUMBER</th> <td></td> </tr> 9
+        <tr bgcolor="#E3E3F3"> <th>ADDRESSSTREETNAME</th> <td>50 JURONG GATEWAY ROAD, JEM, #04-30</td> </tr> 10
+        <tr bgcolor=""> <th>DESCRIPTION</th> <td>Bin collection; E-waste accepted: ICT equipment, Batteries and Lamps only</td> </tr> 11
+        <tr bgcolor="#E3E3F3"> <th>INC_CRC</th> <td>F0F20CDE76F503E4</td> </tr> 12
+        <tr bgcolor=""> <th>FMEL_UPD_D</th> <td>20210920165422</td> </tr> 13
+        </table>
+        </center>
+        </div>
+        */
+
+
+
+
+
+
+
+//console.log(binData)
+
+// let nameList = []
+// let collectList = []
+// for(let binInfo of binData){
+//     if(nameList.indexOf(binInfo.name) == -1){
+//         nameList.push(binInfo.name);
+//     }
+
+//     if(collectList.indexOf(binInfo.collect) == -1){
+//         collectList.push(binInfo.collect);
+//     }
+// }
+
+// console.log(binData);
+//console.log(collectList);
+//markerClusterLayer.addTo(map);
+
+
+
+
+
+
+
+
+
+
+
+let isShowCluster = true;
+document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
+    isShowCluster = !isShowCluster;
+    if (isShowCluster == true) {
+        //remove non clustering layer 
+        if (binMap.hasLayer(eWasteLayerOff)) {
+            binMap.removeLayer(eWasteLayerOff);
+        }
+
+        if (binMap.hasLayer(secondHandLayerOff)) {
+            binMap.removeLayer(secondHandLayerOff);
+        }
+
+        // adding clustering layer
+        binMap.addLayer(eWasteLayer);
+        binMap.addLayer(secondHandLayer);
+    } else {
+        //remove clustering layer 
+        if (binMap.hasLayer(eWasteLayer)) {
+            binMap.removeLayer(eWasteLayer);
+        }
+
+        if (binMap.hasLayer(secondHandLayer)) {
+            binMap.removeLayer(secondHandLayer);
+        }
+
+        // adding non clustering layer
+        binMap.addLayer(eWasteLayerOff);
+        binMap.addLayer(secondHandLayerOff);
+
+    }
+});
+
+document.querySelector('#contactButton').addEventListener('click', () => {
+
+});
+let searchLocations = async function () {
+    searchResultLayer.clearLayers(); // get rid of the existing markers
+    // clear our autocomplete search drop down
+    let searchResultElement = document.querySelector("#search-results");
+    searchResultElement.innerHTML = "";
+    let searchInput = document.querySelector('#searchInput');
+    if(searchInput.value == ""){
+        return;
+    }
+    let searchMapRes = await getAddress(searchInput.value);
+    
+
+    // if status is 200 then process the address datas for user to choose
+    if (searchMapRes.status == 200) {
+        searchMapRes = searchMapRes.data;
+        //console.log("Searching location....");
+        console.log(searchMapRes)
+        if (searchMapRes.found > 0) {
+            //console.log("A")
+
+            for (let foundLocation of searchMapRes.results) {
+                // console.log("B")
+                let coordinate = [foundLocation.LATITUDE, foundLocation.LONGITUDE];
+                let resultElement = document.createElement('div');
+                resultElement.innerHTML = foundLocation.SEARCHVAL;
+                resultElement.className = 'search-result';
+                resultElement.addEventListener('click', function () {
+                    binMap.flyTo(coordinate, 18);
+                    searchResultElement.innerHTML = "";
+                })
+
+                searchResultElement.appendChild(resultElement);
+            }
+
+        }
+    }
+
+}
+
+// function ValidateEmail(mail) {
+//     emailRejex
+//     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)) {
+//         return (true)
+//     }
+//     alert("You have entered an invalid email address!")
+//     return (false)
+// }
+
+// func is the callback function to be called when 300ms passes when the user stop typing
+// after 300ms of afk, we will debounce to call the wanted function
+// this is to prevent multiple function call per key enter
+// commonly used for search bar for autocomplete features
+function debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+}
+
+function clickSearchButton() {
+    document.querySelector('#searchMapBtn').click();
+}
+
+const processSearch = debounce(() => clickSearchButton());
+// const processSearch = debounce(() => clickSearchButton(), 500);
+
+document.querySelector('#searchMapBtn')
+    .addEventListener('click', searchLocations);
+
+document.querySelector('#searchInput')
+    .addEventListener('keyup', function (keyEvent) {
+        // 13 represent the "return/enter" key
+        // console.log(keyEvent);
+        keyEvent.preventDefault(); // ?
+        processSearch();
+    });
+
+document.querySelector('#feedbackBtn')
+    .addEventListener('click', function () {
+
+        // define the flags
+        // assume the form is innocent
+        // (that is no error)
+        let NoInput = false;
+        let emailNotValid = false;
+
+        let form = document.querySelector('#form');
+        if (!form.value) {
+            NoInput = true;
+        }
+        // else if (form.length < 3) {
+        //     TooShort = true;
         // }
 
-        // let binData = [];
-        // let companyType = [];
-        // let markerList = [];
-        // // let layerGroupAlba; 
-        // // let layerGroup; 
-        // window.addEventListener("DOMContentLoaded", async function () {
-        //     // wait for getTaxi to finish and then store its return value
-        //     // into taxiCoordinates
-        //     let ewaste_data = await ewaste();
-        //     // console.log(ewaste_data);
+        let email = document.querySelector("#email");
+        // if the email contains an @ and a '.' is considered
+        // to be a valid
+        if (!email.value.includes('.') || !email.value.includes('@')) {
+            emailNotValid = true;
+        }
 
-        //     for (let d of ewaste_data) {
-        //         // each t is an array
-        //         // element 0 is lng, element 1 is lat
-        //         let lat = d.geometry.coordinates[1];
-        //         let lng = d.geometry.coordinates[0];
-        
-
-        //         let dummyDiv = document.createElement('div');
-        //         dummyDiv.innerHTML = d.properties.Description;
-        //         let columns = dummyDiv.querySelectorAll('td');
-        //         let binName = columns[0].innerHTML;
-        //         let binCollectData = columns[11].innerHTML.split(";"); // xxxx; waste: abc, 123,
-        //         let binCollectMethod = binCollectData[0];
-        //         let binCollectItemTypes = binCollectData[1].split(":")[1];
-        //         let binPlaceName = columns[8].innerHTML;
-        //         let binAddress = columns[10].innerHTML;
-        //         let binPostal = columns[3].innerHTML;
-        //         let binInfo = {
-        //             name: binName,
-        //             method: binCollectMethod,
-        //             collect: binCollectItemTypes,
-        //             place: binPlaceName,
-        //             address: binAddress,
-        //             postal: binPostal,
-        //             geodata: [lat, lng]
-        //         }
-        //         binData.push(binInfo);
-        //         //ternary check
-        //         let iconType = (binName.indexOf("ALBA") != -1) ? "images/battery-outline.png" : "images/battery-outline.png";
-        //         // let iconShadowType = (binCollectMethod.indexOf("Bin")!= -1)?"images/vehiclecollect.png":"images/mancollect.png";
-        //         let marker = L.marker([lat, lng], { icon: new DustbinBigIcon({ iconUrl: iconType }) });
-        //         marker.properties = binInfo;
-        //         marker.bindPopup(`<div>
-            
-        //         Name: ${binName}<br>
-        //         Method: ${binCollectMethod}<br> 
-        //         Collect: ${binCollectItemTypes}<br>
-        //         Place: ${binPlaceName}<br>
-        //         Address: ${binAddress}<br>
-        //         Postal: ${binPostal}<br>
-            
-        // </div>`)
-
-        //         // console.log(lng);
-
-        //         marker.addTo(eWasteLayer);
-
-        //     }
-        //     eWasteLayer.addTo(binMap);
-
-        // });
-
-        /*
-                <div>
-                <center>
-                <table>
-                <tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor="#E3E3F3"> <th>NAME</th> 
-                <td>NEA Producer Responsibility Scheme - ALBA E-waste Recycling Programme</td></tr> 0
-                <tr bgcolor=""> <th>LANDXADDRESSPOINT</th> <td></td> </tr> 1
-                <tr bgcolor="#E3E3F3"> <th>PHOTOURL</th> <td></td> </tr> 2
-                <tr bgcolor=""> <th>ADDRESSPOSTALCODE</th> <td>608549</td> </tr> 3
-                <tr bgcolor="#E3E3F3"> <th>LANDYADDRESSPOINT</th> <td></td> </tr> 4
-                <tr bgcolor=""> <th>HYPERLINK</th> <td>https://alba-ewaste.sg; https://go.gov.sg/e-waste</td> </tr> 5
-                <tr bgcolor="#E3E3F3"> <th>ADDRESSUNITNUMBER</th> <td></td> </tr> 6
-                <tr bgcolor=""> <th>ADDRESSFLOORNUMBER</th> <td></td> </tr> 7
-                <tr bgcolor="#E3E3F3"> <th>ADDRESSBUILDINGNAME</th> <td>COURTS @ JEM</td> </tr> 8
-                <tr bgcolor=""> <th>ADDRESSBLOCKHOUSENUMBER</th> <td></td> </tr> 9
-                <tr bgcolor="#E3E3F3"> <th>ADDRESSSTREETNAME</th> <td>50 JURONG GATEWAY ROAD, JEM, #04-30</td> </tr> 10
-                <tr bgcolor=""> <th>DESCRIPTION</th> <td>Bin collection; E-waste accepted: ICT equipment, Batteries and Lamps only</td> </tr> 11
-                <tr bgcolor="#E3E3F3"> <th>INC_CRC</th> <td>F0F20CDE76F503E4</td> </tr> 12
-                <tr bgcolor=""> <th>FMEL_UPD_D</th> <td>20210920165422</td> </tr> 13
-                </table>
-                </center>
-                </div>
-                */
-
-
-
-
-
-
-
-            //console.log(binData)
-
-            // let nameList = []
-            // let collectList = []
-            // for(let binInfo of binData){
-            //     if(nameList.indexOf(binInfo.name) == -1){
-            //         nameList.push(binInfo.name);
-            //     }
-
-            //     if(collectList.indexOf(binInfo.collect) == -1){
-            //         collectList.push(binInfo.collect);
-            //     }
-            // }
-
-            // console.log(binData);
-            //console.log(collectList);
-            //markerClusterLayer.addTo(map);
-      
-
-
-
-
-
-
-
-
-
-
-        let showCluster = true;
-        document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
-            showCluster = !showCluster;
-            if (showCluster) {
-                //remove non clustering layer 
-                if (binMap.hasLayer(eWasteLayerOff)) {
-                    binMap.removeLayer(eWasteLayerOff);
-                }
-               
-                if (binMap.hasLayer(secondHandLayerOff)) {
-                    binMap.removeLayer(secondHandLayerOff);
-                }
-
-                // adding clustering layer
-                binMap.addLayer(eWasteLayer);
-                binMap.addLayer(secondHandLayer);
-
-            } else {
-                //remove clustering layer 
-                if (binMap.hasLayer(eWasteLayer)) {
-                    binMap.removeLayer(eWasteLayer);
-                }
-                
-                if (binMap.hasLayer(secondHandLayer)) {
-                    binMap.removeLayer(secondHandLayer);
-                }
-
-                // adding non clustering layer
-                binMap.addLayer(eWasteLayerOff);
-                binMap.addLayer(secondHandLayerOff);
-                
+        let errorDiv = document.querySelector('#errors');
+        // wipe out all the existing error messages
+        errorDiv.innerHTML = '';
+        // check if there is any error
+        if (NoInput || emailNotValid) {
+            errorDiv.style.display = 'block';
+            if (NoInput) {
+                // use += to append instead of overwrite
+                errorDiv.innerHTML += `<p class="p-2">Please provide your comments</p>`;
+            } if (emailNotValid) {
+                errorDiv.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
             }
-        });
+        }
+        else{
+            // Pop up submit successfully
+            var myModal = new bootstrap.Modal(document.getElementById('feedBackModal'))
+            email.value = "";
+            form.value = "";
+            myModal.show();
+        }
 
-        document.querySelector('#contactButton').addEventListener('click', () => {
+        // console.log("Comments not provided =", NotProvided);
+        // console.log("email not valid =", emailNotValid);
 
-        });
+    })
 
-        document.querySelector('#searchMapBtn')
-        .addEventListener('click', async function () {
-            searchResultLayer.clearLayers(); // get rid of the existing markers
-            let searchInput = document.querySelector('#searchInput');
-            let searchMapRes = await getAddress(searchInput.value);
-            searchMapRes = searchMapRes.data;
-            console.log("Searching location....");
-            console.log(searchMapRes)
-            if(searchMapRes.found > 0){
-                console.log("A")
-                let searchResultElement = document.querySelector("#search-results");
-                for(let foundLocation of searchMapRes.results){
-                    console.log("B")
-                    let coordinate = [foundLocation.LATITUDE, foundLocation.LONGITUDE];
-                    let marker = coordinate;
-                    // let marker = L.marker(coordinate);
-                    marker.bindPopup(`<div>${foundLocation.SEARCHVAL}</div>`)
-                    marker.addTo(searchResultLayer);
+// document.querySelector('#contactButton').addEventListener('click', () => {
 
-                    let resultElement = document.createElement('div');
-                    resultElement.innerHTML = foundLocation.SEARCHVAL;
-                    resultElement.className = 'search-result';
-                    resultElement.addEventListener('click', function(){
-                        binMap.flyTo(coordinate, 16);
-                        marker.openPopup();
-                        searchResultElement.innerHTML = "";
-                    })
-
-                    searchResultElement.appendChild(resultElement);
-                }
-                
-            }
-            
-        });
-
-        document.querySelector('#btn')
-            .addEventListener('click', function () {
-
-                // define the flags
-                // assume the form is innocent
-                // (that is no error)
-                let NoInput = false;
-                let emailNotValid = false;
-
-                let form = document.querySelector('#form').value;
-                if (!form) {
-                    NoInput = true;
-                } 
-                // else if (form.length < 3) {
-                //     TooShort = true;
-                // }
-
-                let email = document.querySelector("#email").value;
-                // if the email contains an @ and a '.' is considered
-                // to be a valid
-                if (!email.includes('.') || !email.includes('@')) {
-                    emailNotValid = true;
-                }
-                
-                let errorDiv = document.querySelector('#errors');
-                 // wipe out all the existing error messages
-                errorDiv.innerHTML = '';
-                // check if there is any error
-                if (NoInput || emailNotValid) {
-                    errorDiv.style.display = 'block';
-                    if (NoInput) {
-                        // use += to append instead of overwrite
-                        errorDiv.innerHTML += `<p class="p-2">Please provide your comments</p>`;
-                    }if (emailNotValid) {
-                        errorDiv.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
-                    }
-                }
-
-                // console.log("Comments not provided =", NotProvided);
-                // console.log("email not valid =", emailNotValid);
-
-            })
-
-    // document.querySelector('#contactButton').addEventListener('click', () => {
-
-    // });
+// });
 
 
 
@@ -664,7 +731,7 @@ window.addEventListener("DOMContentLoaded", async function () {
 let allButtons = document.querySelectorAll('#navbar li')
 
 for (let btn of allButtons) {
-   btn.addEventListener('click', function (event) {
+    btn.addEventListener('click', function (event) {
 
         let selectedBtn = event.target;
         let pageNumber = selectedBtn.dataset.page;
@@ -678,7 +745,7 @@ for (let btn of allButtons) {
             p.classList.add('hidden');
         }
 
-        let page = document.querySelector('#page-'+pageNumber);
+        let page = document.querySelector('#page-' + pageNumber);
         page.classList.remove('hidden');
         page.classList.add('show');
     })
@@ -686,3 +753,5 @@ for (let btn of allButtons) {
 
 
 }
+[...document.querySelectorAll('[data-bs-toggle="popover"]')]
+.forEach(el => new bootstrap.Popover(el));

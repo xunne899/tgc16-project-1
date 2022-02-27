@@ -10,20 +10,30 @@
     width: 100vw;
     height: 425px;
     padding-top:50px;
+    background-color: #000000;
+}
+
+.leaflet-popup-content-wrapper{
+    background-color: rgba(0, 54, 61, 0.7) ;
+    color: white;
+}
+
+.leaflet-popup-tip{
+    background-color: rgba(0,54,61, 0.75) ;
 }
 
 /* #page-1 {
     background-color: #080808 ;
 } */
 
-#page-2 {
+/* #page-2 {
     background-color: #080808;
 }
 
 #page-3 {
     background-color: #101010;
 
-}
+} */
 #all-pages {
     position: relative;
     width:100vw;
@@ -64,7 +74,7 @@
 }
 .mynav.nav-link.active{
     background-color: rgba(49, 255, 66, 0.0) !important;
-    color:black;
+    color:white;
     border: 1px solid black;
 }
 .mynav.nav-link{
@@ -160,7 +170,7 @@
 }
 
 html,body{
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 /* Hide scrollbar for IE and Edge */
 
@@ -210,24 +220,44 @@ html,body{
     z-index: 505;
 }
 
+.mapToggleButtons{
+    position:absolute;
+    top:310px;
+    left:10px;
+    z-index: 505;
+    display:block;
+}
 
 #toggle-cluster-btn{
-    position:absolute;
+    /* position:absolute;
     top:310px;
     left:60px;
     z-index: 505;
-    display:block;
+    display:block; */
 
 }
 
+.legendIcon{
+    width: 50px;
+    height:50px;
+    padding: 5px;
+}
 
 #btnToggle{
-    position:absolute;
+    /* position:absolute;
     top:310px;
     left:20px;
     z-index: 505;
-    display:block;
+    display:block; */
 
+}
+
+.modal-backdrop.show{
+    z-index: 1000;
+}
+
+.modal.fade.show{
+    z-index: 1001;
 }
 
 /* #searchMapBtn{
@@ -239,3 +269,8 @@ html,body{
     height:150px;
     width:auto
 }
+
+
+.modal-open[style] {
+    padding-right: 0px !important;
+    }
