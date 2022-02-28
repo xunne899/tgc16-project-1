@@ -101,7 +101,7 @@
 .recycleMap {
     /* Difference screen size,
     show differnt map width and height @media screen {} */
-    height: 350px;
+    height: 450px;
     width: 100vw;
 
     /* height: fit-content;
@@ -274,3 +274,12 @@ html,body{
 .modal-open[style] {
     padding-right: 0px !important;
     }
+
+
+.recycleMap .leaflet-control-layers.leaflet-control{
+    margin-right: 20px;
+}
+
+.border.border-1{
+
+}

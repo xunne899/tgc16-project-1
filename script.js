@@ -20,7 +20,7 @@ let singapore = [1.29, 103.85];
 
 let binMap = L.map('singaporeMap', {
     center: singapore,
-    zoom: 14
+    zoom: 15
 });
 
 
@@ -32,7 +32,15 @@ L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
 }).addTo(binMap);
 
 
-
+// #6 Get Own Location 
+navigator.geolocation.getCurrentPosition(position => {
+    // Leaflet passes the latlng in
+    const { coords: { latitude, longitude } } = position;
+    var marker = new L.marker([latitude, longitude], {
+        draggable: true,
+        autoPan: true
+    }).addTo(binMap);
+})
 
 var recycleIcon = L.icon({
 
@@ -76,33 +84,34 @@ var secondIcon = L.icon({
 
 
 
-// template icon for dustbin
-// var DustbinBigIcon = L.Icon.extend({
-//     options: {
-//         iconSize: [20, 20],
-//         iconAnchor: [10, 0],
-//         popupAnchor: [0, 0]
-//     }
-// });
 
-// var DustbinIcon = L.Icon.extend({
-//     options: {
-//         iconSize: [17, 17],
-//         iconAnchor: [7.5, 0],
-//         popupAnchor: [0, 0]
-//     }
-// });
+    // template icon for dustbin
+    // var DustbinBigIcon = L.Icon.extend({
+    //     options: {
+    //         iconSize: [20, 20],
+    //         iconAnchor: [10, 0],
+    //         popupAnchor: [0, 0]
+    //     }
+    // });
 
-
-// [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
-//   .forEach(el => new bootstrap.Tooltip(el));
+    // var DustbinIcon = L.Icon.extend({
+    //     options: {
+    //         iconSize: [17, 17],
+    //         iconAnchor: [7.5, 0],
+    //         popupAnchor: [0, 0]
+    //     }
+    // });
 
 
+    // [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+    //   .forEach(el => new bootstrap.Tooltip(el));
 
-let clusterConfig = {
-    spiderfyOnMaxZoom: false,
-    disableClusteringAtZoom: 17
-};
+
+
+    let clusterConfig = {
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 17
+    };
 
 let clusterConfigOff = {
     spiderfyOnMaxZoom: false,
@@ -140,7 +149,7 @@ L.control.layers(baselays, overlays).addTo(binMap);
 searchResultLayer.addTo(binMap);
 
 async function getAddress(searchData) {
-    let response = {status: 400};
+    let response = { status: 400 };
     try {
         response = await axios.get(`https://developers.onemap.sg/commonapi/search?searchVal=${searchData}&returnGeom=Y&getAddrDetails=Y&pageNum=1`);
     } catch (e) {
@@ -169,6 +178,24 @@ window.addEventListener("DOMContentLoaded", async function () {
         let lat = l.geometry.coordinates[1];
         let lng = l.geometry.coordinates[0];
 
+        // if (lat>1.05){
+        // north_layer = lat.innerHTML;
+        // } 
+        // else if (lat<1.02){
+        //     south_layer = lat.innerHTML;
+        // } 
+        // else{
+        //        if(lat>1.08){
+        //            east_layer = lat.innerHTML;
+        //        }
+        //        else if(lat>1.09){
+        //            west_layer=lat.innerHTML;
+        //        }
+        //        else{
+        //            central_layer = lat.innerHTML;
+        //        }
+        // }
+
 
         let dummyDiv = document.createElement('div');
         dummyDiv.innerHTML = l.properties.Description;
@@ -180,7 +207,7 @@ window.addEventListener("DOMContentLoaded", async function () {
         let stname = columns[12].innerHTML;
         let postal = columns[2].innerHTML;
 
-        let marker = L.marker([lat, lng], { icon: lightIcon });
+        let marker = L.marker([lat, lng], {icon: lightIcon});
 
         marker.bindPopup(`<div>
                     Description: ${description}<br>
@@ -232,19 +259,19 @@ window.addEventListener("DOMContentLoaded", async function () {
         let postal = columns[7].innerHTML;
         let web = columns[3].innerHTML;
 
-        let marker = L.marker([lat, lng], { icon: secondIcon });
+        let marker = L.marker([lat, lng], {icon: secondIcon});
 
-    //     marker.bindPopup(`<div>
-        
-    //         <strong>Description:</strong> ${description}<br>
-    //         <strong>Building Name:</strong> ${bname}<br>
-    //         <strong>Blk:</strong> ${blk}<br>
-    //         <strong>Unit:</strong> ${unit}<br>
-    //         <strong>Street Name:</strong> ${stname}<br>
-    //         <strong>Postal:</strong> ${postal}<br>
-    //         <strong>Website:</strong> ${web}<br>
-        
-    // </div>`)
+        //     marker.bindPopup(`<div>
+
+        //         <strong>Description:</strong> ${description}<br>
+        //         <strong>Building Name:</strong> ${bname}<br>
+        //         <strong>Blk:</strong> ${blk}<br>
+        //         <strong>Unit:</strong> ${unit}<br>
+        //         <strong>Street Name:</strong> ${stname}<br>
+        //         <strong>Postal:</strong> ${postal}<br>
+        //         <strong>Website:</strong> ${web}<br>
+
+        // </div>`)
 
         marker.bindPopup(`<div class="myMapToolTip">
                 <strong>Description:</strong> ${description}<br>
@@ -533,11 +560,11 @@ let searchLocations = async function () {
     let searchResultElement = document.querySelector("#search-results");
     searchResultElement.innerHTML = "";
     let searchInput = document.querySelector('#searchInput');
-    if(searchInput.value == ""){
+    if (searchInput.value == "") {
         return;
     }
     let searchMapRes = await getAddress(searchInput.value);
-    
+
 
     // if status is 200 then process the address datas for user to choose
     if (searchMapRes.status == 200) {
@@ -642,7 +669,7 @@ document.querySelector('#feedbackBtn')
                 errorDiv.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
             }
         }
-        else{
+        else {
             // Pop up submit successfully
             var myModal = new bootstrap.Modal(document.getElementById('feedBackModal'))
             email.value = "";
@@ -754,4 +781,4 @@ for (let btn of allButtons) {
 
 }
 [...document.querySelectorAll('[data-bs-toggle="popover"]')]
-.forEach(el => new bootstrap.Popover(el));
+    .forEach(el => new bootstrap.Popover(el));
