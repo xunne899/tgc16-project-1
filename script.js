@@ -1,5 +1,3 @@
-
-
 // setup the tile layers
 // this setup the drawing of the map
 // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -85,22 +83,6 @@ var secondIcon = L.icon({
 
 
 
-    // template icon for dustbin
-    // var DustbinBigIcon = L.Icon.extend({
-    //     options: {
-    //         iconSize: [20, 20],
-    //         iconAnchor: [10, 0],
-    //         popupAnchor: [0, 0]
-    //     }
-    // });
-
-    // var DustbinIcon = L.Icon.extend({
-    //     options: {
-    //         iconSize: [17, 17],
-    //         iconAnchor: [7.5, 0],
-    //         popupAnchor: [0, 0]
-    //     }
-    // });
 
 
     // [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
@@ -656,19 +638,29 @@ document.querySelector('#feedbackBtn')
             emailNotValid = true;
         }
 
-        let errorDiv = document.querySelector('#errors');
+
+        let email_error = document.querySelector('#email_errors');
         // wipe out all the existing error messages
-        errorDiv.innerHTML = '';
+        email_error.innerHTML = '';
         // check if there is any error
-        if (NoInput || emailNotValid) {
-            errorDiv.style.display = 'block';
-            if (NoInput) {
-                // use += to append instead of overwrite
-                errorDiv.innerHTML += `<p class="p-2">Please provide your comments</p>`;
-            } if (emailNotValid) {
-                errorDiv.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
+        if (emailNotValid) {
+            email_error.style.display = 'block';
+            email_error.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
             }
-        }
+        
+
+
+
+        let input_error = document.querySelector('#input_errors');
+        // wipe out all the existing error messages
+        input_error.innerHTML = '';
+        // check if there is any error
+        if (NoInput) {
+            input_error.style.display = 'block';
+            // if (NoInput) {
+                // use += to append instead of overwrite
+                input_error.innerHTML += `<p class="p-2">Please provide your comments</p>`;
+            }
         else {
             // Pop up submit successfully
             var myModal = new bootstrap.Modal(document.getElementById('feedBackModal'))
@@ -685,56 +677,6 @@ document.querySelector('#feedbackBtn')
 // document.querySelector('#contactButton').addEventListener('click', () => {
 
 // });
-
-
-
-
-// window.addEventListener("DOMContentLoaded", async function(){
-//     // wait for getTaxi to finish and then store its return value
-//     // into taxiCoordinates
-//     let quakearray = await quake();
-//     // let markerClusterLayer = L.markerClusterGroup();
-//     for (let t of quakearray) {
-//         // each t is an array
-//         // element 0 is lng, element 1 is lat
-//         let lat = t.geometry.coordinates[1];
-//         let lng = t.geometry.coordinates[0];
-//         // let address = t.properties.description;
-//         let columns = document.querySelectorAll('td');
-//         let parkName = columns[6].innerHTML;
-//         let marker = L.marker([lat,lng]);
-//         let pop =  marker.bindPopup(`<div>
-//                 <ul>
-//                     <li>Park: ${parkName}</li>
-
-
-//                 </ul>
-//             </div>`)
-//         // let dummyDiv = document.createElement('div');
-//         // dummyDiv.innerHTML = t.properties.description;
-//         //     let columns = dummyDiv.querySelectorAll('td');
-//         //     let parkName = columns[6].innerHTML;
-//         //     let pathType = columns[7].innerHTML;
-//         //     let loop = columns[2].innerHTML;
-
-//         //     marker.bindPopup(`<div>
-//         //         <ul>
-//         //             <li>Park: ${parkName}</li>
-//         //             <li>Type: ${pathType}</li>
-
-//         //         </ul>
-//         //     </div>`)
-//         // console.log(lat);
-//         // console.log(lng);
-//         ;
-//         pop.addTo(map);
-
-//     }
-//     // markerClusterLayer.addTo(map);
-
-// })
-// // .addTo(map);
-
 
 
 

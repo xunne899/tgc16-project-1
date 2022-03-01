@@ -58,21 +58,23 @@
         </div>
     </nav>
     <!-- navbar ends -->
+
     <section class="col-12 ">
         <!-- start of Carousel wrapper -->
         <div id="wrapper">
             <!-- Carousel Slider -->
             <div id="carousel-indicators" class="carousel slide" data-bs-ride="carousel">
+              
                 <!-- end of carousel slider -->
                 <!-- indicators/button -->
-                <div class="carousel-indicators">
+                <!-- <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carousel-indicators" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carousel-indicators" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carousel-indicators" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
-                </div>
+                </div> -->
                 <!-- end of indicator/button -->
                 <!-- Corousell Images -->
                 <div class="carousel-inner">
@@ -88,7 +90,7 @@
                     <!-- End of carousel images -->
 
                     <!-- left/right control -->
-                </div>
+                <!-- </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel-indicators"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -98,7 +100,7 @@
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                </button>
+                </button> -->
                 <!--End of left/right control -->
             </div>
             <!-- call to action -->
@@ -122,11 +124,11 @@
        
         <!-- start of Home -->
         <section>
-            <div class="row gx-1">
+            <div class="row mx-3">
                 <h2 class="text-center mt-3" id="home" style="color:#00522a; font-size: 1rem">Home</h2>
                 <br>
 
-                <div class="border border-1 rounded-1 p-2 m-2 col-sm col-lg">
+                <div class="border border-2 rounded-1 p-1 mx-1 my-1 col-sm col-lg">
 
                     <h5 class="text-center" style="color:#00522a;">WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
                     </h5>
@@ -141,7 +143,7 @@
                         recycle together!</p>
                 </div>
 
-                <div class="border border-1 rounded-1 p-2 m-2 col-sm col-lg">
+                <div class="border border-2 rounded-1 p-1 mx-1 my-1 col-sm col-lg">
 
                     <h5 class="text-center" style="color:#00522a;">WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
                     </h5>
@@ -156,7 +158,7 @@
                         recycle together!</p>
 
                 </div>
-                <div class="border border-1 rounded-1 p-2 m-2 col-sm col-lg">
+                <div class="border border-2 rounded-1 p-1 mx-1 my-1 col-sm col-lg">
 
                     <h5 class="text-center" style="color:#00522a;"> WELCOME TO THE LET’S RECYCLE TOGETHER CAMPAIGN PAGE
                     </h5>
@@ -290,10 +292,7 @@
         <i class="fa-solid fa-phone"> </i>
     </div>
 
-    <!-- End of container -->
-
- 
-
+    <!-- end of container -->
 
 
     <!-- start of contact -->
@@ -302,17 +301,18 @@
             <div class="border-0 p-2 col-12 col-lg-6">
                 <h2 class="connect" id="contact" style="color:#00522a">Connect with us !</h2>
 
-                <div class="alert alert-red rounded-3" style="color:red" id="errors"></div>
 
                 <div>
                     <label class="email_add" style="color:#00522a">Email Address:</label>
                     <input class="form-control" type="text" id="email" placeholder="Please enter your email here" />
+                    <div style="color:red" id="email_errors"></div>
                 </div>
                 <br>
                 <div>
                     <label class="comments" style="color:#00522a">Comments:</label>
                     <textarea class="form-control" placeholder="Leave a comment here" id="form"
                         style="height: 70px"></textarea>
+                    <div style="color:red" id="input_errors"></div>
                 </div>
               <br>
               <div class="row">
@@ -331,7 +331,7 @@
                         </label>
                     </div>
                     <div class="form-radio">
-                        <input class="rating" type="radio" name="rating_name" value="Fair">
+                        <input class="rating" type="radio" name="rating_name" value="fair">
                         <label class="form-label" style="color:#00522a">
                             Fair
                         </label>
@@ -380,20 +380,25 @@
                 <button class="mt-2 btn btn-outline-light btn-sm" id="feedbackBtn"
                     style="font-size: 0.8rem; color:#00522a">Submit</button>
             </div>
+            <!-- end of contact -->
             <br>
 
             <div class=" border-0 p-2 col-12 col-lg-6">
                 <h2 class="location" style="color:#00522a">Location</h2>
                 <p class="st_address" style="color:#00522a">67 Orchard Road, #13-4645, Singapore 30897</p>
 
-                <div class="mapouter">
+                <div class="mapouterb d-none d-md-block">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7837485542004!2d103.83000971470125!3d1.3048204990483376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da199148e6febb%3A0x8e99f73f37fef4fa!2sOrchard%20Rd!5e0!3m2!1sen!2ssg!4v1642912114156!5m2!1sen!2ssg"
-                        width="550" height="273.5" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
+                <div class="mapouters d-block d-sm-block d-md-none rounded-2 ">
+                    <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7837485542004!2d103.83000971470125!3d1.3048204990483376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da199148e6febb%3A0x8e99f73f37fef4fa!2sOrchard%20Rd!5e0!3m2!1sen!2ssg!4v1642912114156!5m2!1sen!2ssg" width="330" height="260" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                     </div>
+
             </div>
 
-
+       
 
         </div>
     </section>
