@@ -30,15 +30,15 @@ L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
 }).addTo(binMap);
 
 
-// #6 Get Own Location 
-navigator.geolocation.getCurrentPosition(position => {
-    // Leaflet passes the latlng in
-    const { coords: { latitude, longitude } } = position;
-    var marker = new L.marker([latitude, longitude], {
-        draggable: true,
-        autoPan: true
-    }).addTo(binMap);
-})
+// // #6 Get Own Location 
+// navigator.geolocation.getCurrentPosition(position => {
+//     // Leaflet passes the latlng in
+//     const { coords: { latitude, longitude } } = position;
+//     var marker = new L.marker([latitude, longitude], {
+//         draggable: true,
+//         autoPan: true
+//     }).addTo(binMap);
+// })
 
 var recycleIcon = L.icon({
 
@@ -533,9 +533,9 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
     }
 });
 
-document.querySelector('#contactButton').addEventListener('click', () => {
+// document.querySelector('#contactButton').addEventListener('click', () => {
 
-});
+// });
 let searchLocations = async function () {
     searchResultLayer.clearLayers(); // get rid of the existing markers
     // clear our autocomplete search drop down
@@ -562,9 +562,27 @@ let searchLocations = async function () {
                 let resultElement = document.createElement('div');
                 resultElement.innerHTML = foundLocation.SEARCHVAL;
                 resultElement.className = 'search-result';
-                resultElement.addEventListener('click', function () {
+                resultElement.addEventListener('click', function(){
                     binMap.flyTo(coordinate, 18);
                     searchResultElement.innerHTML = "";
+                    // if (binMap.hasLayer(commonRecycleLayer)) {
+                    //     binMap.addLayer(commonRecycleLayer);
+                    // }
+                    binMap.addLayer(commonRecycleLayer);
+                     if (binMap.hasLayer(eWasteLayer)) {
+                        binMap.removeLayer(eWasteLayer);
+                    }
+            
+                     if (binMap.hasLayer(secondHandLayer)) {
+                        binMap.removeLayer(secondHandLayer);
+                    }
+
+                    if (binMap.hasLayer(lightingLayer)) {
+                        binMap.removeLayer(lightingLayer);
+                    }
+            
+                   
+                  
                 })
 
                 searchResultElement.appendChild(resultElement);
@@ -604,7 +622,17 @@ const processSearch = debounce(() => clickSearchButton());
 // const processSearch = debounce(() => clickSearchButton(), 500);
 
 document.querySelector('#searchMapBtn')
-    .addEventListener('click', searchLocations);
+    .addEventListener('click',searchLocations)
+
+    // document.querySelector('#searchMapBtn')
+    // .addEventListener('click',searchLocations,function (){
+
+    //     if (binMap.hasLayer(commonRecycleLayer)) {
+    //         binMap.removeLayer(commonRecycleLayer);
+    //     } else {
+    //         binMap.addLayer(commonRecycleLayer);
+    //     }
+    // })
 
 document.querySelector('#searchInput')
     .addEventListener('keyup', function (keyEvent) {
@@ -638,6 +666,36 @@ document.querySelector('#feedbackBtn')
             emailNotValid = true;
         }
 
+      
+            // let review = null; // before we run the for-loop, we don't
+            //                    // know which one has been selected
+        
+            // // get all the radio buttons with .rating in one array
+            // let rb = document.querySelectorAll('.rating');
+            // for (let eachRating of rb) {
+            //     // for each rating radio button, check if its .checked
+            //     // is true
+            //     if (eachRating.checked == true) {
+            //         rating = eachRating.value;
+            //         break;
+            //     }
+            // }
+        
+    
+            // let allCheckboxes = document.getElementsByClassName('input');
+            // let aboutus = [];
+            // for (let checkbox of allCheckboxes) {
+            //     if (checkbox.checked == true) {
+            //         hearAbout.push(checkbox.value);
+                
+            //     }
+            // }
+        
+            // console.log(email,form, review, aboutus);
+      
+        
+        
+
 
         let email_error = document.querySelector('#email_errors');
         // wipe out all the existing error messages
@@ -645,7 +703,7 @@ document.querySelector('#feedbackBtn')
         // check if there is any error
         if (emailNotValid) {
             email_error.style.display = 'block';
-            email_error.innerHTML += '<p class="p-2">Please enter a valid email and it should contains at least one . and at least one @</p>';
+            email_error.innerHTML += '<p class="p-2">Please enter a valid email and it should contain at least one . and at least one @</p>';
             }
         
 
