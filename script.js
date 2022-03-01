@@ -1,17 +1,3 @@
-// setup the tile layers
-// this setup the drawing of the map
-// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
-// }).addTo(binMap);
-// L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-//     maxZoom: 20,
-//     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-// })
 
 
 let singapore = [1.29, 103.85];
@@ -219,7 +205,7 @@ async function secondwaste() {
 }
 
 
-window.addEventListener("DOMContentLoaded", async function () {
+window.addEventListener("DOMContentLoaded", async function (){
 
 
     let secwaste_data = await secondwaste();
@@ -243,17 +229,7 @@ window.addEventListener("DOMContentLoaded", async function () {
 
         let marker = L.marker([lat, lng], {icon: secondIcon});
 
-        //     marker.bindPopup(`<div>
-
-        //         <strong>Description:</strong> ${description}<br>
-        //         <strong>Building Name:</strong> ${bname}<br>
-        //         <strong>Blk:</strong> ${blk}<br>
-        //         <strong>Unit:</strong> ${unit}<br>
-        //         <strong>Street Name:</strong> ${stname}<br>
-        //         <strong>Postal:</strong> ${postal}<br>
-        //         <strong>Website:</strong> ${web}<br>
-
-        // </div>`)
+     
 
         marker.bindPopup(`<div class="myMapToolTip">
                 <strong>Description:</strong> ${description}<br>
@@ -287,7 +263,7 @@ async function main() {
 
 
 
-window.addEventListener("DOMContentLoaded", async function () {
+window.addEventListener("DOMContentLoaded", async function (){
 
     let main_data = await main();
 
@@ -371,131 +347,6 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
 
-// ewaste start 2nd option
-
-// async function ewaste() {
-//     let response = await axios.get("data/ewaste-recycle.geojson");
-//     // console.log(response)
-//     return response.data.features;
-// }
-
-// let binData = [];
-// let companyType = [];
-// let markerList = [];
-// // let layerGroupAlba; 
-// // let layerGroup; 
-// window.addEventListener("DOMContentLoaded", async function () {
-//     // wait for getTaxi to finish and then store its return value
-//     // into taxiCoordinates
-//     let ewaste_data = await ewaste();
-//     // console.log(ewaste_data);
-
-//     for (let d of ewaste_data) {
-//         // each t is an array
-//         // element 0 is lng, element 1 is lat
-//         let lat = d.geometry.coordinates[1];
-//         let lng = d.geometry.coordinates[0];
-
-
-//         let dummyDiv = document.createElement('div');
-//         dummyDiv.innerHTML = d.properties.Description;
-//         let columns = dummyDiv.querySelectorAll('td');
-//         let binName = columns[0].innerHTML;
-//         let binCollectData = columns[11].innerHTML.split(";"); // xxxx; waste: abc, 123,
-//         let binCollectMethod = binCollectData[0];
-//         let binCollectItemTypes = binCollectData[1].split(":")[1];
-//         let binPlaceName = columns[8].innerHTML;
-//         let binAddress = columns[10].innerHTML;
-//         let binPostal = columns[3].innerHTML;
-//         let binInfo = {
-//             name: binName,
-//             method: binCollectMethod,
-//             collect: binCollectItemTypes,
-//             place: binPlaceName,
-//             address: binAddress,
-//             postal: binPostal,
-//             geodata: [lat, lng]
-//         }
-//         binData.push(binInfo);
-//         //ternary check
-//         let iconType = (binName.indexOf("ALBA") != -1) ? "images/battery-outline.png" : "images/battery-outline.png";
-//         // let iconShadowType = (binCollectMethod.indexOf("Bin")!= -1)?"images/vehiclecollect.png":"images/mancollect.png";
-//         let marker = L.marker([lat, lng], { icon: new DustbinBigIcon({ iconUrl: iconType }) });
-//         marker.properties = binInfo;
-//         marker.bindPopup(`<div>
-
-//         Name: ${binName}<br>
-//         Method: ${binCollectMethod}<br> 
-//         Collect: ${binCollectItemTypes}<br>
-//         Place: ${binPlaceName}<br>
-//         Address: ${binAddress}<br>
-//         Postal: ${binPostal}<br>
-
-// </div>`)
-
-//         // console.log(lng);
-
-//         marker.addTo(eWasteLayer);
-
-//     }
-//     eWasteLayer.addTo(binMap);
-
-// });
-
-/*
-        <div>
-        <center>
-        <table>
-        <tr><th colspan='2' align='center'><em>Attributes</em></th></tr><tr bgcolor="#E3E3F3"> <th>NAME</th> 
-        <td>NEA Producer Responsibility Scheme - ALBA E-waste Recycling Programme</td></tr> 0
-        <tr bgcolor=""> <th>LANDXADDRESSPOINT</th> <td></td> </tr> 1
-        <tr bgcolor="#E3E3F3"> <th>PHOTOURL</th> <td></td> </tr> 2
-        <tr bgcolor=""> <th>ADDRESSPOSTALCODE</th> <td>608549</td> </tr> 3
-        <tr bgcolor="#E3E3F3"> <th>LANDYADDRESSPOINT</th> <td></td> </tr> 4
-        <tr bgcolor=""> <th>HYPERLINK</th> <td>https://alba-ewaste.sg; https://go.gov.sg/e-waste</td> </tr> 5
-        <tr bgcolor="#E3E3F3"> <th>ADDRESSUNITNUMBER</th> <td></td> </tr> 6
-        <tr bgcolor=""> <th>ADDRESSFLOORNUMBER</th> <td></td> </tr> 7
-        <tr bgcolor="#E3E3F3"> <th>ADDRESSBUILDINGNAME</th> <td>COURTS @ JEM</td> </tr> 8
-        <tr bgcolor=""> <th>ADDRESSBLOCKHOUSENUMBER</th> <td></td> </tr> 9
-        <tr bgcolor="#E3E3F3"> <th>ADDRESSSTREETNAME</th> <td>50 JURONG GATEWAY ROAD, JEM, #04-30</td> </tr> 10
-        <tr bgcolor=""> <th>DESCRIPTION</th> <td>Bin collection; E-waste accepted: ICT equipment, Batteries and Lamps only</td> </tr> 11
-        <tr bgcolor="#E3E3F3"> <th>INC_CRC</th> <td>F0F20CDE76F503E4</td> </tr> 12
-        <tr bgcolor=""> <th>FMEL_UPD_D</th> <td>20210920165422</td> </tr> 13
-        </table>
-        </center>
-        </div>
-        */
-
-
-
-
-
-
-
-//console.log(binData)
-
-// let nameList = []
-// let collectList = []
-// for(let binInfo of binData){
-//     if(nameList.indexOf(binInfo.name) == -1){
-//         nameList.push(binInfo.name);
-//     }
-
-//     if(collectList.indexOf(binInfo.collect) == -1){
-//         collectList.push(binInfo.collect);
-//     }
-// }
-
-// console.log(binData);
-//console.log(collectList);
-//markerClusterLayer.addTo(map);
-
-
-
-
-
-
-
 
 
 
@@ -505,11 +356,11 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
     isShowCluster = !isShowCluster;
     if (isShowCluster == true) {
         //remove non clustering layer 
-        if (binMap.hasLayer(eWasteLayerOff)) {
+        if (binMap.hasLayer(eWasteLayerOff)){
             binMap.removeLayer(eWasteLayerOff);
         }
 
-        if (binMap.hasLayer(secondHandLayerOff)) {
+        if (binMap.hasLayer(secondHandLayerOff)){
             binMap.removeLayer(secondHandLayerOff);
         }
 
@@ -518,11 +369,11 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
         binMap.addLayer(secondHandLayer);
     } else {
         //remove clustering layer 
-        if (binMap.hasLayer(eWasteLayer)) {
+        if (binMap.hasLayer(eWasteLayer)){
             binMap.removeLayer(eWasteLayer);
         }
 
-        if (binMap.hasLayer(secondHandLayer)) {
+        if (binMap.hasLayer(secondHandLayer)){
             binMap.removeLayer(secondHandLayer);
         }
 
@@ -624,15 +475,6 @@ const processSearch = debounce(() => clickSearchButton());
 document.querySelector('#searchMapBtn')
     .addEventListener('click',searchLocations)
 
-    // document.querySelector('#searchMapBtn')
-    // .addEventListener('click',searchLocations,function (){
-
-    //     if (binMap.hasLayer(commonRecycleLayer)) {
-    //         binMap.removeLayer(commonRecycleLayer);
-    //     } else {
-    //         binMap.addLayer(commonRecycleLayer);
-    //     }
-    // })
 
 document.querySelector('#searchInput')
     .addEventListener('keyup', function (keyEvent) {
@@ -654,6 +496,7 @@ document.querySelector('#feedbackBtn')
         let form = document.querySelector('#form');
         if (!form.value) {
             NoInput = true;
+            // console.log(form.value)
         }
         // else if (form.length < 3) {
         //     TooShort = true;
@@ -664,35 +507,37 @@ document.querySelector('#feedbackBtn')
         // to be a valid
         if (!email.value.includes('.') || !email.value.includes('@')) {
             emailNotValid = true;
+            // console.log(email.value)
         }
 
       
-            // let review = null; // before we run the for-loop, we don't
-            //                    // know which one has been selected
+            let review = null; // before we run the for-loop, we don't
+                               // know which one has been selected
         
-            // // get all the radio buttons with .rating in one array
-            // let rb = document.querySelectorAll('.rating');
-            // for (let eachRating of rb) {
-            //     // for each rating radio button, check if its .checked
-            //     // is true
-            //     if (eachRating.checked == true) {
-            //         rating = eachRating.value;
-            //         break;
-            //     }
-            // }
+            // get all the radio buttons with .rating in one array
+            let rb = document.querySelectorAll('.rating');
+            for (let eachRating of rb) {
+                // for each rating radio button, check if its .checked
+                // is true
+                if (eachRating.checked == true) {
+                    review = eachRating.value; 
+                    break;
+                }
+            }
         
     
-            // let allCheckboxes = document.getElementsByClassName('input');
-            // let aboutus = [];
-            // for (let checkbox of allCheckboxes) {
-            //     if (checkbox.checked == true) {
-            //         hearAbout.push(checkbox.value);
-                
-            //     }
-            // }
-        
-            // console.log(email,form, review, aboutus);
-      
+            let allCheckboxes = document.getElementsByClassName('input');
+            let aboutus = [];
+            for (let checkbox of allCheckboxes){
+                if (checkbox.checked == true){
+                    aboutus.push(checkbox.value);
+                    aboutus.innerHTML += checkbox.checked
+                }
+              
+            }
+
+            console.log(email.value,form.value,review,aboutus);
+          
         
         
 
@@ -701,7 +546,7 @@ document.querySelector('#feedbackBtn')
         // wipe out all the existing error messages
         email_error.innerHTML = '';
         // check if there is any error
-        if (emailNotValid) {
+        if (emailNotValid){
             email_error.style.display = 'block';
             email_error.innerHTML += '<p class="p-2">Please enter a valid email and it should contain at least one . and at least one @</p>';
             }
@@ -722,8 +567,8 @@ document.querySelector('#feedbackBtn')
         else {
             // Pop up submit successfully
             var myModal = new bootstrap.Modal(document.getElementById('feedBackModal'))
-            email.value = "";
-            form.value = "";
+            // email.value = "";
+            // form.value = "";
             myModal.show();
         }
 
