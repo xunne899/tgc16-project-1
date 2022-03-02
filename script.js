@@ -516,24 +516,27 @@ document.querySelector('#feedbackBtn')
         
             // get all the radio buttons with .rating in one array
             let rb = document.querySelectorAll('.rating');
-            for (let eachRating of rb) {
+            for (let oneRating of rb) {
                 // for each rating radio button, check if its .checked
                 // is true
-                if (eachRating.checked == true) {
-                    review = eachRating.value; 
+                if (oneRating.checked == true) {
+                    review = oneRating.value; 
                     break;
                 }
             }
         
     
-            let allCheckboxes = document.getElementsByClassName('input');
+            let allCheckboxes = document.getElementsByClassName('tick');
             let aboutus = [];
             for (let checkbox of allCheckboxes){
                 if (checkbox.checked == true){
                     aboutus.push(checkbox.value);
                     aboutus.innerHTML += checkbox.checked
                 }
-              
+           
+                
+
+               
             }
 
             console.log(email.value,form.value,review,aboutus);
@@ -571,6 +574,16 @@ document.querySelector('#feedbackBtn')
             // form.value = "";
             myModal.show();
         }
+        document.querySelector('#results').innerHTML = `
+       <p style="text-align:left;">
+      <strong>Email:</strong> ${email.value}<br> 
+      <strong>Comments:</strong> ${form.value}<br>
+      <strong>Rating:</strong> ${review}<br>
+      <strong>Heard about us:</strong> ${aboutus}<br>
+       </p>`
+       
+    
+
 
         // console.log("Comments not provided =", NotProvided);
         // console.log("email not valid =", emailNotValid);

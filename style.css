@@ -29,10 +29,8 @@
 /* #page-2 {
     background-color: #080808;
 }
-
 #page-3 {
     background-color: #101010;
-
 } */
 #all-pages {
     position: relative;
@@ -111,6 +109,14 @@
     object-fit:cover
     
  }
+
+ .mapToggleButtons{
+    position:absolute;
+    top:410px;
+    left:10px;
+    z-index: 505;
+    display:block;
+}
 } 
  
 
@@ -119,18 +125,22 @@
 
 @media screen and (max-width: 599px) { 
     .recycleMap {
-        /* Difference screen size,
-        show differnt map width and height @media screen {} */
-        height: 250px;
+    
+        height: 350px;
         width: 100vw;
-        /* width: 300px; */
-        /* height: fit-content;
-        width: fit-content; */
-        /* width: 100%; height: 100%; */
-        /* margin: auto;
-        object-fit:cover */
+
+        margin: auto;
+        object-fit:cover
+     
         
       }
+      .mapToggleButtons{
+        position:absolute;
+        top:310px;
+        left:10px;
+        z-index: 505;
+        display:block;
+    }
   }  
 
 .leaflet-control-attribution.leaflet-control {
@@ -201,15 +211,7 @@ html,body{
         right: 10%;
         opacity: 0.8;
     }
-    /* .row {
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: calc(var(--bs-gutter-y) * -1);
-        margin-right: calc(var(--bs-gutter-x));
-        margin-left: calc(var(--bs-gutter-x) * -.5);
-    } */
+
 }
 
 
@@ -224,13 +226,7 @@ html,body{
     z-index: 505;
 }
 
-.mapToggleButtons{
-    position:absolute;
-    top:310px;
-    left:10px;
-    z-index: 505;
-    display:block;
-}
+
 
 #toggle-cluster-btn{
     /* position:absolute;
@@ -266,7 +262,6 @@ html,body{
 
 /* #searchMapBtn{
     z-index: 505;
-
 }
                      */
 .border-success{
@@ -297,5 +292,3 @@ html,body{
     margin: 10px auto;
    
 }
-
-
