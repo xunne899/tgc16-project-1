@@ -117,9 +117,8 @@
     z-index: 505;
     display:block;
 }
-} 
  
-
+ }
 
 
 
@@ -141,11 +140,22 @@
         z-index: 505;
         display:block;
     }
+    .reuse img {
+        width: 400px;
+        height: 350px;
+        display: block;
+        margin: 10px auto;
+       
+    }
+
+
+
   }  
 
 .leaflet-control-attribution.leaflet-control {
     display:none;
 }
+
 
 
 
