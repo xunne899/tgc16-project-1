@@ -234,14 +234,15 @@
             <!-- <div class="leaflet-top leaflet-right pe-4"></div> -->
             
             <div class="input-group mb-3 row col-12 col-sm-6 mapSearchDiv">
-                <div class="marginAuto">
+                <div class="searchResultWrapper marginAuto">
                     <input type="text" class="form-control searchbar" id="searchInput" placeholder="Search Location"
                         aria-label="Search Location" aria-describedby="button-addon2">
                     <button class="btn btn-primary searchButton" type="button" id="searchMapBtn">Find</button>
                 </div>
             </div>
-            <div class="marginAuto">
-                <div id="search-results" class="searchList col-12 col-sm-4"></div>
+            <div class="searchResultWrapper marginAuto">
+                <div id="search-results" class="searchList col-12 col-sm-4">
+                </div>
             </div>
             <div class="mapToggleButtons">
                 <button type="button" id="toggle-cluster-btn" class="btn btn-primary btn-sm ms-2 mb-1 mt-2"
@@ -250,16 +251,18 @@
                     style="font-size: 0.5rem ">General Waste</button>
             </div>
         </div>
-        <section>
-            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-                data-bs-content="E-Waste">
-                <img class="legendIcon" src="images/battery-outline.png" />
-            </span>
+        <section class="legendSection">
+            <div class="legendWrapper marginAuto">
+                <span id="eWasteLegend" class="d-inline-block legendPop" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-toggle="popover" tab-index="0"
+                    data-bs-content="E-Waste">
+                    <img class="legendIcon" src="images/battery-outline.png" />
+                </span>
 
-            <span class="d-inline-block" tabindex="1" data-bs-toggle="popover" data-bs-trigger="hover focus"
-                data-bs-content="General Waste">
-                <img class="legendIcon" src="images/recycle-bin.png" />
-            </span>
+                <span id="gWasteLegend" class="d-inline-block legendPop" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-toggle="popover" tab-index="1"
+                    data-bs-content="General Waste">
+                    <img class="legendIcon" src="images/recycle-bin.png" />
+                </span>
+            </div>
         </section>
     </div>
     <!-- <div id="contactButton" class="d-flex justify-content-center contactUsButton">

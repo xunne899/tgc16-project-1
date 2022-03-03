@@ -390,14 +390,13 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
 let searchLocations = async function () {
     searchResultLayer.clearLayers(); // get rid of the existing markers
     // clear our autocomplete search drop down
-    let searchResultElement = document.querySelector("#search-results");
-    searchResultElement.innerHTML = "";
+    let searchResultContainer = document.querySelector("#search-results");
+    searchResultContainer.innerHTML = "";
     let searchInput = document.querySelector('#searchInput');
     if (searchInput.value == "") {
         return;
     }
     let searchMapRes = await getAddress(searchInput.value);
-
 
     // if status is 200 then process the address datas for user to choose
     if (searchMapRes.status == 200) {
@@ -406,16 +405,15 @@ let searchLocations = async function () {
         console.log(searchMapRes)
         if (searchMapRes.found > 0) {
             //console.log("A")
-
             for (let foundLocation of searchMapRes.results) {
-                // console.log("B")
+                 console.log("B")
                 let coordinate = [foundLocation.LATITUDE, foundLocation.LONGITUDE];
                 let resultElement = document.createElement('div');
-                resultElement.innerHTML = foundLocation.SEARCHVAL;
+                resultElement.innerHTML = foundLocation.ADDRESS;
                 resultElement.className = 'search-result';
                 resultElement.addEventListener('click', function(){
                     binMap.flyTo(coordinate, 18);
-                    searchResultElement.innerHTML = "";
+                    searchResultContainer.innerHTML = "";
                     // if (binMap.hasLayer(commonRecycleLayer)) {
                     //     binMap.addLayer(commonRecycleLayer);
                     // }
@@ -436,9 +434,15 @@ let searchLocations = async function () {
                   
                 })
 
-                searchResultElement.appendChild(resultElement);
+                searchResultContainer.appendChild(resultElement);
             }
-
+            
+        }
+        else{
+            let resultElement = document.createElement('div');
+            resultElement.innerHTML = "No results";
+            resultElement.className = 'search-result errorResult';
+            searchResultContainer.appendChild(resultElement);
         }
     }
 
@@ -613,30 +617,61 @@ document.querySelector('#feedbackBtn')
 
 // });
 
-let allButtons = document.querySelectorAll('#navbar li')
+// let allButtons = document.querySelectorAll('#navbar li')
 
-for (let btn of allButtons) {
-    btn.addEventListener('click', function (event) {
+// for (let btn of allButtons) {
+//     btn.addEventListener('click', function (event) {
 
-        let selectedBtn = event.target;
-        let pageNumber = selectedBtn.dataset.page;
+//         let selectedBtn = event.target;
+//         let pageNumber = selectedBtn.dataset.page;
 
-        let pages = document.querySelectorAll('.page');
-        // hide all the pages
-        for (let p of pages) {
-            // it is ok to attempt to remove a class
-            // from an element even if that element does not have it
-            p.classList.remove('show');
-            p.classList.add('hidden');
-        }
+//         let pages = document.querySelectorAll('.page');
+//         // hide all the pages
+//         for (let p of pages) {
+//             // it is ok to attempt to remove a class
+//             // from an element even if that element does not have it
+//             p.classList.remove('show');
+//             p.classList.add('hidden');
+//         }
 
-        let page = document.querySelector('#page-' + pageNumber);
-        page.classList.remove('hidden');
-        page.classList.add('show');
-    })
+//         let page = document.querySelector('#page-' + pageNumber);
+//         page.classList.remove('hidden');
+//         page.classList.add('show');
+//     })
 
 
 
-}
-[...document.querySelectorAll('[data-bs-toggle="popover"]')]
-    .forEach(el => new bootstrap.Popover(el));
+// }
+
+// [...document.querySelectorAll('[data-bs-toggle="popover"]')]
+//     .forEach(el => new bootstrap.Popover(el));
+
+// document.querySelectorAll('#navbar li') -> //*[@id='navbar']/li
+// searchMapBtn -> //button[@id='searchMapBtn']
+  
+let eWasteElem  = document.getElementById('eWasteLegend');
+var eWastePopover = new bootstrap.Popover(eWasteElem);
+let gWasteElem  = document.getElementById('gWasteLegend');
+var gWastePopover = new bootstrap.Popover(gWasteElem);
+let testThis = document.querySelector('#toggle-cluster-btn');
+testThis.addEventListener('mouseover', function(){
+    console.log("Hello")
+    eWastePopover.show();
+});
+testThis.addEventListener('mouseout', function(){
+    console.log("Bye")
+    eWastePopover.hide();
+});
+
+let lightingSpan = document.evaluate("//div[@class='leaflet-control-layers-overlays']/label/div/span[contains(text(), 'Lighting')]", document, null, XPathResult.ANY_TYPE, null);
+// lightingSpan.addEventListener('hover', function(){
+//     console.log("Hello try");
+//     eWastePopover.show();
+// });
+
+
+let secondHandSpan = document.evaluate("//div[@class='leaflet-control-layers-overlays']/label/div/span[contains(text(), 'Second')]", document, null, XPathResult.ANY_TYPE, null);
+
+let eWasteSpan = document.evaluate("//div[@class='leaflet-control-layers-overlays']/label/div/span[contains(text(), 'E-Waste')]", document, null, XPathResult.ANY_TYPE, null);
+
+
