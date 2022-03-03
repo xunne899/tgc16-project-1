@@ -11,7 +11,7 @@ let binMap = L.map('singaporeMap', {
 L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
     detectRetina: true,
     maxZoom: 19,
-    minZoom: 5,
+    minZoom: 9,
     // attribution: '<img src="https://docs.onemap.gov.sg/maps/images/oneMap64-01.png" style="height:40px;width:40px;"/> OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
 }).addTo(binMap);
 
@@ -71,15 +71,15 @@ var secondIcon = L.icon({
 
 
 
-    // [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
-    //   .forEach(el => new bootstrap.Tooltip(el));
+// [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+//   .forEach(el => new bootstrap.Tooltip(el));
 
 
 
-    let clusterConfig = {
-        spiderfyOnMaxZoom: false,
-        disableClusteringAtZoom: 17
-    };
+let clusterConfig = {
+    spiderfyOnMaxZoom: false,
+    disableClusteringAtZoom: 17
+};
 
 let clusterConfigOff = {
     spiderfyOnMaxZoom: false,
@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", async function () {
         let stname = columns[12].innerHTML;
         let postal = columns[2].innerHTML;
 
-        let marker = L.marker([lat, lng], {icon: lightIcon});
+        let marker = L.marker([lat, lng], { icon: lightIcon });
 
         marker.bindPopup(`<div>
                     Description: ${description}<br>
@@ -205,7 +205,7 @@ async function secondwaste() {
 }
 
 
-window.addEventListener("DOMContentLoaded", async function (){
+window.addEventListener("DOMContentLoaded", async function () {
 
 
     let secwaste_data = await secondwaste();
@@ -227,9 +227,9 @@ window.addEventListener("DOMContentLoaded", async function (){
         let postal = columns[7].innerHTML;
         let web = columns[3].innerHTML;
 
-        let marker = L.marker([lat, lng], {icon: secondIcon});
+        let marker = L.marker([lat, lng], { icon: secondIcon });
 
-     
+
 
         marker.bindPopup(`<div class="myMapToolTip">
                 <strong>Description:</strong> ${description}<br>
@@ -263,7 +263,7 @@ async function main() {
 
 
 
-window.addEventListener("DOMContentLoaded", async function (){
+window.addEventListener("DOMContentLoaded", async function () {
 
     let main_data = await main();
 
@@ -356,11 +356,11 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
     isShowCluster = !isShowCluster;
     if (isShowCluster == true) {
         //remove non clustering layer 
-        if (binMap.hasLayer(eWasteLayerOff)){
+        if (binMap.hasLayer(eWasteLayerOff)) {
             binMap.removeLayer(eWasteLayerOff);
         }
 
-        if (binMap.hasLayer(secondHandLayerOff)){
+        if (binMap.hasLayer(secondHandLayerOff)) {
             binMap.removeLayer(secondHandLayerOff);
         }
 
@@ -369,11 +369,11 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
         binMap.addLayer(secondHandLayer);
     } else {
         //remove clustering layer 
-        if (binMap.hasLayer(eWasteLayer)){
+        if (binMap.hasLayer(eWasteLayer)) {
             binMap.removeLayer(eWasteLayer);
         }
 
-        if (binMap.hasLayer(secondHandLayer)){
+        if (binMap.hasLayer(secondHandLayer)) {
             binMap.removeLayer(secondHandLayer);
         }
 
@@ -406,39 +406,39 @@ let searchLocations = async function () {
         if (searchMapRes.found > 0) {
             //console.log("A")
             for (let foundLocation of searchMapRes.results) {
-                 console.log("B")
+                console.log("B")
                 let coordinate = [foundLocation.LATITUDE, foundLocation.LONGITUDE];
                 let resultElement = document.createElement('div');
                 resultElement.innerHTML = foundLocation.ADDRESS;
                 resultElement.className = 'search-result';
-                resultElement.addEventListener('click', function(){
+                resultElement.addEventListener('click', function () {
                     binMap.flyTo(coordinate, 18);
                     searchResultContainer.innerHTML = "";
                     // if (binMap.hasLayer(commonRecycleLayer)) {
                     //     binMap.addLayer(commonRecycleLayer);
                     // }
                     binMap.addLayer(commonRecycleLayer);
-                     if (binMap.hasLayer(eWasteLayer)) {
+                    if (binMap.hasLayer(eWasteLayer)) {
                         binMap.removeLayer(eWasteLayer);
                     }
-            
-                     if (binMap.hasLayer(secondHandLayer)) {
+
+                    if (binMap.hasLayer(secondHandLayer)) {
                         binMap.removeLayer(secondHandLayer);
                     }
 
                     if (binMap.hasLayer(lightingLayer)) {
                         binMap.removeLayer(lightingLayer);
                     }
-            
-                   
-                  
+
+
+
                 })
 
                 searchResultContainer.appendChild(resultElement);
             }
-            
+
         }
-        else{
+        else {
             let resultElement = document.createElement('div');
             resultElement.innerHTML = "No results";
             resultElement.className = 'search-result errorResult';
@@ -448,6 +448,33 @@ let searchLocations = async function () {
 
 }
 
+
+document.querySelector('#subscribeBtn')
+    .addEventListener('click', function () {
+
+
+        let subscribemailNotValid = false;
+
+        let subscribe = document.querySelector("#subscribe");
+        // if the email contains an @ and a '.' is considered
+        // to be a valid
+        if (!subscribe.value.includes('.') || !subscribe.value.includes('@')||!subscribe.value) {
+            subscribemailNotValid = true;
+            // console.log(email.value)
+        }
+
+
+        let subscribe_error = document.querySelector('#subscribe_error');
+        // wipe out all the existing error messages
+        subscribe_error.innerHTML = '';
+        // check if there is any error
+        if (subscribemailNotValid) {
+            subscribe_error.style.display = 'block';
+            subscribe_error.innerHTML += '<p class="p-2">Please enter a valid email'
+        }
+
+
+    })
 // function ValidateEmail(mail) {
 //     emailRejex
 //     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)) {
@@ -477,7 +504,7 @@ const processSearch = debounce(() => clickSearchButton());
 // const processSearch = debounce(() => clickSearchButton(), 500);
 
 document.querySelector('#searchMapBtn')
-    .addEventListener('click',searchLocations)
+    .addEventListener('click', searchLocations)
 
 
 document.querySelector('#searchInput')
@@ -509,55 +536,53 @@ document.querySelector('#feedbackBtn')
         let email = document.querySelector("#email");
         // if the email contains an @ and a '.' is considered
         // to be a valid
-        if (!email.value.includes('.') || !email.value.includes('@')) {
+        if (!email.value.includes('.') || !email.value.includes('@')||!email.value) {
             emailNotValid = true;
             // console.log(email.value)
         }
 
-      
-            let review = null; // before we run the for-loop, we don't
-                               // know which one has been selected
-        
-            // get all the radio buttons with .rating in one array
-            let rb = document.querySelectorAll('.rating');
-            for (let oneRating of rb) {
-                // for each rating radio button, check if its .checked
-                // is true
-                if (oneRating.checked == true) {
-                    review = oneRating.value; 
-                    break;
-                }
-            }
-        
-    
-            let allCheckboxes = document.getElementsByClassName('tick');
-            let aboutus = [];
-            for (let checkbox of allCheckboxes){
-                if (checkbox.checked == true){
-                    aboutus.push(checkbox.value);
-                    aboutus.innerHTML += checkbox.checked
-                }
-           
-                
 
-               
+        let review = null; // before we run the for-loop, we don't
+        // know which one has been selected
+
+        // get all the radio buttons with .rating in one array
+        let rb = document.querySelectorAll('.rating');
+        for (let oneRating of rb) {
+            // for each rating radio button, check if its .checked
+            // is true
+            if (oneRating.checked == true) {
+                review = oneRating.value;
+                break;
+            }
+        }
+
+
+        let allCheckboxes = document.getElementsByClassName('tick');
+        let aboutus = [];
+        for (let checkbox of allCheckboxes) {
+            if (checkbox.checked == true) {
+                aboutus.push(checkbox.value);
+                aboutus.innerHTML += checkbox.checked
             }
 
-            console.log(email.value,form.value,review,aboutus);
-          
-        
-        
+
+        }
+
+        console.log(email.value, form.value, review, aboutus);
+
+
+
 
 
         let email_error = document.querySelector('#email_errors');
         // wipe out all the existing error messages
         email_error.innerHTML = '';
         // check if there is any error
-        if (emailNotValid){
+        if (emailNotValid) {
             email_error.style.display = 'block';
-            email_error.innerHTML += '<p class="p-2">Please enter a valid email and it should contain at least one . and at least one @</p>';
-            }
-        
+            email_error.innerHTML += '<p class="p-2">Please enter a valid email and it should contain one . and one @</p>';
+        }
+
 
 
 
@@ -568,9 +593,9 @@ document.querySelector('#feedbackBtn')
         if (NoInput) {
             input_error.style.display = 'block';
             // if (NoInput) {
-                // use += to append instead of overwrite
-                input_error.innerHTML += `<p class="p-2">Please provide your comments</p>`;
-            }
+            // use += to append instead of overwrite
+            input_error.innerHTML += `<p class="p-2">Please provide your comments</p>`;
+        }
         else {
             // Pop up submit successfully
             var myModal = new bootstrap.Modal(document.getElementById('feedBackModal'))
@@ -585,8 +610,8 @@ document.querySelector('#feedbackBtn')
       <strong>Rating:</strong> ${review}<br>
       <strong>Heard about us:</strong> ${aboutus}<br>
        </p>`
-       
-    
+
+
 
 
         // console.log("Comments not provided =", NotProvided);
@@ -648,17 +673,29 @@ document.querySelector('#feedbackBtn')
 
 // document.querySelectorAll('#navbar li') -> //*[@id='navbar']/li
 // searchMapBtn -> //button[@id='searchMapBtn']
-  
-let eWasteElem  = document.getElementById('eWasteLegend');
-var eWastePopover = new bootstrap.Popover(eWasteElem);
-let gWasteElem  = document.getElementById('gWasteLegend');
-var gWastePopover = new bootstrap.Popover(gWasteElem);
-let testThis = document.querySelector('#toggle-cluster-btn');
-testThis.addEventListener('mouseover', function(){
+
+let eWasteElem = document.getElementById('legendIcon').addEventListener('click', function () {
     console.log("Hello")
     eWastePopover.show();
-});
-testThis.addEventListener('mouseout', function(){
+    if (binMap.hasLayer(eWasteLayer)) {
+        binMap.removeLayer(eWasteLayer);
+    }
+    else{binMap.addLayer(eWasteLayer)}
+})
+
+var eWastePopover = new bootstrap.Popover(eWasteElem);
+let gWasteElem = document.getElementById('gWasteLegend');
+var gWastePopover = new bootstrap.Popover(gWasteElem);
+let testThis = document.querySelector('#toggle-cluster-btn');
+// document..addEventListener('click', function () {
+//     console.log("Hello")
+//     eWastePopover.show();
+//     if (binMap.hasLayer(eWasteLayerOff)) {
+//         binMap.removeLayer(eWasteLayerOff);
+//     }
+//     else{binMap.addLayer(eWasteLayerOff)}
+// });
+testThis.addEventListener('mouseout', function () {
     console.log("Bye")
     eWastePopover.hide();
 });
