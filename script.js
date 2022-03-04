@@ -92,7 +92,7 @@ let secondHandLayer = L.markerClusterGroup(clusterConfig);
 let eWasteLayer = L.markerClusterGroup(clusterConfig);
 let secondHandLayerOff = L.markerClusterGroup(clusterConfigOff);
 let eWasteLayerOff = L.markerClusterGroup(clusterConfigOff);
-let searchResultLayer = L.layerGroup();
+//let searchResultLayer = L.layerGroup();
 
 let baselays = {
     'Common': commonRecycleLayer
@@ -103,18 +103,50 @@ let overlays = {
     'E-Waste': eWasteLayer
 }
 
-document.querySelector('#btnToggle')
-    .addEventListener('click', function () {
+let overlaysOff = {
+    'Lighting': lightingLayer,
+    'Second hand -': secondHandLayerOff,
+    'E-Waste -': eWasteLayerOff
+}
 
-        if (binMap.hasLayer(commonRecycleLayer)) {
-            binMap.removeLayer(commonRecycleLayer);
-        } else {
-            binMap.addLayer(commonRecycleLayer);
-        }
-    })
+// Legend Elements
+let gWasteElem = document.getElementById('gWasteLegend')
+let eWasteElem = document.getElementById('eWasteLegend');
+let lightingElem = document.getElementById('lightingLegend')
+let secondHandElem = document.getElementById('secondHandLegend');
+gWasteElem.style.opacity = 1.0;
+eWasteElem.style.opacity = 1.0;
+lightingElem.style.opacity = 1.0;
+secondHandElem.style.opacity = 1.0;
 
-L.control.layers(baselays, overlays).addTo(binMap);
-searchResultLayer.addTo(binMap);
+// Tooltips are opt-in for performance reasons, so you must initialize them yourself.
+let gWastePopover = new bootstrap.Popover(gWasteElem);
+let eWastePopover = new bootstrap.Popover(eWasteElem);
+let lightingPopover = new bootstrap.Popover(lightingElem);
+let secondHandPopover = new bootstrap.Popover(secondHandElem);
+
+let generalWasteBtn = document.querySelector('#btnToggle');
+generalWasteBtn.innerHTML = "Hide General Waste";
+generalWasteBtn.setAttribute("class", "btn btn-danger btn-sm ms-2 mb-1 mt-2");
+generalWasteBtn.addEventListener('click', function () {
+
+    if (binMap.hasLayer(commonRecycleLayer)) {
+        binMap.removeLayer(commonRecycleLayer);
+        generalWasteBtn.innerHTML = "Show General Waste";
+        generalWasteBtn.setAttribute("class", "btn btn-primary btn-sm ms-2 mb-1 mt-2");
+    } else {
+        binMap.addLayer(commonRecycleLayer);
+        generalWasteBtn.innerHTML = "Hide General Waste";
+        generalWasteBtn.setAttribute("class", "btn btn-danger btn-sm ms-2 mb-1 mt-2");
+    }
+})
+
+let controlCluster = L.control.layers(baselays, overlays); // config for control
+let controlNonCluster = L.control.layers(baselays, overlaysOff); // config for control
+controlCluster.addTo(binMap)
+
+
+//searchResultLayer.addTo(binMap);
 
 async function getAddress(searchData) {
     let response = { status: 400 };
@@ -178,12 +210,12 @@ window.addEventListener("DOMContentLoaded", async function () {
         let marker = L.marker([lat, lng], { icon: lightIcon });
 
         marker.bindPopup(`<div>
-                    Description: ${description}<br>
-                    Building Name: ${bname}<br>
-                    Blk: ${blk}<br>
-                    Unit: ${unit}<br>
-                    Street Name: ${stname}<br>
-                    Postal: ${postal}<br>
+        <strong>Description:</strong> ${description}<br>
+        <strong>Building Name:</strong> ${bname}<br>
+        <strong>Blk:</strong> ${blk}<br>
+        <strong>Unit:</strong> ${unit}<br>
+        <strong>Street Name:</strong> ${stname}<br>
+        <strong>Postal:</strong> ${postal}<br>
                 
             </div>`)
 
@@ -285,12 +317,12 @@ window.addEventListener("DOMContentLoaded", async function () {
         let marker = L.marker([lat, lng], { icon: recycleIcon });
         marker.bindPopup(`<div class = "recycle">
                 
-                    Description: ${description}<br>
-                    Collection: ${collection}<br>
-                    Blk: ${blk}<br>
-                    Unit: ${unit}<br>
-                    Street name: ${stname}<br>
-                    Postal: ${postal}<br>
+                    <strong>Description:</strong> ${description}<br>
+                    <strong>Collection:</strong> ${collection}<br>
+                    <strong>Blk:</strong> ${blk}<br>
+                    <strong>Unit:</strong> ${unit}<br>
+                    <strong>Street name:</strong> ${stname}<br>
+                    <strong>Postal:</strong> ${postal}<br>
                 
             </div>`)
         marker.addTo(commonRecycleLayer);
@@ -352,34 +384,60 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
 let isShowCluster = true;
-document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
+let showClusterButton = document.querySelector('#toggle-cluster-btn');
+showClusterButton.innerHTML = "Hide Cluster";
+showClusterButton.setAttribute("class", "btn btn-danger btn-sm ms-2 mb-1 mt-2");
+
+showClusterButton.addEventListener('click', () => {
     isShowCluster = !isShowCluster;
     if (isShowCluster == true) {
+        showClusterButton.innerHTML = "Hide Cluster";
+        showClusterButton.setAttribute("class", "btn btn-danger btn-sm ms-2 mb-1 mt-2");
+        binMap.removeControl(controlNonCluster);
+        controlCluster.addTo(binMap);
+
         //remove non clustering layer 
-        if (binMap.hasLayer(eWasteLayerOff)) {
-            binMap.removeLayer(eWasteLayerOff);
+        if (eWasteElem.style.opacity >= 1) {
+            if (binMap.hasLayer(eWasteLayerOff)) {
+                binMap.removeLayer(eWasteLayerOff);
+            }
+            // adding clustering layer
+            binMap.addLayer(eWasteLayer);
         }
 
-        if (binMap.hasLayer(secondHandLayerOff)) {
-            binMap.removeLayer(secondHandLayerOff);
+        if (secondHandElem.style.opacity >= 1) {
+            if (binMap.hasLayer(secondHandLayerOff)) {
+                binMap.removeLayer(secondHandLayerOff);
+            }
+
+            // adding clustering layer
+            binMap.addLayer(secondHandLayer);
         }
 
-        // adding clustering layer
-        binMap.addLayer(eWasteLayer);
-        binMap.addLayer(secondHandLayer);
+
     } else {
-        //remove clustering layer 
-        if (binMap.hasLayer(eWasteLayer)) {
-            binMap.removeLayer(eWasteLayer);
+        binMap.removeControl(controlCluster);
+        controlNonCluster.addTo(binMap);
+        showClusterButton.innerHTML = "Show Cluster";
+        showClusterButton.setAttribute("class", "btn btn-primary btn-sm ms-2 mb-1 mt-2");
+
+        if (eWasteElem.style.opacity >= 1) {
+            //remove clustering layer 
+            if (binMap.hasLayer(eWasteLayer)) {
+                binMap.removeLayer(eWasteLayer);
+            }
+            // adding non clustering layer
+            binMap.addLayer(eWasteLayerOff);
         }
 
-        if (binMap.hasLayer(secondHandLayer)) {
-            binMap.removeLayer(secondHandLayer);
-        }
+        if (secondHandElem.style.opacity >= 1) {
+            if (binMap.hasLayer(secondHandLayer)) {
+                binMap.removeLayer(secondHandLayer);
+            }
 
-        // adding non clustering layer
-        binMap.addLayer(eWasteLayerOff);
-        binMap.addLayer(secondHandLayerOff);
+            // adding non clustering layer
+            binMap.addLayer(secondHandLayerOff);
+        }
 
     }
 });
@@ -388,7 +446,7 @@ document.querySelector('#toggle-cluster-btn').addEventListener('click', () => {
 
 // });
 let searchLocations = async function () {
-    searchResultLayer.clearLayers(); // get rid of the existing markers
+    //searchResultLayer.clearLayers(); // get rid of the existing markers
     // clear our autocomplete search drop down
     let searchResultContainer = document.querySelector("#search-results");
     searchResultContainer.innerHTML = "";
@@ -458,9 +516,15 @@ document.querySelector('#subscribeBtn')
         let subscribe = document.querySelector("#subscribe");
         // if the email contains an @ and a '.' is considered
         // to be a valid
-        if (!subscribe.value.includes('.') || !subscribe.value.includes('@')||!subscribe.value) {
+        if (!subscribe.value.includes('.') || !subscribe.value.includes('@') || !subscribe.value) {
             subscribemailNotValid = true;
             // console.log(email.value)
+        }
+        else {
+            alert(
+                `
+            ${subscribe.value}
+             We have received your subscription. Thank you.`)
         }
 
 
@@ -496,15 +560,10 @@ function debounce(func, timeout = 300) {
     };
 }
 
-function clickSearchButton() {
-    document.querySelector('#searchMapBtn').click();
-}
-
-const processSearch = debounce(() => clickSearchButton());
-// const processSearch = debounce(() => clickSearchButton(), 500);
+const processSearch = debounce(searchLocations);
 
 document.querySelector('#searchMapBtn')
-    .addEventListener('click', searchLocations)
+    .addEventListener('click', searchLocations);
 
 
 document.querySelector('#searchInput')
@@ -536,7 +595,7 @@ document.querySelector('#feedbackBtn')
         let email = document.querySelector("#email");
         // if the email contains an @ and a '.' is considered
         // to be a valid
-        if (!email.value.includes('.') || !email.value.includes('@')||!email.value) {
+        if (!email.value.includes('.') || !email.value.includes('@') || !email.value) {
             emailNotValid = true;
             // console.log(email.value)
         }
@@ -562,7 +621,7 @@ document.querySelector('#feedbackBtn')
         for (let checkbox of allCheckboxes) {
             if (checkbox.checked == true) {
                 aboutus.push(checkbox.value);
-                aboutus.innerHTML += checkbox.checked
+                // aboutus.innerHTML += checkbox.checked
             }
 
 
@@ -674,19 +733,80 @@ document.querySelector('#feedbackBtn')
 // document.querySelectorAll('#navbar li') -> //*[@id='navbar']/li
 // searchMapBtn -> //button[@id='searchMapBtn']
 
-let eWasteElem = document.getElementById('legendIcon').addEventListener('click', function () {
-    console.log("Hello")
-    eWastePopover.show();
-    if (binMap.hasLayer(eWasteLayer)) {
-        binMap.removeLayer(eWasteLayer);
-    }
-    else{binMap.addLayer(eWasteLayer)}
-})
 
-var eWastePopover = new bootstrap.Popover(eWasteElem);
-let gWasteElem = document.getElementById('gWasteLegend');
-var gWastePopover = new bootstrap.Popover(gWasteElem);
-let testThis = document.querySelector('#toggle-cluster-btn');
+
+gWasteElem.addEventListener('click', function () {
+
+    if (binMap.hasLayer(commonRecycleLayer)) {
+        binMap.removeLayer(commonRecycleLayer);
+        gWasteElem.style.opacity = 0.5;
+    } else {
+        binMap.addLayer(commonRecycleLayer);
+        gWasteElem.style.opacity = 1;
+    }
+});
+
+eWasteElem.addEventListener('click', function () {
+
+    // eWastePopover.show();
+    if (isShowCluster) {
+        if (binMap.hasLayer(eWasteLayer)) {
+            binMap.removeLayer(eWasteLayer);
+            eWasteElem.style.opacity = 0.2;
+        }
+        else {
+            binMap.addLayer(eWasteLayer);
+            eWasteElem.style.opacity = 1;
+        }
+    }
+    else {
+        if (binMap.hasLayer(eWasteLayerOff)) {
+            binMap.removeLayer(eWasteLayerOff);
+            eWasteElem.style.opacity = 0.2;
+        }
+        else {
+            binMap.addLayer(eWasteLayerOff);
+            eWasteElem.style.opacity = 1;
+        }
+    }
+});
+
+secondHandElem.addEventListener('click', function () {
+    if (isShowCluster == true) {
+        if (binMap.hasLayer(secondHandLayer)) {
+            binMap.removeLayer(secondHandLayer);
+            secondHandElem.style.opacity = 0.2;
+        }
+        else {
+            binMap.addLayer(secondHandLayer);
+            secondHandElem.style.opacity = 1;
+        }
+    }
+    else {
+        if (binMap.hasLayer(secondHandLayerOff)) {
+            binMap.removeLayer(secondHandLayerOff);
+            secondHandElem.style.opacity = 0.2;
+        }
+        else {
+            binMap.addLayer(secondHandLayerOff);
+            secondHandElem.style.opacity = 1;
+        }
+    }
+});
+
+lightingElem.addEventListener('click', function () {
+
+    if (binMap.hasLayer(lightingLayer)) {
+        binMap.removeLayer(lightingLayer);
+        lightingElem.style.opacity = 0.5;
+    } else {
+        binMap.addLayer(lightingLayer);
+        lightingElem.style.opacity = 1;
+    }
+});
+
+
+//let testThis = document.querySelector('#toggle-cluster-btn');
 // document..addEventListener('click', function () {
 //     console.log("Hello")
 //     eWastePopover.show();
@@ -695,20 +815,7 @@ let testThis = document.querySelector('#toggle-cluster-btn');
 //     }
 //     else{binMap.addLayer(eWasteLayerOff)}
 // });
-testThis.addEventListener('mouseout', function () {
-    console.log("Bye")
-    eWastePopover.hide();
-});
-
-let lightingSpan = document.evaluate("//div[@class='leaflet-control-layers-overlays']/label/div/span[contains(text(), 'Lighting')]", document, null, XPathResult.ANY_TYPE, null);
-// lightingSpan.addEventListener('hover', function(){
-//     console.log("Hello try");
-//     eWastePopover.show();
+// testThis.addEventListener('mouseout', function () {
+//     console.log("Bye")
+//     eWastePopover.hide();
 // });
-
-
-let secondHandSpan = document.evaluate("//div[@class='leaflet-control-layers-overlays']/label/div/span[contains(text(), 'Second')]", document, null, XPathResult.ANY_TYPE, null);
-
-let eWasteSpan = document.evaluate("//div[@class='leaflet-control-layers-overlays']/label/div/span[contains(text(), 'E-Waste')]", document, null, XPathResult.ANY_TYPE, null);
-
-
