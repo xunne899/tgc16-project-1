@@ -329,8 +329,12 @@ html,body{
     margin: 10px auto;
    
 }
-/* .hover1{
-    color: blue !important; 
-    /* background-color: green !important; */
 
-} */
+
+#subscribe,#subscribe_error,#subscribeBtn{
+opacity: 0.8;
+}
+
+
+
+
