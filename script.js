@@ -109,10 +109,65 @@ let overlaysOff = {
     'E-Waste -': eWasteLayerOff
 }
 
+// home
+document.getElementById("hometb").addEventListener("mouseover", function() {
+    document.getElementById("hometb").style.color = "green";
+});
+    
+document.getElementById("hometb").addEventListener("mouseout", function() {
+    document.getElementById("hometb").style.color = "#D8F3DC";
+});
+
+// about us
+document.getElementById("abouttb").addEventListener("mouseover", function() {
+    document.getElementById("abouttb").style.color = "green";
+});
+
+document.getElementById("abouttb").addEventListener("mouseout", function() {
+    document.getElementById("abouttb").style.color = "#D8F3DC";
+});
+
+//  map   
+document.getElementById("maptb").addEventListener("mouseover", function() {
+    document.getElementById("maptb").style.color = "green";
+});
+
+
+document.getElementById("maptb").addEventListener("mouseout", function() {
+    document.getElementById("maptb").style.color = "#D8F3DC";
+});
+    
+// contact us
+document.getElementById("contacttb").addEventListener("mouseover", function() {
+    document.getElementById("contacttb").style.color = "green";
+});
+
+document.getElementById("contacttb").addEventListener("mouseout", function() {
+    document.getElementById("contacttb").style.color = "#D8F3DC";
+});
+
+// function mouseOver() {
+//     document.getElementById("hometb").style.color ="red";
+//   }
+
+//   function mouseOut() {
+//     document.getElementById("hometb").style.color = "D8F3DC";
+//   }
+
+// let btn = document.querySelector(".nav-link")
+// btn.addEventListener('click',function(){
+//     btn.classList.add('hover1')
+//     btn.style.color = "red";
+// })
+
+
+
+
+
 // Legend Elements
-let gWasteElem = document.getElementById('gWasteLegend')
+let gWasteElem = document.getElementById('gWasteLegend');
 let eWasteElem = document.getElementById('eWasteLegend');
-let lightingElem = document.getElementById('lightingLegend')
+let lightingElem = document.getElementById('lightingLegend');
 let secondHandElem = document.getElementById('secondHandLegend');
 gWasteElem.style.opacity = 1.0;
 eWasteElem.style.opacity = 1.0;
