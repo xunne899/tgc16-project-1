@@ -16,15 +16,6 @@ L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
 }).addTo(binMap);
 
 
-// // #6 Get Own Location 
-// navigator.geolocation.getCurrentPosition(position => {
-//     // Leaflet passes the latlng in
-//     const { coords: { latitude, longitude } } = position;
-//     var marker = new L.marker([latitude, longitude], {
-//         draggable: true,
-//         autoPan: true
-//     }).addTo(binMap);
-// })
 
 var recycleIcon = L.icon({
 
@@ -68,14 +59,6 @@ var secondIcon = L.icon({
 
 
 
-
-
-
-// [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
-//   .forEach(el => new bootstrap.Tooltip(el));
-
-
-
 let clusterConfig = {
     spiderfyOnMaxZoom: false,
     disableClusteringAtZoom: 17
@@ -85,6 +68,9 @@ let clusterConfigOff = {
     spiderfyOnMaxZoom: false,
     disableClusteringAtZoom: 0
 };
+
+
+
 
 let commonRecycleLayer = L.markerClusterGroup(clusterConfig);
 let lightingLayer = L.markerClusterGroup(clusterConfigOff);
@@ -108,6 +94,15 @@ let overlaysOff = {
     'Second hand -': secondHandLayerOff,
     'E-Waste -': eWasteLayerOff
 }
+
+
+//overlayer filter
+let controlCluster = L.control.layers(baselays, overlays); // config for control
+let controlNonCluster = L.control.layers(baselays, overlaysOff); // config for control
+controlCluster.addTo(binMap)
+
+
+
 
 // home
 document.getElementById("hometb").addEventListener("mouseover", function() {
@@ -146,19 +141,6 @@ document.getElementById("contacttb").addEventListener("mouseout", function() {
     document.getElementById("contacttb").style.color = "#D8F3DC";
 });
 
-// function mouseOver() {
-//     document.getElementById("hometb").style.color ="red";
-//   }
-
-//   function mouseOut() {
-//     document.getElementById("hometb").style.color = "D8F3DC";
-//   }
-
-// let btn = document.querySelector(".nav-link")
-// btn.addEventListener('click',function(){
-//     btn.classList.add('hover1')
-//     btn.style.color = "red";
-// })
 
 
 
@@ -180,6 +162,8 @@ let eWastePopover = new bootstrap.Popover(eWasteElem);
 let lightingPopover = new bootstrap.Popover(lightingElem);
 let secondHandPopover = new bootstrap.Popover(secondHandElem);
 
+
+// General waste button
 let generalWasteBtn = document.querySelector('#btnToggle');
 generalWasteBtn.innerHTML = "Hide General Waste";
 generalWasteBtn.setAttribute("class", "btn btn-danger btn-sm ms-2 mb-1 mt-2");
@@ -196,23 +180,10 @@ generalWasteBtn.addEventListener('click', function () {
     }
 })
 
-let controlCluster = L.control.layers(baselays, overlays); // config for control
-let controlNonCluster = L.control.layers(baselays, overlaysOff); // config for control
-controlCluster.addTo(binMap)
 
 
-//searchResultLayer.addTo(binMap);
 
-async function getAddress(searchData) {
-    let response = { status: 400 };
-    try {
-        response = await axios.get(`https://developers.onemap.sg/commonapi/search?searchVal=${searchData}&returnGeom=Y&getAddrDetails=Y&pageNum=1`);
-    } catch (e) {
-        // printing error exception
-        console.error(e);
-    }
-    return response;
-}
+
 
 // lightning waste start
 async function lightwaste() {
@@ -233,23 +204,6 @@ window.addEventListener("DOMContentLoaded", async function () {
         let lat = l.geometry.coordinates[1];
         let lng = l.geometry.coordinates[0];
 
-        // if (lat>1.05){
-        // north_layer = lat.innerHTML;
-        // } 
-        // else if (lat<1.02){
-        //     south_layer = lat.innerHTML;
-        // } 
-        // else{
-        //        if(lat>1.08){
-        //            east_layer = lat.innerHTML;
-        //        }
-        //        else if(lat>1.09){
-        //            west_layer=lat.innerHTML;
-        //        }
-        //        else{
-        //            central_layer = lat.innerHTML;
-        //        }
-        // }
 
 
         let dummyDiv = document.createElement('div');
@@ -435,8 +389,44 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
 
+//subscribe email start
+document.querySelector('#subscribeBtn')
+    .addEventListener('click', function () {
 
 
+        let subscribemailNotValid = false;
+
+        let subscribe = document.querySelector("#subscribe");
+        // if the email contains an @ and a '.' is considered
+        // to be a valid
+        if (!subscribe.value.includes('.') || !subscribe.value.includes('@') || !subscribe.value) {
+            subscribemailNotValid = true;
+            // console.log(email.value)
+        }
+        else {
+            alert(
+                `
+            ${subscribe.value}
+             We have received your subscription. Thank you.`)
+             subscribe.innerHTML ='';
+        }
+
+
+        let subscribe_error = document.querySelector('#subscribe_error');
+        // wipe out all the existing error messages
+        subscribe_error.innerHTML = '';
+        // check if there is any error
+        if (subscribemailNotValid) {
+            subscribe_error.style.display = 'block';
+            subscribe_error.innerHTML += '<p class="p-2">Please enter a valid email'
+        }
+
+
+    })
+
+
+
+//toggle cluster btn
 
 let isShowCluster = true;
 let showClusterButton = document.querySelector('#toggle-cluster-btn');
@@ -497,9 +487,22 @@ showClusterButton.addEventListener('click', () => {
     }
 });
 
-// document.querySelector('#contactButton').addEventListener('click', () => {
 
-// });
+//searchResultLayer.addTo(binMap);
+
+async function getAddress(searchData) {
+    let response = { status: 400 };
+    try {
+        response = await axios.get(`https://developers.onemap.sg/commonapi/search?searchVal=${searchData}&returnGeom=Y&getAddrDetails=Y&pageNum=1`);
+    } catch (e) {
+        // printing error exception
+        console.error(e);
+    }
+    return response;
+}
+
+
+//searchlocation bar
 let searchLocations = async function () {
     //searchResultLayer.clearLayers(); // get rid of the existing markers
     // clear our autocomplete search drop down
@@ -562,46 +565,8 @@ let searchLocations = async function () {
 }
 
 
-document.querySelector('#subscribeBtn')
-    .addEventListener('click', function () {
 
-
-        let subscribemailNotValid = false;
-
-        let subscribe = document.querySelector("#subscribe");
-        // if the email contains an @ and a '.' is considered
-        // to be a valid
-        if (!subscribe.value.includes('.') || !subscribe.value.includes('@') || !subscribe.value) {
-            subscribemailNotValid = true;
-            // console.log(email.value)
-        }
-        else {
-            alert(
-                `
-            ${subscribe.value}
-             We have received your subscription. Thank you.`)
-        }
-
-
-        let subscribe_error = document.querySelector('#subscribe_error');
-        // wipe out all the existing error messages
-        subscribe_error.innerHTML = '';
-        // check if there is any error
-        if (subscribemailNotValid) {
-            subscribe_error.style.display = 'block';
-            subscribe_error.innerHTML += '<p class="p-2">Please enter a valid email'
-        }
-
-
-    })
-// function ValidateEmail(mail) {
-//     emailRejex
-//     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)) {
-//         return (true)
-//     }
-//     alert("You have entered an invalid email address!")
-//     return (false)
-// }
+//debounce search bar 
 
 // func is the callback function to be called when 300ms passes when the user stop typing
 // after 300ms of afk, we will debounce to call the wanted function
@@ -629,6 +594,10 @@ document.querySelector('#searchInput')
         processSearch();
     });
 
+
+
+
+// submit feedback/comments
 document.querySelector('#feedbackBtn')
     .addEventListener('click', function () {
 
@@ -686,8 +655,6 @@ document.querySelector('#feedbackBtn')
 
 
 
-
-
         let email_error = document.querySelector('#email_errors');
         // wipe out all the existing error messages
         email_error.innerHTML = '';
@@ -726,70 +693,10 @@ document.querySelector('#feedbackBtn')
        </p>`
 
 
-
-
-        // console.log("Comments not provided =", NotProvided);
-        // console.log("email not valid =", emailNotValid);
-
     })
 
-// document.querySelector('#contactButton').addEventListener('click', () => {
 
-// });
-
-
-
-// when zoom animation finish, 
-// binMap.on('zoomend', function() {
-//     var currentZoom = binMap.getZoom();
-
-//     layerGroup.eachLayer(function(layer){
-//         //console.log("test==>", layer);
-//         let iconType = (layer.properties.name.indexOf("ALBA")!= -1)?"images/alba.png":"images/ink.png";
-//         if (currentZoom >= 13) {
-//             return layer.setIcon(new DustbinBigIcon({iconUrl: iconType}))
-//         }
-//         else{
-//             return layer.setIcon(new DustbinIcon({iconUrl: iconType}))
-//         }
-//     });
-
-// });
-
-// let allButtons = document.querySelectorAll('#navbar li')
-
-// for (let btn of allButtons) {
-//     btn.addEventListener('click', function (event) {
-
-//         let selectedBtn = event.target;
-//         let pageNumber = selectedBtn.dataset.page;
-
-//         let pages = document.querySelectorAll('.page');
-//         // hide all the pages
-//         for (let p of pages) {
-//             // it is ok to attempt to remove a class
-//             // from an element even if that element does not have it
-//             p.classList.remove('show');
-//             p.classList.add('hidden');
-//         }
-
-//         let page = document.querySelector('#page-' + pageNumber);
-//         page.classList.remove('hidden');
-//         page.classList.add('show');
-//     })
-
-
-
-// }
-
-// [...document.querySelectorAll('[data-bs-toggle="popover"]')]
-//     .forEach(el => new bootstrap.Popover(el));
-
-// document.querySelectorAll('#navbar li') -> //*[@id='navbar']/li
-// searchMapBtn -> //button[@id='searchMapBtn']
-
-
-
+//legendicons start
 gWasteElem.addEventListener('click', function () {
 
     if (binMap.hasLayer(commonRecycleLayer)) {
@@ -861,16 +768,3 @@ lightingElem.addEventListener('click', function () {
 });
 
 
-//let testThis = document.querySelector('#toggle-cluster-btn');
-// document..addEventListener('click', function () {
-//     console.log("Hello")
-//     eWastePopover.show();
-//     if (binMap.hasLayer(eWasteLayerOff)) {
-//         binMap.removeLayer(eWasteLayerOff);
-//     }
-//     else{binMap.addLayer(eWasteLayerOff)}
-// });
-// testThis.addEventListener('mouseout', function () {
-//     console.log("Bye")
-//     eWastePopover.hide();
-// });

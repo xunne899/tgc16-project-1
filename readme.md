@@ -1,21 +1,20 @@
 
-Scope
+#Scope
 Promote awareness of recycling, a green environment.
 
-Strategy 
+#Strategy 
 Create a webpage to inform public and audience about the importance of recycling
 webpage- using mainly green and white to promote a green and clean concept to save our environment
 Provide location of main recycling bin, lighting recycling waste bin, second hand recycling point and electronic waste point, for public to dispose their waste.
 
-Webpage design
-<nav>
+#Webpage design
+
 Nav bar - dark green background
 Nav bar - recycling logo
 Nav bar - contains content - home, about us, map, contact us (able to link to respective page when click )
-</nav>
-<carousel>
+
 Carousel - follow by carousel of 3 images - cardboard, plastic bags, plastics bottle
-</carousel>
+
 Subscription form - follow by a subscription form embedded within carousell in large screen 
 Subscription form - will be below carousell when in mobile version
 Home page - hierarchy of recycling 
@@ -29,8 +28,8 @@ Contact us form - email, comments, rating , hear about us
 Contact us form - will show validation error if no input. will show submitted details upon submission
 Location - address details with map
 
-User story
+#User story
 As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling
 
 
-Test case - Using the search bar 
+#Test case - Using the search bar 
