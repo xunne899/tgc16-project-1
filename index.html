@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Go Green</title>
+    <title>Green Recycle</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/recycle_line.png" style="color:black"/>
     <!-- stylesheeet for leaflet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -65,7 +66,6 @@
             <!-- Carousel Slider -->
             <div id="carousel-indicators" class="carousel slide" data-bs-ride="carousel">
               
-          
                 <!-- Corousell Images -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -89,7 +89,7 @@
                 </p>
                 <input class="form-control" id="subscribe" style="font-size:0.8rem;" type="text " placeholder="Your email here" />
                 <div style="color:red;font-size:0.8rem;" id="subscribe_error"></div>
-                <button class="mt-2 btn btn-outline-primary" id="subscribeBtn"style="font-size:0.5rem; ">Sign Up</button>
+                <button class="mt-2 btn btn-outline-success" id="subscribeBtn"style="font-size:0.5rem; ">Sign Up</button>
             </section>
             <!-- end call to action -->
         </div>
@@ -111,9 +111,9 @@
     <!-- End of Home-->
 
     <!-- start of about us -->
-                <div class="container">
-                 <section class="row mx-2">
-                    <div class="border border-2 rounded-1 p-1 mx-1 my-2 col-sm col-lg">
+                <!-- <div class="container"> -->
+                 <section class=" mx-3 row">
+                    <div class="border border-2 rounded-1 p-1 mx-2 my-2 col-sm col-md col-lg">
                         <h2 class="text-center p-2" id="about" style="color:#00522a;font-size: 1rem">About Recycling</h2>
                         <!-- <p class="mt-2 p-2" style="color:#00522a;"> -->
                         <ul class= "pe-2" style="color:#00522a;">
@@ -121,12 +121,12 @@
                             <li>Responsible for production, consumption, reuse, and recovery of products, 
                                 without posing threat to the environment or human health</li>
                             <li>Able to blend recycled waste harmlessly back to the surroundings</li>
-                            <li>For more information, please click <a href="http://www.zerowastesg.com/zero-waste/">here</a></li>
+                            <li>For more information, please click <a href="http://www.zerowastesg.com/zero-waste/" target="_blank">here</a></li>
                         </ul>
                        
                         <!-- </p> -->
                     </div>
-                    <div class="border border-2 rounded-1 p-1 mx-1 my-2 col-sm col-lg">
+                    <div class="border border-2 rounded-1 p-1 mx-2 my-2 col-sm col-md col-lg">
                         <h2 class="text-center p-2" id="about" style="color:#00522a;font-size: 1rem">The 3Rs</h2>
                         <!-- <p class="mt-2 p-2" style="color:#00522a;"> -->
                         <ul class= "pe-2" style="color:#00522a;">
@@ -134,10 +134,10 @@
                             <li>Reduce by cutting down the usage of product at the start</li>
                             <li>Reuse by reusing waste for another purpose</li>
                             <li>Recycle by sending waste for additional re-processing work to form a new product</li>
-                            <li>For more information, please click <a href="http://www.zerowastesg.com/zero-waste/#1590128632230-57fa890f-f11a">here</a></li>
+                            <li>For more information, please click <a href="http://www.zerowastesg.com/zero-waste/#1590128632230-57fa890f-f11a" target="_blank">here</a></li>
                         </ul>
                     </div>
-                    <div class="border border-2 rounded-1 p-1 mx-1 my-2 col-sm col-lg">
+                    <div class="border border-2 rounded-1 p-1 mx-2 my-2 col-sm col-md col-lg">
                         <h2 class="text-center p-2" id="about" style="color:#00522a;font-size: 1rem">Promoting Recycling</h2>
                         <!-- <p class="mt-2 p-2" style="color:#00522a;"> -->
                         <ul class= "pe-2" style="color:#00522a;">
@@ -145,14 +145,12 @@
                             <li>Providing important recycling data and surveys to government and public</li>
                             <li>Collaborate with government to promote awareness and change</li>
                             <li>Leveraging on technology to solve issues</li>
-                            <li>For more information, please click <a href="http://www.zerowastesg.com/about-us/">here</a></li>
+                            <li>For more information, please click <a href="http://www.zerowastesg.com/about-us/" target="_blank">here</a></li>
                         </ul>
                     </div>
                 </section>
-                </div>
+                <!-- </div> -->
            
-       
-
 
      <div class="mapWrapper">
       
@@ -163,17 +161,21 @@
                 <div class="searchResultWrapper marginAuto">
                     <input type="text" class="form-control searchbar" id="searchInput" placeholder="Search Location"
                         aria-label="Search Location" aria-describedby="button-addon2">
-                    <button class="btn btn-primary searchButton"  type="button" id="searchMapBtn"><img src="images/search.png" style = "height:20px"></button>
+                    <button class="btn searchButton"  type="button" id="searchMapBtn"><img src="images/search-white.png" style = "height:20px"></button>
                 </div>
             </div>
             <div class="searchResultWrapper marginAuto">
                 <div id="search-results" class="searchList col-12 col-sm-4">
                 </div>
             </div>
+            <div class="zoomWrapper row">
+                <div id="zoomIn" class="zoomBtn d-flex justify-content-center">+</div>
+                <div id="zoomOut" class="zoomBtn d-flex justify-content-center">-</div>
+            </div>
             <div class="mapToggleButtons">
-                <button type="button" id="toggle-cluster-btn"
+                <button type="button" id="toggle-cluster-btn" class="btn btn-sm mb-1 mt-2"
                     style="font-size: 0.5rem">Hide Cluster</button>
-                <button type="button" id="btnToggle" class="btn btn-primary btn-sm mb-1 mt-2"
+                <button type="button" id="btnToggle" class="btn btn-sm mb-1 mt-2"
                     style="font-size: 0.5rem ">Hide General Waste</button>
             </div>
         </div>
@@ -207,13 +209,26 @@
         <div class="p-3 engage row">
             <div class="border-0 p-2 col-12 col-lg-6">
                 <h2 class="connect" id="contact" style="color:#00522a">Connect with us !</h2>
-
+                <div>
+                    <label for="fType" class="feedback_type mt-1" style="color:#00522a">Enquiry Type:</label>
+                    <div class="feedbackDropdown">
+                    <select name="fType" id="feedbackType">
+                        <option selected value="general waste">General Waste</option>
+                        <option value="lighting">Lighting</option>
+                        <option value="second hand">Second Hand</option>
+                        <option value="e-waste">E-Waste</option>
+                        <option value="others">Others</option>
+                    </select>
+                    </div>
+                </div>
+                <br>
                 <div>
                     <label class="email_add" style="color:#00522a">Email Address:</label>
                     <input class="form-control" type="text" id="email" placeholder="Please enter your email here" />
                     <div style="color:red" id="email_errors"></div>
                 </div>
                 <br>
+                
                 <div>
                     <label class="comments" style="color:#00522a">Comments:</label>
                     <textarea class="form-control" placeholder="Leave a comment here" id="form"
@@ -280,7 +295,6 @@
                                value="peers/relatives"/>
                         <label class="form-check-label" style="color:#00522a">Peers/Relatives</label>
                     </div>
-                   <div class="out"></div>
                 </div>
             </div>
                 <button class="mt-2 btn btn-outline-success btn-sm" id="feedbackBtn"

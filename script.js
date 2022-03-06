@@ -4,7 +4,10 @@ let singapore = [1.29, 103.85];
 
 let binMap = L.map('singaporeMap', {
     center: singapore,
-    zoom: 15
+    zoom: 15,
+    zoomControl: false,
+    scrollWheelZoom :true,
+    
 });
 
 
@@ -14,6 +17,7 @@ L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
     minZoom: 9,
     // attribution: '<img src="https://docs.onemap.gov.sg/maps/images/oneMap64-01.png" style="height:40px;width:40px;"/> OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
 }).addTo(binMap);
+
 
 
 
@@ -76,8 +80,8 @@ let commonRecycleLayer = L.markerClusterGroup(clusterConfig);
 let lightingLayer = L.markerClusterGroup(clusterConfigOff);
 let secondHandLayer = L.markerClusterGroup(clusterConfig);
 let eWasteLayer = L.markerClusterGroup(clusterConfig);
-let secondHandLayerOff = L.markerClusterGroup(clusterConfigOff);
-let eWasteLayerOff = L.markerClusterGroup(clusterConfigOff);
+let secondHandNonClusterLayer = L.markerClusterGroup(clusterConfigOff);
+let eWasteNonClusterLayer = L.markerClusterGroup(clusterConfigOff);
 //let searchResultLayer = L.layerGroup();
 
 let baselays = {
@@ -91,8 +95,8 @@ let overlays = {
 
 let overlaysOff = {
     'Lighting': lightingLayer,
-    'Second hand -': secondHandLayerOff,
-    'E-Waste -': eWasteLayerOff
+    'Second hand -': secondHandNonClusterLayer,
+    'E-Waste -': eWasteNonClusterLayer
 }
 
 
@@ -102,7 +106,20 @@ let controlNonCluster = L.control.layers(baselays, overlaysOff); // config for c
 controlCluster.addTo(binMap)
 
 
+// document.getElementById("singaporeMap").addEventListener("keydown", function(keyEvent) {
+//     //console.log(keyEvent);
+//     if(keyEvent.ctrlKey == true){
+//         binMap.scrollWheelZoom.enable();
+//     }
+// });
 
+// document.getElementById("singaporeMap").addEventListener("keyup", function(keyEvent) {
+//     //console.log(keyEvent);
+//     if(keyEvent.ctrlKey == false){
+//         binMap.scrollWheelZoom.disable();
+//     }
+//     //document.getElementById("hometb").style.color = "green";
+// });
 
 // home
 document.getElementById("hometb").addEventListener("mouseover", function() {
@@ -172,7 +189,7 @@ generalWasteBtn.addEventListener('click', function () {
     if (binMap.hasLayer(commonRecycleLayer)) {
         binMap.removeLayer(commonRecycleLayer);
         generalWasteBtn.innerHTML = "Show General Waste";
-        generalWasteBtn.setAttribute("class", "btn btn-primary btn-sm ms-2 mb-1 mt-2");
+        generalWasteBtn.setAttribute("class", "btn btn-success btn-sm ms-2 mb-1 mt-2");
     } else {
         binMap.addLayer(commonRecycleLayer);
         generalWasteBtn.innerHTML = "Hide General Waste";
@@ -284,7 +301,7 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
         marker.addTo(secondHandLayer);
-        marker.addTo(secondHandLayerOff);
+        marker.addTo(secondHandNonClusterLayer);
 
     }
     secondHandLayer.addTo(binMap);
@@ -380,7 +397,7 @@ window.addEventListener("DOMContentLoaded", async function () {
             <strong>Street Name:</strong> ${stname}<br>
             <strong>Postal:</strong> ${postal}<br></div>`)
         marker.addTo(eWasteLayer);
-        marker.addTo(eWasteLayerOff);
+        marker.addTo(eWasteNonClusterLayer);
     }
     eWasteLayer.addTo(binMap);
 
@@ -408,7 +425,7 @@ document.querySelector('#subscribeBtn')
                 `
             ${subscribe.value}
              We have received your subscription. Thank you.`)
-             subscribe.innerHTML ='';
+             subscribe.value ='';
         }
 
 
@@ -443,16 +460,16 @@ showClusterButton.addEventListener('click', () => {
 
         //remove non clustering layer 
         if (eWasteElem.style.opacity >= 1) {
-            if (binMap.hasLayer(eWasteLayerOff)) {
-                binMap.removeLayer(eWasteLayerOff);
+            if (binMap.hasLayer(eWasteNonClusterLayer)) {
+                binMap.removeLayer(eWasteNonClusterLayer);
             }
             // adding clustering layer
             binMap.addLayer(eWasteLayer);
         }
 
         if (secondHandElem.style.opacity >= 1) {
-            if (binMap.hasLayer(secondHandLayerOff)) {
-                binMap.removeLayer(secondHandLayerOff);
+            if (binMap.hasLayer(secondHandNonClusterLayer)) {
+                binMap.removeLayer(secondHandNonClusterLayer);
             }
 
             // adding clustering layer
@@ -464,7 +481,7 @@ showClusterButton.addEventListener('click', () => {
         binMap.removeControl(controlCluster);
         controlNonCluster.addTo(binMap);
         showClusterButton.innerHTML = "Show Cluster";
-        showClusterButton.setAttribute("class", "btn btn-primary btn-sm ms-2 mb-1 mt-2");
+        showClusterButton.setAttribute("class", "btn btn-success btn-sm ms-2 mb-1 mt-2");
 
         if (eWasteElem.style.opacity >= 1) {
             //remove clustering layer 
@@ -472,7 +489,7 @@ showClusterButton.addEventListener('click', () => {
                 binMap.removeLayer(eWasteLayer);
             }
             // adding non clustering layer
-            binMap.addLayer(eWasteLayerOff);
+            binMap.addLayer(eWasteNonClusterLayer);
         }
 
         if (secondHandElem.style.opacity >= 1) {
@@ -481,7 +498,7 @@ showClusterButton.addEventListener('click', () => {
             }
 
             // adding non clustering layer
-            binMap.addLayer(secondHandLayerOff);
+            binMap.addLayer(secondHandNonClusterLayer);
         }
 
     }
@@ -590,10 +607,9 @@ document.querySelector('#searchInput')
     .addEventListener('keyup', function (keyEvent) {
         // 13 represent the "return/enter" key
         // console.log(keyEvent);
-        keyEvent.preventDefault(); // ?
+        // eyEvent.preventDefault()k; // ?
         processSearch();
     });
-
 
 
 
@@ -616,6 +632,8 @@ document.querySelector('#feedbackBtn')
         //     TooShort = true;
         // }
 
+        let feedBackSelect = document.querySelector("#feedbackType");
+
         let email = document.querySelector("#email");
         // if the email contains an @ and a '.' is considered
         // to be a valid
@@ -623,6 +641,8 @@ document.querySelector('#feedbackBtn')
             emailNotValid = true;
             // console.log(email.value)
         }
+
+        
 
 
         let review = null; // before we run the for-loop, we don't
@@ -684,9 +704,13 @@ document.querySelector('#feedbackBtn')
             // form.value = "";
             myModal.show();
         }
+        if(aboutus == ""){
+            aboutus = "-"
+        }
         document.querySelector('#results').innerHTML = `
        <p style="text-align:left;">
       <strong>Email:</strong> ${email.value}<br> 
+      <strong>Enquiry Type:</strong> ${feedBackSelect.value}<br>
       <strong>Comments:</strong> ${form.value}<br>
       <strong>Rating:</strong> ${review}<br>
       <strong>Heard about us:</strong> ${aboutus}<br>
@@ -708,30 +732,17 @@ gWasteElem.addEventListener('click', function () {
     }
 });
 
-eWasteElem.addEventListener('click', function () {
+lightingElem.addEventListener('click', function () {
 
-    // eWastePopover.show();
-    if (isShowCluster) {
-        if (binMap.hasLayer(eWasteLayer)) {
-            binMap.removeLayer(eWasteLayer);
-            eWasteElem.style.opacity = 0.2;
-        }
-        else {
-            binMap.addLayer(eWasteLayer);
-            eWasteElem.style.opacity = 1;
-        }
-    }
-    else {
-        if (binMap.hasLayer(eWasteLayerOff)) {
-            binMap.removeLayer(eWasteLayerOff);
-            eWasteElem.style.opacity = 0.2;
-        }
-        else {
-            binMap.addLayer(eWasteLayerOff);
-            eWasteElem.style.opacity = 1;
-        }
+    if (binMap.hasLayer(lightingLayer)) {
+        binMap.removeLayer(lightingLayer);
+        lightingElem.style.opacity = 0.5;
+    } else {
+        binMap.addLayer(lightingLayer);
+        lightingElem.style.opacity = 1;
     }
 });
+
 
 secondHandElem.addEventListener('click', function () {
     if (isShowCluster == true) {
@@ -745,26 +756,49 @@ secondHandElem.addEventListener('click', function () {
         }
     }
     else {
-        if (binMap.hasLayer(secondHandLayerOff)) {
-            binMap.removeLayer(secondHandLayerOff);
+        if (binMap.hasLayer(secondHandNonClusterLayer)) {
+            binMap.removeLayer(secondHandNonClusterLayer);
             secondHandElem.style.opacity = 0.2;
         }
         else {
-            binMap.addLayer(secondHandLayerOff);
+            binMap.addLayer(secondHandNonClusterLayer);
             secondHandElem.style.opacity = 1;
         }
     }
 });
 
-lightingElem.addEventListener('click', function () {
 
-    if (binMap.hasLayer(lightingLayer)) {
-        binMap.removeLayer(lightingLayer);
-        lightingElem.style.opacity = 0.5;
-    } else {
-        binMap.addLayer(lightingLayer);
-        lightingElem.style.opacity = 1;
+
+
+
+
+
+eWasteElem.addEventListener('click', function () {
+
+    // eWastePopover.show();
+    if (isShowCluster) {
+        if (binMap.hasLayer(eWasteLayer)) {
+            // icon is light up, so we off it
+            binMap.removeLayer(eWasteLayer);
+            eWasteElem.style.opacity = 0.2;
+        }
+        else {
+            // icon is off, so we on it
+            binMap.addLayer(eWasteLayer);
+            eWasteElem.style.opacity = 1;
+        }
+    }
+    else {
+        if (binMap.hasLayer(eWasteNonClusterLayer)) {
+            binMap.removeLayer(eWasteNonClusterLayer);
+            eWasteElem.style.opacity = 0.2;
+        }
+        else {
+            binMap.addLayer(eWasteNonClusterLayer);
+            eWasteElem.style.opacity = 1;
+        }
     }
 });
+
 
 
