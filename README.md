@@ -30,7 +30,7 @@ The purpose of this green project is to promote awareness of recycling, let publ
 ### 2.2 Strategy 
 * Create a webpage to inform public and audience about the importance of recycling
 webpage(mainly green and white color theme to promote a green and clean concept to save our environment.)
-* Provide location of main recycling bin, lighting recycling waste bin, second hand recycling point and electronic waste point。Enable public to dispose their waste.
+* Provide location of main recycling bin, lighting recycling waste bin, second hand recycling point and electronic waste point. Enable public to dispose their waste.
 
 #### 2.2.a. User Goals
 * Targeted Audience: Public,Schools and Government Bodies
@@ -226,7 +226,7 @@ Project Webpage is able to enable users to link to other recycling or green envi
 |             |                                            | 5) No input                                     | 5) Error message will be shown                  |
 |             | Prerequisite: User is at Contact us section|                                                 |                                                 |
 |  9          | Company Location                           | 1) Click on enlarge under google map            | 1) A new page of large view map with location will show |
-|             |                                            | 2) Click on zoom in zoom out                    | 2) Zoom in or out in current map to view location |
+|             |                                            | 2) Click on Zoom in(+) Zoom out(-)              | 2) Zoom in or out in current map to view location |
 
 ## 8. Deployment
  * Using GitHubPages 
