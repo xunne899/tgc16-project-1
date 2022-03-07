@@ -68,6 +68,34 @@
 }
 
 
+@media screen and (min-width:1000px) {
+    #wrapper {
+        position: relative;    
+    }
+    .carousel-item{
+        /* max-height: 260px;
+        min-width: 640px; */
+        background-image: cover;
+        height: 70vh;
+    }
+    .engage {
+        min-height: 420px;
+    }
+    #cta {
+        position: absolute;
+        top: 5%;
+        right: 10%;
+        opacity: 0.9;
+    }
+
+}
+
+/* @media screen and (max-width:819px) {
+    #wrapper {
+        position: relative;
+        height: 700px;
+}
+} */
 
  @media screen and (min-width:600px) { 
 .recycleMap {
@@ -94,6 +122,7 @@
 
 
 @media screen and (max-width: 599px) { 
+    
     .recycleMap {
     
         height: 350px;
@@ -213,27 +242,8 @@ html,body{
     -ms-overflow-style: none;
 }
 
-@media screen and (min-width:768px) {
-    #wrapper {
-        position: relative;
-    }
-    .carousel-item{
-        /* max-height: 260px;
-        min-width: 640px; */
-        background-image: cover;
-        height: 70vh;
-    }
-    .engage {
-        min-height: 420px;
-    }
-    #cta {
-        position: absolute;
-        top: 5%;
-        right: 10%;
-        opacity: 0.9;
-    }
 
-}
+
 
 
 
@@ -289,17 +299,9 @@ html,body{
    border-color: #00522a;
 } */
 
-
-
-
 .reuse img {
     width: 80%;
     display: block;
     margin: 10px auto;
    
 }
-
-
-
-
-

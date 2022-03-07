@@ -20,7 +20,7 @@
 ## 2. UI/UX
 
 ### 2.1 Scope
-The purpose of this green project is to promote awareness of recycling, let public know about the importance of green environment. User's are able to locate recycling bin location by using webpage map
+The purpose of this green project is to promote awareness of recycling, let public know about the importance of green environment. Users are able to locate recycling bin location by using webpage map
 
 ### 2.2 Strategy 
 * Create a webpage to inform public and audience about the importance of recycling
