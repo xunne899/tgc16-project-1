@@ -147,11 +147,11 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 
 ## 4. User Stories
-As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling
+As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling<br>
 As a user i would like to know other websites that provides tips and information about recycling
 
 ### 4.1 Acceptance criteria
-Function of the  webpage allows user's to search for a specific area and able to view the details of the bin location by clicking on the bin icon.
+Webpage allows user's to search for a specific area and able to view the details of the bin location by clicking on the bin icon<br>
 Project Webpage is able to enable users to link to other recycling or green environment webpage for more recycling information
 
 ## 5. Technologies Used
@@ -229,8 +229,8 @@ Project Webpage is able to enable users to link to other recycling or green envi
 |             |                                            | 2) Click on zoom in zoom out                    | 2) Zoom in or out in current map to view location |
 
 ## 8. Deployment
-  Using GitHubPages 
-  Using Netlify
+ * Using GitHubPages 
+ * Using Netlify
 ### Steps for deployment:
  
 **Github Pages**
@@ -258,10 +258,10 @@ Project Webpage is able to enable users to link to other recycling or green envi
 * Once done users may test their site
 
 
-## 9. Live link
-https://5500-xunne899-tgc16project1-h18wsxcpy4p.ws-us34.gitpod.io/index.html
-https://xunne899.github.io/tgc16-project-1/
-https://tgc-16-green.netlify.app/
+## 9. Live link<br>
+ Github Link 1: https://xunne899.github.io/tgc16-project-1/<br>
+ Github Link 2: https://5500-xunne899-tgc16project1-h18wsxcpy4p.ws-us34.gitpod.io/index.html<br>
+ Netlify: https://tgc-16-green.netlify.app/
 
 ## 10. Credits and Acknowledgement
 ### Credits to:
@@ -277,7 +277,9 @@ https://tgc-16-green.netlify.app/
 [Onemap](https://www.onemap.gov.sg/docs/maps/)(basemap api)<br>
 [LeafletJS](https://leafletjs.com/)(map features and importing from onemap api) <br>
 [pngfind](https://www.pngfind.com/freepng/search-icon-png/)(search bar-search icon)<br>
-
+[freecodecamp.org](https://www.freecodecamp.org/news/javascript-debounce-example/)(debounce technique for serachresults)<br>
+[color-hex.com](https://www.color-hex.com/color/)(background color scheme png in readme file)<br>
+[responsively.app](https://responsively.app/)(capture web view of different size in readme)<br>
 #### Mentors
 * Guidance from Paul Chor(Head Instructor)
 * Guidance from Ace Ang(Teaching Assistant)
