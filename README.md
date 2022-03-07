@@ -228,10 +228,24 @@ Project Webpage is able to enable users to link to other recycling or green envi
 |  9          | Company Location                           | 1) Click on enlarge under google map            | 1) A new page of large view map with location will show |
 |             |                                            | 2) Click on zoom in zoom out                    | 2) Zoom in or out in current map to view location |
 
-## 8. Deployment 
- Host by using Netlify.
+## 8. Deployment
+  Using GitHubPages 
+  Using Netlify
+### Steps for deployment:
+ 
+**Github Pages**
+* Log in to Github
+* Remember to add, commited, and pushed changes to GitHub through gitpod.
+* Access to respective respository to be deployed
+* Click on settings tab
+* Scroll down to Github Pages 
+* Click on check it out here
+* Under source select main and click save
+* Web will be published public online 
+* Web address with /index.html at the back
 
-**Steps for deployment:**
+
+**Netlifly**
 * Sign up with Netlify
 * Remember to add, commited, and pushed changes to GitHub.
 * Access https://www.netlify.com/ and log in to respective Github account.
@@ -244,9 +258,10 @@ Project Webpage is able to enable users to link to other recycling or green envi
 * Once done users may test their site
 
 
-
 ## 9. Live link
-https://xunne899-tgc16project1-h18wsxcpy4p.ws-us34.gitpod.io/
+https://5500-xunne899-tgc16project1-h18wsxcpy4p.ws-us34.gitpod.io/index.html
+https://xunne899.github.io/tgc16-project-1/
+https://tgc-16-green.netlify.app/
 
 ## 10. Credits and Acknowledgement
 ### Credits to:
