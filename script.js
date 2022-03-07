@@ -143,9 +143,6 @@ document.getElementById("contacttb").addEventListener("mouseout", function() {
 
 
 
-
-
-
 // Legend Elements(row below map)
 let gWasteElem = document.getElementById('gWasteLegend');
 let eWasteElem = document.getElementById('eWasteLegend');
@@ -504,6 +501,22 @@ document.querySelector('#searchInput')
     });
 
 
+// Map Zoom In button 
+document.getElementById("zoomIn").addEventListener("click", function() {
+    
+    if(binMap.getZoom() < binMap.getMaxZoom()){
+        binMap.flyTo(binMap.getBounds().getCenter(), binMap.getZoom()+1);
+    }
+    
+});
+
+//// Map Zoom Out button 
+document.getElementById("zoomOut").addEventListener("click", function() {
+    if(binMap.getZoom() > binMap.getMinZoom()){
+        binMap.flyTo(binMap.getBounds().getCenter(), binMap.getZoom()-1);
+    }
+    
+});
 
 
 //toggle cluster btn
