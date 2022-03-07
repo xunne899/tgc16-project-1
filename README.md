@@ -54,7 +54,7 @@ webpage(mainly green and white color theme to promote a green and clean concept 
 * Map: able to locate location using search bar(top center section)<br>
   Map: top left hand corner. non-default leaflet cutomise zoom in(+) zoom out(-) function<br>
   Map: top right hand corner. filter layer to filter location of main recycling, lighting , second hand, e-waste bin<br>
-  Map: top right hand corner. filter layer no clustering for lighting recycling bin. Only 2 locations, only on or off location<br>  
+  Map: filter layer no clustering for lighting recycling bin. Only 2 locations, only on or off location<br>  
   Map: lower left hand corner. show or hide cluster of second hand, e-waste bin. Show or hide of general main waste bin<br>
   Map: row just below of the map. center of green bar shows the various types of icon legend. When hover-description name of icon will popup<br>
   Map: when legend icon is click it will toggle on or off of the respective types of binicon location in the map<br>
@@ -80,18 +80,20 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 ### 2.5 Surface 
 
 #### 2.5.a Background<br>
-* Background Colors: Green and white to promote clean and green environment 
-* Button Colors : Green and blue
-[Surface Colours](./images/colors.png)
+* Background Colors: Green and white to promote clean and green environment<br>
+* Button Colors : Green, Blue, Red, Light Green<br>
+
+![Background Colours](./images/colorscheme.png)
 
 #### 2.5.b Typography<br>
 
-* Font Color : use are light green or dark green to blend with the background color
-* Font Size: Normal size
+* Font Color :Light green/ dark green/ white to blend with the background color
+* Font Family: Normal
+* Font Size : 0.6 - 1 rem, h1,h2 to match with background settings
 
 
 #### 2.5.c Images<br>
-* Images : uses recycling images for carousel, recycling icon and logo to fit the theme
+* Images : Use recycling images for carousel, recycling icon and logo to fit the theme
 * Website is able to view in mobile size (XS) and for large display like desktop
 
 
@@ -106,8 +108,11 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
   *  Under the list there is a click here at the bottom to link to recycle website for more information
 ### Map<br> 
   * SearchBar<br>
-    User can enter address or postal code into searchbar to search for nearby main recycling bins<br>
-    User can filter to see different types of bins( main, lighting, secondhand, ewaste)
+    Searchbar uses debounce technique to search for results, to prevent system from overloading<br>
+    Users are able to enter address or postal code into searchbar to search for nearby main recycling bins<br>
+    Maximum of up to 10 search results will be shown at a time when user key in a valid address<br>
+  * Filter Layer<br>
+    Users can filter to see different types of bins(top-right)( main, lighting, secondhand, ewaste)
   * Zoom Function<br>
     User able to use the self customise zoom in zoom out function to view the map size they wanted
   * Toggle Button<br>
@@ -124,10 +129,10 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
     When user clicks on icon, the map will display the respective types of bins<br>
     When legend icon displays color - not click<br>
     When legend icon is opaque in color - the icon is click<br>
- *  Contact us<br>
-   User able to select the type of questions they want to enquire, type in email, comments, hear about us and rate experience.<br>
-   Error will display if no input ubon submission<br>
-   Upon submission a confirmation of user input details will show<br> 
+### Contact us<br>
+  * User able to select the type of questions they want to enquire, type in email, comments, hear about us and rate experience.<br>
+    Error will display if no input ubon submission<br>
+    Upon submission a confirmation of user input details will show<br> 
   
 
 
@@ -174,25 +179,43 @@ Function of the  webpage allows user's to search for a specific area and able to
 |Content         |Map                            |4 recycle legend icon bar right below the map able to toggle on off recycling bin location when click         |
 |Content         |Contact us Form                |Forms are able to process values and dislay errors if no input when submitted                                 |
 |Content         |Location                       |Able to show address under google map                                                                         |
-|Content         |Mobile Responsiveness          |Able to view in mobile version and large screen                                                               |
-|Footer          |Mobile Responsiveness          |Able to view in mobile version and large screen                                                               |
+|Content         |Mobile Responsiveness          |Able to view in mobile version to large screen                                                                |
+|Footer          |Mobile Responsiveness          |Able to view in mobile version to large screen                                                                |
 ## 7. Test case 
-|Test Case #  |Test Case Description                       |Test Steps                                       |  Expected Result                               |
-| :-------    | :------------                              | :-------------------                            | :-------------------                           |
-|             | Prerequisite: User is at Navigation bar    |                                                 |                                                |
-|  1          | Click on tabs to direct to page            | 1)Click on respective tab                       | 1) Direct user to respective page section      |
+|Test Case #  |Test Case Description                       |Test Steps                                       |  Expected Result                                |
+| :-------    | :------------                              | :-------------------                            | :-------------------                            |
+|             | Prerequisite: User is at Navigation bar    |                                                 |                                                 |
+|  1          | Click on tabs to direct to page            | 1)Click on respective tab                       | 1) Direct user to respective page section       |
 |             |                                            | (Home,About Us,Map,Contact Us)                  |                                                 |
-|             |                                            |                                                 |                                                 |
 |             | Prerequisite: User is at Subscription Page |                                                 |                                                 |
-|  2          | Sign up for updates                        | 1)Input email in email box (eg.trent@gmail.com) | 1) N.a                                          |
+|  2          | Sign up for updates                        | 1)Email box                                     | 1) Input email in email box (eg.trent@gmail.com |
 |             |                                            | 2)Click submit button                           | 2) Alert showing inputs details submitted       |
 |             |                                            | 3)Key in invalid email                          | 3) error-Please enter valid email               |
-|             |                                            |                                                 |                                                 |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
 |  3          | Search for Bin Location                    | 1)Input address or postal code (eg.50323)       | 1) List of search results                       |
 |             |                                            | 2)Click find button or address under searchlist | 2) Zoom in to map location                      |
-|             |                                            | 3)Key in invalid  address                       | 3) No results                                   |
-
+|             |                                            | 3)Key in invalid address                        | 3) No results will display                      |
+|             | Prerequisite: User is at Map section       |                                                 |                                                 |
+|  4          | Zoom in Zoom out Buttons                   | 1)Click on Zoom In (+)                          | 1) Enlarge/zoom into location                   |
+|             |                                            | 2)Click on Zoom Out (-)                         | 2) Zoom out of map                              |
+|             | Prerequisite: User is at Map section       |                                                 |                                                 |
+|  5          | Show Cluster Button                        | 1)Click on Show Cluster Button                  | 1) Display clustering of ewaste and second hand |
+|             |                                            | 2)Click on Hide Cluster Button                  | 2) Disable clustering of ewaste and second hand |
+|             | Prerequisite: User is at Map section       |                                                 |                                                 |
+|  6          | General Waste Button                       | 1)Click on Show General Waste Button            | 1) Display main recycling bin location          |
+|             |                                            | 2)Click on Hide General waste Button            | 2) Disable recycling bin location               |
+|             | Prerequisite: User is at Map section       |                                                 |                                                 |
+|  7          | Legend icon below map                      | 1)Click on one of legend icon                   | 1) Disable location of respective bin icon      |
+|             |                                            | 2)Click on legend icon 2nd time                 | 2) Enable  location of respective bin icon       |
+|             | Prerequisite: User is at Contact us section|                                                 |                                                 |
+|  8          | Emails, Forms, Survey                      | 1) Dropdown (types of question)                 | 1) Select from dropdown                         |
+|             |                                            | 2) Input Email,Comments                         | 2) Input email(eg.trent@gmail.com /Input comments|
+|             |                                            | 3) Rate Service and Hear from us                | 3) Check textbox and select radio button        |
+|             |                                            | 4) Click on Submit                              | 4) Recieve your feedback confirmation and input details |
+|             |                                            | 5) No input                                     | 5) Error message will be shown                  |
+|             | Prerequisite: User is at Contact us section|                                                 |                                                 |
+|  9          | Company Location                           | 1)Click on enlarge under google map             | 1) A new page of large view map with location will show |
+|             |                                            | 2)Click on zoom in zoom out                     | 2) Zoom in or out in current map to view location |
 
 ## 8. Deployment 
  Host by using Netlify.
@@ -222,6 +245,8 @@ https://www.flaticon.com/<br>
 Googlemap (using googlemap for company address location)<br>
 Bootstrap <br>
 Onemap()
+pngfind(search bar-saerch icon)
+https://www.pngfind.com/freepng/search-icon-png/
 
 
 
