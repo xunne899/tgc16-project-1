@@ -147,12 +147,12 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 
 ## 4. User Stories
-As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling<br>
-As a user i would like to know other websites that provides tips and information about recycling
+1. As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling<br>
+2. As a user i would like to know other websites that provides tips and information about recycling
 
 ### 4.1 Acceptance criteria
-Webpage allows user's to search for a specific area and able to view the details of the bin location by clicking on the bin icon<br>
-Project Webpage is able to enable users to link to other recycling or green environment webpage for more recycling information
+1. Webpage allows user's to search for a specific area and able to view the details of the bin location by clicking on the bin icon<br>
+2. Project Webpage is able to enable users to link to other recycling or green environment webpage for more recycling information
 
 ## 5. Technologies Used
 * HTML
@@ -266,7 +266,7 @@ Project Webpage is able to enable users to link to other recycling or green envi
 ## 10. Credits and Acknowledgement
 ### Credits to:
 #### Web Source
-[Datagenetics](https://datagenetics.com/blog/june52021/index.html)(Recycling Navbar Logo)<br>
+[Datagenetics](https://datagenetics.com/blog/june52021/index.html)(recycling navbar logo)<br>
 [unsplash.com](https://unsplash.com/s/photos/recycling)(carousel images)<br>
 [Zero waste SG ](http://www.zerowastesg.com/)(using pictures and website information)<br>
 [Flaticon](https://www.flaticon.com/)(using web various bins icon for my project)<br>
