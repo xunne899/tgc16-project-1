@@ -156,7 +156,7 @@ eWasteElem.style.opacity = 1.0;
 lightingElem.style.opacity = 1.0;
 secondHandElem.style.opacity = 1.0;
 
-// Tooltips popover.
+// Tooltips popover
 let gWastePopover = new bootstrap.Popover(gWasteElem);
 let eWastePopover = new bootstrap.Popover(eWasteElem);
 let lightingPopover = new bootstrap.Popover(lightingElem);

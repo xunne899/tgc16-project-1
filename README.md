@@ -68,8 +68,13 @@ webpage(mainly green and white color theme to promote a green and clean concept 
 * Contact us form: email, comments, rating, hear about us<br>
   Contact us form: will show validation error if no input upon clicking submit button. will show submitted details upon submission<br>
 
-* Location: address details with map<br>
+* Location: address details with google map<br>
+
+* Footer: uses font size of 0.6rem with copyright and description<br> 
+  Footer: icon link from fontawesome(facebook, instagram, twitter)<br>
+
 ![Web Structure](./images/structure_webpage.png)
+
 
 ### 2.4 Skeleton
 Webpage consists of simple 3 components
@@ -109,6 +114,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 
 ## 3. Features<br>
 
+### Key Features:
 ### Navigation Bar<br>
   * Home, About us, Map, Contact us(click tab to link to respective page)
 ### Subscription Form <br>
@@ -144,8 +150,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
     Error will display if no input upon submission<br>
     Upon submission a confirmation of user input details will show<br> 
   
-
-
+  
 ## 4. User Stories
 1. As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling<br>
 2. As a user i would like to know other websites that provides tips and information about recycling
@@ -280,6 +285,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 [freecodecamp.org](https://www.freecodecamp.org/news/javascript-debounce-example/)(debounce technique for serachresults)<br>
 [color-hex.com](https://www.color-hex.com/color/)(background color scheme png in readme file)<br>
 [responsively.app](https://responsively.app/)(capture web view of different size in readme)<br>
+[fontawesome.com](https://fontawesome.com/v5/icons/)(use of twitter, facebook, instagram icon for footer)<br>
 #### Mentors
 * Guidance from Paul Chor(Head Instructor)
 * Guidance from Ace Ang(Teaching Assistant)
