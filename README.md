@@ -1,3 +1,8 @@
+# Title : Frontend Assignment 1 - Green Recycling Project
+* A brief layout of project work in different screen version
+* Objective: To bring awareness the importance of recycling, saving the environment
+
+![Web_view](./images/view.png)
 
 # Content
 1. Summary of project
@@ -11,7 +16,7 @@
 9. Live Link
 10. Credits and Acknowledgement
 
-# Title : Frontend Assignment 1 - Green Recycling Project
+
 
 ## 1. Summary
 * Lots of unwanted waste are disposed and it is harming the environment
@@ -30,7 +35,8 @@ webpage(mainly green and white color theme to promote a green and clean concept 
 #### 2.2.a. User Goals
 * Targeted Audience: Public,Schools and Government Bodies
 * Users are able to find their desired recycling bin location using the web search function
-* Users are able to locate various types of recycling bin (main, lighting, electronic, second hand )
+* Users are able to locate various types of recycling bin (main, lighting, electronic, second hand)
+* Users are able to obtain recycling information 
 
 #### 2.2.b. Organisation's Goals
 * Able to provide relevant recycling information and knowledge to the public
@@ -96,6 +102,10 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 * Images : Use recycling images for carousel, recycling icon and logo to fit the theme
 * Website is able to view in mobile size (XS) and for large display like desktop
 
+#### 2.5.c Icons<br>
+* Different png icons are used to differentiate the types of bins
+* Icons colour : Mainly bright colors (etc. yellow, green, blue) to stand out from the map
+
 
 ## 3. Features<br>
 
@@ -103,7 +113,7 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
   * Home, About us, Map, Contact us(click tab to link to respective page)
 ### Subscription Form <br>
   * User may key in their email to the email box to get recycling news. 
-    Error will display if no input ubon submission 
+    Error will display if no input upon submission 
 ### About Us<br>
   *  Under the list there is a click here at the bottom to link to recycle website for more information
 ### Map<br> 
@@ -131,23 +141,24 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
     When legend icon is opaque in color - the icon is click<br>
 ### Contact us<br>
   * User able to select the type of questions they want to enquire, type in email, comments, hear about us and rate experience.<br>
-    Error will display if no input ubon submission<br>
+    Error will display if no input upon submission<br>
     Upon submission a confirmation of user input details will show<br> 
   
 
 
 ## 4. User Stories
 As a user i would like to know the various recycling points around singapore and website information to dispose my waste for recycling
+As a user i would like to know other websites that provides tips and information about recycling
 
 ### 4.1 Acceptance criteria
 Function of the  webpage allows user's to search for a specific area and able to view the details of the bin location by clicking on the bin icon.
-
+Project Webpage is able to enable users to link to other recycling or green environment webpage for more recycling information
 
 ## 5. Technologies Used
 * HTML
 * CSS
 * Javascript
-* axios - importing data from json file 
+* Axios - importing data from json file 
 * [LeafletJS](https://leafletjs.com/) map features
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) aligning content, match its mobile responsiveness,carousel
 * [Flaticon](https://www.flaticon.com/) map icons and legend
@@ -185,28 +196,28 @@ Function of the  webpage allows user's to search for a specific area and able to
 |Test Case #  |Test Case Description                       |Test Steps                                       |  Expected Result                                |
 | :-------    | :------------                              | :-------------------                            | :-------------------                            |
 |             | Prerequisite: User is at Navigation bar    |                                                 |                                                 |
-|  1          | Click on tabs to direct to page            | 1)Click on respective tab                       | 1) Direct user to respective page section       |
+|  1          | Click on tabs to direct to page            | 1) Click on respective tab                      | 1) Direct user to respective page section       |
 |             |                                            | (Home,About Us,Map,Contact Us)                  |                                                 |
 |             | Prerequisite: User is at Subscription Page |                                                 |                                                 |
-|  2          | Sign up for updates                        | 1)Email box                                     | 1) Input email in email box (eg.trent@gmail.com |
-|             |                                            | 2)Click submit button                           | 2) Alert showing inputs details submitted       |
-|             |                                            | 3)Key in invalid email                          | 3) error-Please enter valid email               |
+|  2          | Sign up for updates                        | 1) Email box                                    | 1) Input email in email box (eg.trent@gmail.com |
+|             |                                            | 2) Click submit button                          | 2) Alert showing inputs details submitted       |
+|             |                                            | 3) Key in invalid email                         | 3) error-Please enter valid email               |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
-|  3          | Search for Bin Location                    | 1)Input address or postal code (eg.50323)       | 1) List of search results                       |
-|             |                                            | 2)Click find button or address under searchlist | 2) Zoom in to map location                      |
-|             |                                            | 3)Key in invalid address                        | 3) No results will display                      |
+|  3          | Search for Bin Location                    | 1) Input address or postal code (eg.50323)      | 1) List of search results                       |
+|             |                                            | 2) Click find button or address under searchlist| 2) Zoom in to map location                      |
+|             |                                            | 3) Key in invalid address                       | 3) No results will display                      |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
-|  4          | Zoom in Zoom out Buttons                   | 1)Click on Zoom In (+)                          | 1) Enlarge/zoom into location                   |
-|             |                                            | 2)Click on Zoom Out (-)                         | 2) Zoom out of map                              |
+|  4          | Zoom in Zoom out Buttons                   | 1) Click on Zoom In (+)                         | 1) Enlarge/zoom into location                   |
+|             |                                            | 2) Click on Zoom Out (-)                        | 2) Zoom out of map                              |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
-|  5          | Show Cluster Button                        | 1)Click on Show Cluster Button                  | 1) Display clustering of ewaste and second hand |
-|             |                                            | 2)Click on Hide Cluster Button                  | 2) Disable clustering of ewaste and second hand |
+|  5          | Show Cluster Button                        | 1) Click on Show Cluster Button                 | 1) Display clustering of ewaste and second hand |
+|             |                                            | 2) Click on Hide Cluster Button                 | 2) Disable clustering of ewaste and second hand |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
-|  6          | General Waste Button                       | 1)Click on Show General Waste Button            | 1) Display main recycling bin location          |
-|             |                                            | 2)Click on Hide General waste Button            | 2) Disable recycling bin location               |
+|  6          | General Waste Button                       | 1) Click on Show General Waste Button           | 1) Display main recycling bin location          |
+|             |                                            | 2) Click on Hide General waste Button           | 2) Disable recycling bin location               |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
-|  7          | Legend icon below map                      | 1)Click on one of legend icon                   | 1) Disable location of respective bin icon      |
-|             |                                            | 2)Click on legend icon 2nd time                 | 2) Enable  location of respective bin icon       |
+|  7          | Legend icon below map                      | 1) Click on one of legend icon                  | 1) Disable location of respective bin icon      |
+|             |                                            | 2) Click on legend icon 2nd time                | 2) Enable  location of respective bin icon      |
 |             | Prerequisite: User is at Contact us section|                                                 |                                                 |
 |  8          | Emails, Forms, Survey                      | 1) Dropdown (types of question)                 | 1) Select from dropdown                         |
 |             |                                            | 2) Input Email,Comments                         | 2) Input email(eg.trent@gmail.com /Input comments|
@@ -214,8 +225,8 @@ Function of the  webpage allows user's to search for a specific area and able to
 |             |                                            | 4) Click on Submit                              | 4) Recieve your feedback confirmation and input details |
 |             |                                            | 5) No input                                     | 5) Error message will be shown                  |
 |             | Prerequisite: User is at Contact us section|                                                 |                                                 |
-|  9          | Company Location                           | 1)Click on enlarge under google map             | 1) A new page of large view map with location will show |
-|             |                                            | 2)Click on zoom in zoom out                     | 2) Zoom in or out in current map to view location |
+|  9          | Company Location                           | 1) Click on enlarge under google map            | 1) A new page of large view map with location will show |
+|             |                                            | 2) Click on zoom in zoom out                    | 2) Zoom in or out in current map to view location |
 
 ## 8. Deployment 
  Host by using Netlify.
@@ -236,17 +247,25 @@ https://xunne899-tgc16project1-h18wsxcpy4p.ws-us34.gitpod.io/
 
 ## 10. Credits and Acknowledgement
 Credits to:
-Datagenetics (Recycling Navbar Logo)<br>
-https://datagenetics.com/blog/june52021/index.html<br>
-Zero waste SG (using pictures and website information)<br>
-http://www.zerowastesg.com/<br>
-Flaticon(using web various bins icon for my project)<br>
-https://www.flaticon.com/<br>
-Googlemap (using googlemap for company address location)<br>
-Bootstrap <br>
-Onemap()
-pngfind(search bar-saerch icon)
-https://www.pngfind.com/freepng/search-icon-png/
+### Web Source
+[Datagenetics](https://datagenetics.com/blog/june52021/index.html)(Recycling Navbar Logo)<br>
+[unsplash.com](https://unsplash.com/s/photos/recycling)(carousel images)<br>
+[Zero waste SG ](http://www.zerowastesg.com/)(using pictures and website information)<br>
+[Flaticon](https://www.flaticon.com/)(using web various bins icon for my project)<br>
+[Googlemap](https://www.google.com/maps)(using googlemap for company address location)<br>
+[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)(map features,widgets, carousel, listgroups,web features) <br>
+[Data.gov.sg](https://data.gov.sg/dataset)(geojson data of recycling bin)<br>
+[Onemap](https://www.onemap.gov.sg/docs/#introduction)(searchresults searchbar api)<br>
+[Onemap](https://www.onemap.gov.sg/docs/maps/)(basemap api)<br>
+[LeafletJS](https://leafletjs.com/)(map features and importing from onemap api) <br>
+[pngfind](https://www.pngfind.com/freepng/search-icon-png/)(search bar-search icon)<br>
+
+### Mentors
+* Guidance from Paul Chor(Head Instructor)
+* Guidance from Ace Ang(Teaching Assistant)
+* Guidance from Batch 16 Trent Global Coursemates 
+
+
 
 
 
