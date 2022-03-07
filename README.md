@@ -15,7 +15,7 @@
 
 ## 1. Summary
 * Lots of unwanted waste are disposed and it is harming the environment
-* Seeing many waste being disposed without much consideration, it sparks the owner's idea to create awareness about recycling
+* Seeing waste being disposed without much consideration, it sparks the owner's idea to create awareness about recycling
 
 ## 2. UI/UX
 
@@ -29,32 +29,39 @@ webpage(mainly green and white color theme to promote a green and clean concept 
 
 #### 2.2.a. User Goals
 * Targeted Audience: Public,Schools and Government Bodies
-* User able to find their desired recycling bin location using the web search function
-* User able to locate various types of recycling bin (main, lighting, electronic, second hand )
+* Users are able to find their desired recycling bin location using the web search function
+* Users are able to locate various types of recycling bin (main, lighting, electronic, second hand )
 
 #### 2.2.b. Organisation's Goals
 * Able to provide relevant recycling information and knowledge to the public
 
 
 ### 2.3 Structure
-* Nav bar: dark green background <br>
-  Nav bar: recycling logo <br>
+ * Nav bar: dark green background<br>
+  Nav bar: recycling logo<br>
   Nav bar: contains tab - home, about us, map, contact us (able to link to respective page when click)<br>
-  Nav bar:  home, about us, map, contact us (color will change to green when mouse hover over tab)
-* Carousel: 3 images - cardboard, plastic bags, plastics bottle
-* Subscription form: a subscription form embedded within carousell in large screen <br>
-  Subscription form: will be below carousell when in smaller mobile version
-* Home page: hierarchy of recycling 
-* About us: provide ul and li of items for About recycling , 3Rs (reduce, reuse, recycle), Promoting recycling 
+  Nav bar:  home, about us, map, contact us (color will change to green when mouse hover over tab)<br>
+
+* Carousel: 3 images - cardboard, plastic bags, plastics bottle<br>
+
+* Subscription form: a subscription form embedded within carousell in large screen<br>
+  Subscription form: will be below carousell when in smaller mobile version<br>
+
+* Home page: hierarchy of recycling<br>
+
+* About us: provide ul and li of items for About recycling , 3Rs (reduce, reuse, recycle), Promoting recycling<br>
+
 * Map: able to locate location using search bar(top center section)<br>
-  Map: top left hand corner. non-default leaflet cutomise zoom in(+) zoom out(-) function <br>
-  Map: top right hand corner. filter layer to filter location of main recycling, lighting , second hand, e-waste bin.<br>
-  Map: top right hand corner filter layer - no clustering for lighting recycling bin. Only 2 locations, only on/off location <br>  
-  Map: lower left hand corner show/hide cluster of second hand, e-waste bin. Show/hide of general main waste bin<br>
-  Map: row just below of the map, center of green bar shows the various types of icon legend. When hover - description name of legend will popup<br>
-  Map: when legend icon is click it will toggle on/off of the respective types of binicon location in the map.<br> 
+  Map: top left hand corner. non-default leaflet cutomise zoom in(+) zoom out(-) function<br>
+  Map: top right hand corner. filter layer to filter location of main recycling, lighting , second hand, e-waste bin<br>
+  Map: top right hand corner. filter layer no clustering for lighting recycling bin. Only 2 locations, only on or off location<br>  
+  Map: lower left hand corner. show or hide cluster of second hand, e-waste bin. Show or hide of general main waste bin<br>
+  Map: row just below of the map. center of green bar shows the various types of icon legend. When hover-description name of icon will popup<br>
+  Map: when legend icon is click it will toggle on or off of the respective types of binicon location in the map<br>
+
 * Contact us form: email, comments, rating, hear about us<br>
-  Contact us form: will show validation error if no input upon clicking submit button. will show submitted details upon submission
+  Contact us form: will show validation error if no input upon clicking submit button. will show submitted details upon submission<br>
+
 * Location: address details with map<br>
 ![Web Structure](./images/structure_webpage.png)
 
@@ -88,38 +95,39 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 * Website is able to view in mobile size (XS) and for large display like desktop
 
 
-## 3. Features
-Navigation Bar<br>
-* Home, About us, Map, Contact us(click tab to link to respective page)
-Subscription Form<br>
-* User may key in their email to the email box to get recycling news.<br>
-  Error will display if no input ubon submission 
-About Us<br>
-* Under the list there is a click here at the bottom to link to recycle website for more information<br>
-Map<br> 
-* SearchBar<br>
-  User can enter address or postal code into searchbar to search for nearby main recycling bins<br>
-  User can filter to see different types of bins( main, lighting, secondhand, ewaste)
-* Zoom Function<br>
-  User able to use the self customise zoom in zoom out function to view the map size they wanted
-* Toggle Button<br>
-  Toggle hide or show cluster button at bottom left of map (for secondhand and  ewaste only)<br>
-  Toggle hide - red color button<br>
-  Toggle show - blue color button
-* Hide or show general waste button<br>
-  Hide or show general waste button beside toggle button at bottom left of map (General main recycling waste only)<br>
-  Hide general waste - red color button<br>
-  Show general waste - blue color button
-* Legend Icon <br>
-  Just below the map, the dark green bar shows the legend icon of various types of recycling bin<br>
-  When user hover mouse over icon, icon is able to show name of the various bin types<br>
-  When user clicks on icon, the map will display the respective types of bins<br>
-  When legend icon displays color - not click<br>
-  When legend icon is opaque in color - the icon is click<br>
-Contact us<br>
-* User able to select the type of questions they want to enquire, type in email, comments, hear about us and rate experience.<br>
-  Error will display if no input ubon submission<br>
-  Upon submission a confirmation of user input details will show<br> 
+## 3. Features<br>
+
+### Navigation Bar<br>
+  * Home, About us, Map, Contact us(click tab to link to respective page)
+### Subscription Form <br>
+  * User may key in their email to the email box to get recycling news. 
+    Error will display if no input ubon submission 
+### About Us<br>
+  *  Under the list there is a click here at the bottom to link to recycle website for more information
+### Map<br> 
+  * SearchBar<br>
+    User can enter address or postal code into searchbar to search for nearby main recycling bins<br>
+    User can filter to see different types of bins( main, lighting, secondhand, ewaste)
+  * Zoom Function<br>
+    User able to use the self customise zoom in zoom out function to view the map size they wanted
+  * Toggle Button<br>
+    Toggle hide or show cluster button at bottom left of map (for secondhand and  ewaste only)<br>
+    Toggle hide - red color button<br>
+    Toggle show - blue color button
+  * Hide or show general waste button<br>
+    Hide or show general waste button beside toggle button at bottom left of map (General main recycling waste only)<br>
+    Hide general waste - red color button<br>
+    Show general waste - blue color button
+  * Legend Icon <br>
+    Just below the map, the dark green bar shows the legend icon of various types of recycling bin<br>
+    When user hover mouse over icon, icon is able to show name of the various bin types<br>
+    When user clicks on icon, the map will display the respective types of bins<br>
+    When legend icon displays color - not click<br>
+    When legend icon is opaque in color - the icon is click<br>
+ *  Contact us<br>
+   User able to select the type of questions they want to enquire, type in email, comments, hear about us and rate experience.<br>
+   Error will display if no input ubon submission<br>
+   Upon submission a confirmation of user input details will show<br> 
   
 
 
@@ -168,7 +176,24 @@ Function of the  webpage allows user's to search for a specific area and able to
 |Content         |Location                       |Able to show address under google map                                                                         |
 |Content         |Mobile Responsiveness          |Able to view in mobile version and large screen                                                               |
 |Footer          |Mobile Responsiveness          |Able to view in mobile version and large screen                                                               |
-## 7. Test case - Using the search bar 
+## 7. Test case 
+|Test Case #  |Test Case Description                       |Test Steps                                       |  Expected Result                               |
+| :-------    | :------------                              | :-------------------                            | :-------------------                           |
+|             | Prerequisite: User is at Navigation bar    |                                                 |                                                |
+|  1          | Click on tabs to direct to page            | 1)Click on respective tab                       | 1) Direct user to respective page section      |
+|             |                                            | (Home,About Us,Map,Contact Us)                  |                                                 |
+|             |                                            |                                                 |                                                 |
+|             | Prerequisite: User is at Subscription Page |                                                 |                                                 |
+|  2          | Sign up for updates                        | 1)Input email in email box (eg.trent@gmail.com) | 1) N.a                                          |
+|             |                                            | 2)Click submit button                           | 2) Alert showing inputs details submitted       |
+|             |                                            | 3)Key in invalid email                          | 3) error-Please enter valid email               |
+|             |                                            |                                                 |                                                 |
+|             | Prerequisite: User is at Map section       |                                                 |                                                 |
+|  3          | Search for Bin Location                    | 1)Input address or postal code (eg.50323)       | 1) List of search results                       |
+|             |                                            | 2)Click find button or address under searchlist | 2) Zoom in to map location                      |
+|             |                                            | 3)Key in invalid  address                       | 3) No results                                   |
+
+
 ## 8. Deployment 
  Host by using Netlify.
 
