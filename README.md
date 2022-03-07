@@ -232,13 +232,16 @@ Project Webpage is able to enable users to link to other recycling or green envi
  Host by using Netlify.
 
 **Steps for deployment:**
-* Edits were added, commited, and pushed to GitHub via Gitpod.
-* Access https://www.netlify.com/ and log in via a Github account.
-* Next, click on "New site from Git" button
-* Select "GitHub" for continuous deployment
-* Select authorize access to GitHub should a pop-up appear
-* Select the repository that you want to deploy
-* Click on "Deploy site" button to get a link for the deployed site
+* Sign up with Netlify
+* Remember to add, commited, and pushed changes to GitHub.
+* Access https://www.netlify.com/ and log in to respective Github account.
+* Click on green button "New site from Git" to create a new site
+* For continuous deployment, select on "GitHub" 
+* Disable pop-up blocker to access Github
+* Search for the repository to be deployed
+* Get a link for the site by clicking on "Deploy site" button
+* Wait for deployment to be done
+* Once done users may test their site
 
 
 
