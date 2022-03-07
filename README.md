@@ -199,7 +199,7 @@ Project Webpage is able to enable users to link to other recycling or green envi
 |  1          | Click on tabs to direct to page            | 1) Click on respective tab                      | 1) Direct user to respective page section       |
 |             |                                            | (Home,About Us,Map,Contact Us)                  |                                                 |
 |             | Prerequisite: User is at Subscription Page |                                                 |                                                 |
-|  2          | Sign up for updates                        | 1) Email box                                    | 1) Input email in email box (eg.trent@gmail.com |
+|  2          | Sign up for updates                        | 1) Email box                                    | 1) Input email in email box (eg.trent@gmail.com) |
 |             |                                            | 2) Click submit button                          | 2) Alert showing inputs details submitted       |
 |             |                                            | 3) Key in invalid email                         | 3) error-Please enter valid email               |
 |             | Prerequisite: User is at Map section       |                                                 |                                                 |
@@ -220,7 +220,7 @@ Project Webpage is able to enable users to link to other recycling or green envi
 |             |                                            | 2) Click on legend icon 2nd time                | 2) Enable  location of respective bin icon      |
 |             | Prerequisite: User is at Contact us section|                                                 |                                                 |
 |  8          | Emails, Forms, Survey                      | 1) Dropdown (types of question)                 | 1) Select from dropdown                         |
-|             |                                            | 2) Input Email,Comments                         | 2) Input email(eg.trent@gmail.com /Input comments|
+|             |                                            | 2) Input Email,Comments                         | 2) Input email(eg.trent@gmail.com /Input comments)|
 |             |                                            | 3) Rate Service and Hear from us                | 3) Check textbox and select radio button        |
 |             |                                            | 4) Click on Submit                              | 4) Recieve your feedback confirmation and input details |
 |             |                                            | 5) No input                                     | 5) Error message will be shown                  |
@@ -246,8 +246,8 @@ Project Webpage is able to enable users to link to other recycling or green envi
 https://xunne899-tgc16project1-h18wsxcpy4p.ws-us34.gitpod.io/
 
 ## 10. Credits and Acknowledgement
-Credits to:
-### Web Source
+### Credits to:
+#### Web Source
 [Datagenetics](https://datagenetics.com/blog/june52021/index.html)(Recycling Navbar Logo)<br>
 [unsplash.com](https://unsplash.com/s/photos/recycling)(carousel images)<br>
 [Zero waste SG ](http://www.zerowastesg.com/)(using pictures and website information)<br>
@@ -260,7 +260,7 @@ Credits to:
 [LeafletJS](https://leafletjs.com/)(map features and importing from onemap api) <br>
 [pngfind](https://www.pngfind.com/freepng/search-icon-png/)(search bar-search icon)<br>
 
-### Mentors
+#### Mentors
 * Guidance from Paul Chor(Head Instructor)
 * Guidance from Ace Ang(Teaching Assistant)
 * Guidance from Batch 16 Trent Global Coursemates 
