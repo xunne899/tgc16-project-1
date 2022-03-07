@@ -1,6 +1,6 @@
 # Title : Frontend Assignment 1 - Green Recycling Project
 * A brief layout of project work in different screen version
-* Objective: To bring awareness the importance of recycling, saving the environment
+* Objective: To bring awareness about the importance of recycling, saving the environment
 
 ![Web_view](./images/view.png)
 
