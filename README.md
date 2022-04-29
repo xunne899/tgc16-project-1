@@ -278,11 +278,11 @@ Footer at the bottom page with copyright and font aswesome logo.<br>
 [Googlemap](https://www.google.com/maps)(using googlemap for company address location)<br>
 [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)(map features,widgets, carousel, listgroups,web features) <br>
 [Data.gov.sg](https://data.gov.sg/dataset)(geojson data of recycling bin)<br>
-[Onemap](https://www.onemap.gov.sg/docs/#introduction)(searchresults searchbar api)<br>
+[Onemap](https://www.onemap.gov.sg/docs/#introduction)(search results search bar api)<br>
 [Onemap](https://www.onemap.gov.sg/docs/maps/)(basemap api)<br>
 [LeafletJS](https://leafletjs.com/)(map features and importing from onemap api) <br>
 [pngfind](https://www.pngfind.com/freepng/search-icon-png/)(search bar-search icon)<br>
-[freecodecamp.org](https://www.freecodecamp.org/news/javascript-debounce-example/)(debounce technique for serachresults)<br>
+[freecodecamp.org](https://www.freecodecamp.org/news/javascript-debounce-example/)(debounce technique for search results)<br>
 [color-hex.com](https://www.color-hex.com/color/)(background color scheme png in readme file)<br>
 [responsively.app](https://responsively.app/)(capture web view of different size in readme)<br>
 [fontawesome.com](https://fontawesome.com/v5/icons/)(use of twitter, facebook, instagram icon for footer)<br>
